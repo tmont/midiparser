@@ -1,0 +1,167 @@
+<project name="PHP MIDI Library" basedir="." default="help">
+	
+	<property file="./properties/build.properties" prefix="build"/>
+	<property file="./properties/product.properties" prefix="product"/>
+	<property file="./properties/dir.properties" prefix="dir"/>
+	<property environment="env"/>
+
+	<target name="all" depends="lint, coverage, doc, archive" description="Runs lint, coverage, docs and archive"/>
+	
+	<target name="archive" depends="set-product-revision" description="Creates a gzipped archive of src/">
+		<delete dir="${build.dist}"/>
+		<mkdir dir="${build.dist}"/>
+		
+		<tar destfile="${build.dist}/${product.shortname}.${product.version}-${product.revision}.tar.gz"  compression="gzip"> 
+			<tarfileset dir="${dir.src}" includes="Midi/**"/>
+		</tar>
+	</target>
+	
+	<target name="clean" depends="init" description="Deletes directories and files created by the build sequence">
+		<delete dir="${build.base}"/> 
+		<delete dir="${build.dist}"/>
+	</target>
+	
+	<target name="coverage" depends="set-exe-suffix, test-set-suite" description="Runs unit tests and calculates code coverage">
+		<delete dir="${build.coverage}"/>
+		<delete dir="${build.artifacts}"/>
+		
+		<mkdir dir="${build.artifacts}"/>
+		<mkdir dir="${build.coverage}"/>
+		
+		<echo level="info">Running test suite: ${test.suite}</echo>
+		<echo level="debug">Component: ${component}</echo>
+		<exec executable="phpunit${exe.suffix}" failonerror="true">
+			<env key="MIDI_LIBRARY_COMPONENT" value="${component}"/>
+			<arg line="--log-junit ${build.artifacts}/phpunit-log.xml"/>
+			<arg line="--coverage-clover ${build.artifacts}/phpunit-coverage.xml"/>
+			<arg line="--coverage-html ${build.coverage}"/>
+			<arg line="--bootstrap ${dir.tests}/bootstrap.php"/>
+			<arg line="${test.suite}"/>
+		</exec>
+	</target>
+	
+	<target name="doc" depends="set-exe-suffix" description="Generates documentation using phpdoc">
+		<delete dir="${build.doc}"/>
+		<mkdir dir="${build.doc}"/>
+		
+		<exec executable="phpdoc${exe.suffix}" failonerror="true">
+			<arg line="--directory"/>
+			<arg value="${dir.src}"/>
+			<arg line="--target"/>
+			<arg value="${build.doc}"/>
+			<arg line="-ue on"/>
+			<arg line="--title"/>
+			<arg value="${product.name}"/>
+			<!--arg line="-pp on"/-->
+			<!--arg line="-s on"/-->
+		</exec>
+	</target>
+	
+	<target name="help" depends="set-exe-suffix" description="Displays information about available targets">
+		<exec executable="ant${exe.suffix}" failonerror="true">
+			<arg value="-p"/>
+		</exec>
+	</target>
+	
+	<target name="lint" depends="init, set-component" description="Scans for parse errors">
+		<apply executable="php">
+			<arg line="-l"/>
+			<fileset dir="${dir.src}/${component}">
+				<include name="**/*.php"/>
+			</fileset>
+		</apply>
+	</target>
+	
+	<target name="precommit" depends="lint, test" description="Runs lint and all unit tests"/>
+	
+	<target name="sample" depends="init" description="Parses sample/test.mid and generates HTML parse results in sample/test">
+		<mkdir dir="${basedir}/sample/test"/>
+		<delete>
+			<fileset dir="${basedir}/sample/test">
+				<include name="*"/>
+			</fileset>
+		</delete>
+		
+		<echo level="debug">Running ${basedir}/sample/test.php</echo>
+		<exec executable="php" failonerror="true">
+			<arg line="${basedir}/sample/test.php"/>
+		</exec>
+		<echo level="info">Wrote results to ${basedir}/sample/test</echo>
+	</target>
+	
+	<target name="test" depends="set-exe-suffix, test-set-suite" description="Runs all unit tests">
+		<delete dir="${build.artifacts}"/>
+		<mkdir dir="${build.artifacts}"/>
+		
+		<echo level="info">Running test suite: ${test.suite}</echo>
+		<echo level="debug">Component: ${component}</echo>
+		<exec executable="phpunit${exe.suffix}" failonerror="true">
+			<env key="MIDI_LIBRARY_COMPONENT" value="${component}"/>
+			<arg line="--log-junit ${build.artifacts}/phpunit-log.xml"/>
+			<arg line="--bootstrap ${dir.tests}/bootstrap.php"/>
+			<arg line="${test.suite}"/>
+		</exec>
+	</target>
+	
+	<target name="versionator" depends="init" description="Generates Version.php">
+		<exec executable="php" failonerror="true">
+			<arg line="${dir.tools}/versionator.php"/>
+			<arg line="--target"/>
+			<arg line="${dir.src}/Midi/Version.php"/>
+			<arg line="--author"/>
+			<arg line="${product.author}"/>
+			<arg line="--name"/>
+			<arg line="${product.name}"/>
+			<arg line="--version"/>
+			<arg line="${product.version}"/>
+			<arg line="--since"/>
+			<arg line="1.0"/>
+		</exec>
+		
+		<echo level="info">Wrote to ${dir.src}/Midi/Version.php</echo>
+	</target>
+	
+	<!-- 
+		######################################################
+		internal targets only below
+		######################################################
+	-->
+	
+	<target name="init">
+		<tstamp>
+			<format property="TIMESTAMP" pattern="yyyy-MM-dd HH:mm:ss"/>
+		</tstamp>
+		<echo level="info">Beginning build for ${product.name} ${product.version}</echo>
+		<echo level="info">  ${TIMESTAMP}</echo>
+		<echo level="info"/>
+	</target>
+	
+	<!-- this target depends on test-set-suite so that ${component} doesn't get set before test-set-suite is called -->
+	<target name="set-component" depends="test-set-suite" unless="component">
+		<property name="component" value=""/>
+	</target>
+	
+	<target name="set-exe-suffix">
+		<condition property="exe.suffix" value=".bat" else="">
+			<os family="winnt"/>
+		</condition>
+	</target>
+	
+	<target name="set-product-revision">
+		<exec executable="svnversion" outputproperty="product.revision" failonerror="true"/>
+		<echo level="info">Product revision set to ${product.revision}</echo>
+	</target>
+	
+	<target name="test-set-default-suite" unless="component">
+		<property name="test.suite" value="${dir.tests}/AllUnitTests.php"/>
+	</target>
+	
+	<target name="test-set-dynamic-suite" if="component">
+		<property name="test.suite" value="${dir.tests}/DynamicTestSuite.php"/>
+	</target>
+	
+	<target name="test-set-suite" depends="test-set-default-suite, test-set-dynamic-suite">
+		<echo level="debug">Using test suite ${test.suite}</echo>
+	</target>
+	
+</project>
