@@ -1,0 +1,101 @@
+html {
+	overflow: auto;
+}
+body {
+	background-color: #CCCCCC;
+	color: #000000;
+	font-family: Verdana, sans-serif;
+	font-size: 8pt;
+	margin: 0;
+	padding: 0;
+}
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+}
+h2, h3 {
+	font-family: "Trebuchet MS", Georgia, serif;
+}
+h1 {
+	font-family: Consolas, Monaco, "Courier New", monospace;
+	font-size: 400%;
+	text-align: center;
+}
+h1 a {
+	text-decoration: none;
+	display: block;
+	color: #000000;
+}
+h1 .scope {
+	color: #999999;
+	font-style: italic;
+}
+h1 .operator {
+	color: #990000;
+}
+h1 .keyword {
+	color: #0000FF;
+}
+
+h2 {
+	font-size: 250%;
+	background-color: #CCCCCC;
+	padding-left: 5px;
+}
+
+#wrapper {
+	margin: 10px;
+	padding: 10px;
+	border: 2px ridge #000000;
+	background-color: #F4F4F4;
+	width: 1000px;
+	margin: 10px auto;
+}
+
+#header {
+	border-bottom: 2px ridge #000000;
+}
+
+#menu {
+	float: left;
+	width: 200px;
+}
+#menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#menu ul a {
+	display: block;
+	text-decoration: none;
+	color: #000000;
+	background-color: #FF99FF;
+	padding: 3px;
+	border: 1px solid #000000;
+	border-top: none;
+	font-weight: bold;
+}
+#menu ul a:hover {
+	padding-left: 15px;
+	
+}
+
+#content {
+	float: left;
+	width: 800px;
+}
+#content * {
+	padding-left: 5px;
+}
+
+#footer {
+	clear: left;
+	text-align: center;
+}
+#footer a {
+	text-decoration: none;
+	color: inherit;
+}
+#footer a:hover {
+	text-decoration: underline;
+}

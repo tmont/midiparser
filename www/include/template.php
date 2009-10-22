@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>PHP MIDI Parser@title@</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="author" content="Tommy Montgomery"/>
+		<meta name="description" content="A MIDI file parser written in PHP"/>
+		<meta name="keywords" content="php,midi,parser,mid,parsing,parse,specification,file,spec"/>
+		<link href="/media/style.css" type="text/css" rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<h1>
+					<a href="/" title="PHP MIDI Parser">
+						<span class="scope">&lt;?php </span><span class="keyword">use</span> 
+						Midi<span class="operator">\</span>Parser<span class="operator">;</span> 
+						<span class="scope">?&gt;</span>
+					</a>
+				</h1>
+			</div>
+			<div id="main">
+				<div id="menu">
+					<ul>
+						<li><a href="/">News</a></li>
+						<li><a href="/downloads">Downloads</a></li>
+						<li><a href="/demo">Demo</a></li>
+						<li><a href="/docs/">Documentation</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/resources">Resources</a></li>
+					</ul>
+				</div>
+				<div id="content">
+@content@
+				</div>
+			</div>
+			<div id="footer">
+				<p>
+					&copy; 2009 <a href="http://tommymontgomery.com/">Tommy Montgomery</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
