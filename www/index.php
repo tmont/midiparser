@@ -64,6 +64,7 @@
 			case 'news':
 			case 'quickstart':
 			case 'contact':
+			case 'resources':
 				if ($page !== null) {
 					$title = $delimiter . 'Not Found';
 					$file = $includeDir . '/404.html';
