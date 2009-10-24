@@ -7,12 +7,18 @@
 
 	<target name="all" depends="lint, coverage, doc, archive" description="Runs lint, coverage, docs and archive"/>
 	
-	<target name="archive" depends="set-product-revision" description="Creates a gzipped archive of src/">
+	<target name="archive" depends="set-product-revision" description="Creates gzipped archives for deployment">
 		<delete dir="${build.dist}"/>
 		<mkdir dir="${build.dist}"/>
 		
-		<tar destfile="${build.dist}/${product.shortname}.${product.version}-${product.revision}.tar.gz"  compression="gzip"> 
+		<!-- just library -->
+		<tar destfile="${build.dist}/${product.shortname}.${product.version}.${product.revision}.tar.gz"  compression="gzip"> 
 			<tarfileset dir="${dir.src}" includes="Midi/**"/>
+		</tar>
+		
+		<!-- source code -->
+		<tar destfile="${build.dist}/${product.shortname}.${product.version}.${product.revision}-src.tar.gz"  compression="gzip"> 
+			<tarfileset dir="${basedir}" excludes="build/**,dist/**"/>
 		</tar>
 	</target>
 	

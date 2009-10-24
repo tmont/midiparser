@@ -45,7 +45,8 @@
 		$section = 'news';
 	}
 	
-	global $includeDir, $conn;
+	global $includeDir, $conn, $downloadDir;
+	$downloadDir = 'http://static.tommymontgomery.com/projects/php-midi-parser';
 	$includeDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'include';
 	
 	if ($section !== 'docs') {
@@ -57,7 +58,6 @@
 			$section = 'error';
 		}
 
-		
 		switch ($section) {
 			case 'news':
 				$file = $includeDir . '/news.php';
@@ -66,10 +66,43 @@
 				$title = $delimiter . 'OH NOES!!';
 				$file = $includeDir . '/error.html';
 				break;
+			case 'downloads':
+				if ($page === null) {
+					$file = $includeDir . '/downloads.php';
+				} else {
+					//trying to download something
+					if ($page === 'latest') {
+						$page = 'php-midi-library-1.0.tar.gz';
+					}
+					
+					$download = $downloadDir . $page;
+					
+					$headers = get_headers($download, true);
+					if (strpos($headers[0], '200 OK') === false) {
+						$title = $delimiter . 'Not Found';
+						$file = $includeDir . '/404.html';
+					} else {
+						$size = $headers['Content-Length'];
+						header('Content-Length', $size);
+						header('Content-Type', 'application/gz');
+						readfile($download);
+						exit;
+					}
+				}
+				break;
 			default:
 				$title = $delimiter . 'Not Found';
 				$file = $includeDir . '/404.html';
 				break;
+		}
+		
+		if (empty($title)) {
+			$Title = $delimiter . ucfirst($section);
+		}
+		
+		if (!is_file($file)) {
+			$title = $delimiter . 'OH NOES!!';
+			$file = $includeDir . '/error.html';
 		}
 		
 		ob_start();

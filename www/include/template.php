@@ -25,10 +25,13 @@
 			<div id="main">
 				<div id="menu">
 					<ul>
-						<li><a href="/news">News</a></li>
 						<li><a href="/downloads">Downloads</a></li>
 						<li><a href="/demo">Demo</a></li>
 						<li><a href="/docs/">Documentation</a></li>
+						<li><a href="/quickstart">Quick Start</a></li>
+					</ul>
+					<ul>
+						<li><a href="/news">News</a></li>
 						<li><a href="/about">About</a></li>
 						<li><a href="/resources">Resources</a></li>
 						<li><a href="/contact">Contact</a></li>
@@ -37,6 +40,7 @@
 				<div id="content">
 @content@
 				</div>
+				<div style="clear: both;"></div>
 			</div>
 			<div id="footer">
 				<p>

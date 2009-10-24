@@ -39,6 +39,9 @@ h1 .keyword {
 h2 {
 	font-size: 20px;
 }
+h3 {
+	font-size: 15px;
+}
 
 
 #wrapper {
@@ -60,7 +63,7 @@ h2 {
 }
 #menu ul {
 	list-style-type: none;
-	margin: 0;
+	margin: 0 0 10px 0;
 	padding: 0;
 }
 #menu ul a {
@@ -79,7 +82,7 @@ h2 {
 }
 
 #main {
-	margin-top: 5px;
+	margin: 5px auto 10px auto;
 }
 
 #content {
@@ -120,4 +123,9 @@ h2 {
 .newsitem .post {
 	clear: both;
 	padding: 10px;
+}
+
+#error img {
+	width: 256px;
+	height: 224px;
 }
