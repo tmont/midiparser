@@ -34,7 +34,7 @@
 	
 	$uriSegments = explode('/', $uri);
 	
-	$section = 'default';
+	$section = 'news';
 	$page = null;
 	switch (count($uriSegments)) {
 		case 2: $page = $uriSegments[1];
@@ -42,7 +42,7 @@
 	}
 	
 	if (empty($section)) {
-		$section = 'default';
+		$section = 'news';
 	}
 	
 	global $includeDir, $conn;
@@ -59,8 +59,8 @@
 
 		
 		switch ($section) {
-			case 'default':
-				$file = $includeDir . '/default.php';
+			case 'news':
+				$file = $includeDir . '/news.php';
 				break;
 			case 'error':
 				$title = $delimiter . 'OH NOES!!';
