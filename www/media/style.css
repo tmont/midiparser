@@ -152,3 +152,22 @@ pre.code {
 	width: 256px;
 	height: 224px;
 }
+
+#contact-form table {
+	width: 75%;
+}
+#contact-form input[type="text"], #contact-form textarea {
+	width: 100%;
+}
+#contact-form th {
+	text-align: left;
+}
+#contact-form textarea {
+	height: 10em;
+}
+#contact-form .submit {
+	text-align: center;
+}
+#contact-form .error {
+	background-color: #FFBBAA;
+}

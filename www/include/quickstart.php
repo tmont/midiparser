@@ -79,23 +79,23 @@
 					</p>
 					
 <pre class="code"><span class="block">&lt;?php</span>
-	
-	<span class="keyword">require_once</span> <span class="string">&apos;Midi/bootstrap.php&apos;</span>;
-	
-	<span class="keyword">use</span> \Midi\Parsing\FileParser;
-	<span class="keyword">use</span> \Midi\Reporting\HtmlFormatter;
-	<span class="keyword">use</span> \Midi\Reporting\MultiFilePrinter;
 
-	<span class="variable">$file</span> = <span class="string">&apos;test.mid&apos;</span>;
-	
-	<span class="variable">$parser</span> = <span class="keyword">new</span> FileParser<span class="block">(</span><span class="block">)</span>;
-	<span class="variable">$parser</span>-&gt;load<span class="block">(</span><span class="variable">$file</span><span class="block">)</span>;
-	
-	<span class="variable">$formatter</span> = <span class="keyword">new</span> HtmlFormatter<span class="block">(</span><span class="block">)</span>;
-	<span class="variable">$formatter</span>-&gt;setMultiFile<span class="block">(</span>true<span class="block">)</span>;
-	
-	<span class="variable">$printer</span> = <span class="keyword">new</span> MultiFilePrinter<span class="block">(</span><span class="variable">$formatter</span>, <span class="variable">$parser</span>, dirname<span class="block">(</span><span class="keyword">__FILE__</span><span class="block">)</span> . <span class="string">&apos;/test&apos;</span><span class="block">)</span>;
-	<span class="variable">$printer</span>-&gt;printAll<span class="block">(</span><span class="block">)</span>;
+    <span class="keyword">require_once</span> <span class="string">&apos;Midi/bootstrap.php&apos;</span>;
+
+    <span class="keyword">use</span> \Midi\Parsing\FileParser;
+    <span class="keyword">use</span> \Midi\Reporting\HtmlFormatter;
+    <span class="keyword">use</span> \Midi\Reporting\MultiFilePrinter;
+
+    <span class="variable">$file</span> = <span class="string">&apos;test.mid&apos;</span>;
+
+    <span class="variable">$parser</span> = <span class="keyword">new</span> FileParser<span class="block">(</span><span class="block">)</span>;
+    <span class="variable">$parser</span>-&gt;load<span class="block">(</span><span class="variable">$file</span><span class="block">)</span>;
+
+    <span class="variable">$formatter</span> = <span class="keyword">new</span> HtmlFormatter<span class="block">(</span><span class="block">)</span>;
+    <span class="variable">$formatter</span>-&gt;setMultiFile<span class="block">(</span>true<span class="block">)</span>;
+
+    <span class="variable">$printer</span> = <span class="keyword">new</span> MultiFilePrinter<span class="block">(</span><span class="variable">$formatter</span>, <span class="variable">$parser</span>, dirname<span class="block">(</span><span class="keyword">__FILE__</span><span class="block">)</span> . <span class="string">&apos;/test&apos;</span><span class="block">)</span>;
+    <span class="variable">$printer</span>-&gt;printAll<span class="block">(</span><span class="block">)</span>;
 
 <span class="block">?&gt;</span>
 </pre>

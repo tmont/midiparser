@@ -29,6 +29,8 @@
 	function escape($string) {
 		return htmlentities($string, ENT_QUOTES, 'utf-8');
 	}
+	
+	session_start();
 
 	$uri = trim($_SERVER['REQUEST_URI'], '/');
 	
@@ -60,7 +62,14 @@
 
 		switch ($section) {
 			case 'news':
-				$file = $includeDir . '/news.php';
+			case 'quickstart':
+			case 'contact':
+				if ($page !== null) {
+					$title = $delimiter . 'Not Found';
+					$file = $includeDir . '/404.html';
+				} else {
+					$file = $includeDir . '/' . $section . '.php';
+				}
 				break;
 			case 'error':
 				$title = $delimiter . 'OH NOES!!';
@@ -90,9 +99,7 @@
 					}
 				}
 				break;
-			case 'quickstart':
-				$file = $includeDir . '/quickstart.php';
-				break;
+			
 			default:
 				$title = $delimiter . 'Not Found';
 				$file = $includeDir . '/404.html';
