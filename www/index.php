@@ -90,6 +90,9 @@
 					}
 				}
 				break;
+			case 'quickstart':
+				$file = $includeDir . '/quickstart.php';
+				break;
 			default:
 				$title = $delimiter . 'Not Found';
 				$file = $includeDir . '/404.html';
@@ -97,7 +100,7 @@
 		}
 		
 		if (empty($title)) {
-			$Title = $delimiter . ucfirst($section);
+			$title = $delimiter . ucfirst($section);
 		}
 		
 		if (!is_file($file)) {
