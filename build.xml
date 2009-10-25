@@ -14,6 +14,7 @@
 		<!-- just library -->
 		<tar destfile="${build.dist}/${product.shortname}.${product.version}.${product.revision}.tar.gz"  compression="gzip"> 
 			<tarfileset dir="${dir.src}" includes="Midi/**"/>
+			<tarfileset dir="${basedir}" includes="README,LICENSE"/>
 		</tar>
 		
 		<!-- source code -->
