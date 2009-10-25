@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class EventType</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class EventType</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Represents the different MIDI events that can be fired in a track</p>
+	<ul class="tags">
+				<li><span class="field">copyright:</span> © 2009 Tommy Montgomery &lt;http://phpmidiparser.php/&gt;</li>
+				<li><span class="field">since:</span> 1.0</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Event---EventType.php.html">/Event/EventType.php</a> (line <span class="field">22</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#ACTIVE_SENSING" title="details" class="const-name">ACTIVE_SENSING</a> = 					<span class="var-type"> 0xFE</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#AUTHORIZATION" title="details" class="const-name">AUTHORIZATION</a> = 					<span class="var-type"> 0xF7</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#CHANNEL_AFTERTOUCH" title="details" class="const-name">CHANNEL_AFTERTOUCH</a> = 					<span class="var-type"> 0xD0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#CONTROLLER" title="details" class="const-name">CONTROLLER</a> = 					<span class="var-type"> 0xB0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#META" title="details" class="const-name">META</a> = 					<span class="var-type"> 0xFF</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#NOTE_AFTERTOUCH" title="details" class="const-name">NOTE_AFTERTOUCH</a> = 					<span class="var-type"> 0xA0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#NOTE_OFF" title="details" class="const-name">NOTE_OFF</a> = 					<span class="var-type"> 0x80</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#NOTE_ON" title="details" class="const-name">NOTE_ON</a> = 					<span class="var-type"> 0x90</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#PITCH_BEND" title="details" class="const-name">PITCH_BEND</a> = 					<span class="var-type"> 0xE0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#PROGRAM_CHANGE" title="details" class="const-name">PROGRAM_CHANGE</a> = 					<span class="var-type"> 0xC0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#SEQUENCE_CONTINUE" title="details" class="const-name">SEQUENCE_CONTINUE</a> = 					<span class="var-type"> 0xFB</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#SEQUENCE_START" title="details" class="const-name">SEQUENCE_START</a> = 					<span class="var-type"> 0xFA</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#SEQUENCE_STOP" title="details" class="const-name">SEQUENCE_STOP</a> = 					<span class="var-type"> 0xFC</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#SONG_POSITION_POINTER" title="details" class="const-name">SONG_POSITION_POINTER</a> = 					<span class="var-type"> 0xF2</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#SONG_SELECT" title="details" class="const-name">SONG_SELECT</a> = 					<span class="var-type"> 0xF3</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#SYSTEM_EXCLUSIVE" title="details" class="const-name">SYSTEM_EXCLUSIVE</a> = 					<span class="var-type"> 0xF0</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#TIMING_CLOCK" title="details" class="const-name">TIMING_CLOCK</a> = 					<span class="var-type"> 0xF8</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#TUNE_REQUEST" title="details" class="const-name">TUNE_REQUEST</a> = 					<span class="var-type"> 0xF6</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#UNDEFINED1" title="details" class="const-name">UNDEFINED1</a> = 					<span class="var-type"> 0xF1</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#UNDEFINED2" title="details" class="const-name">UNDEFINED2</a> = 					<span class="var-type"> 0xF4</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#UNDEFINED3" title="details" class="const-name">UNDEFINED3</a> = 					<span class="var-type"> 0xF5</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#UNDEFINED4" title="details" class="const-name">UNDEFINED4</a> = 					<span class="var-type"> 0xF9</span>
+
+				</div>
+								<div class="const-title">
+					<img src="../../media/images/Constant.png" alt=" " />
+					<a href="#UNDEFINED5" title="details" class="const-name">UNDEFINED5</a> = 					<span class="var-type"> 0xFD</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">mixed</span>
+					<a href="#$eventNameMap" title="details" class="var-name">$eventNameMap</a>
+				</div>
+																							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#getEventName" title="details" class="method-name">getEventName</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$event</span>)
+									</div>
+								
+												</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$eventNameMap" id="$eventNameMap"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">mixed</span>
+			<span class="var-name">$eventNameMap</span>
+			 = <span class="var-default">array(<br />			0x80 =&gt; 'Note Off',<br />			0x90 =&gt; 'Note On',<br />			0xA0 =&gt; 'Note Aftertouch',<br />			0xB0 =&gt; 'Controller',<br />			0xC0 =&gt; 'Program Change',<br />			0xD0 =&gt; 'Channel Aftertouch',<br />			0xE0 =&gt; 'Pitch Bend',<br />			0xF0 =&gt; 'System Exclusive',<br />			0xF1 =&gt; 'Undefined',<br />			0xF2 =&gt; 'Song Position Pointer',<br />			0xF3 =&gt; 'Song Select',<br />			0xF4 =&gt; 'Undefined',<br />			0xF5 =&gt; 'Undefined',<br />			0xF6 =&gt; 'Tune Request',<br />			0xF7 =&gt; 'Authorization',<br />			0xF8 =&gt; 'Timing Clock',<br />			0xF9 =&gt; 'Undefined',<br />			0xFA =&gt; 'Sequence Start',<br />			0xFB =&gt; 'Sequence Continue',<br />			0xFC =&gt; 'Sequence Stop',<br />			0xFD =&gt; 'Undefined',<br />			0xFE =&gt; 'Active Sensing',<br />			0xFF =&gt; 'Meta'<br />		)</span>			(line <span class="line-number">162</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetEventName" id="getEventName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getEventName</span> (line <span class="line-number">197</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the name of an event</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> The friendly name of the event</li>
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">throws:</span> InvalidArgumentException</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#method__toString">SystemExclusiveEvent::__toString()</a></li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/ChannelEvent.html#method__toString">ChannelEvent::__toString()</a></li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/MetaEvent.html#method__toString">MetaEvent::__toString()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getEventName
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$event</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$event</span><span class="var-description">: One of the \Midi\EventType constants</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+						
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constACTIVE_SENSING" id="ACTIVE_SENSING"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">ACTIVE_SENSING</span>
+			 = <span class="const-default"> 0xFE</span>
+			(line <span class="line-number">154</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Describe this variable</p>
+	
+	
+</div>
+<a name="constAUTHORIZATION" id="AUTHORIZATION"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">AUTHORIZATION</span>
+			 = <span class="const-default"> 0xF7</span>
+			(line <span class="line-number">112</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constCHANNEL_AFTERTOUCH" id="CHANNEL_AFTERTOUCH"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CHANNEL_AFTERTOUCH</span>
+			 = <span class="const-default"> 0xD0</span>
+			(line <span class="line-number">58</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/ChannelAftertouchEvent.html#methodgetType">ChannelAftertouchEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constCONTROLLER" id="CONTROLLER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">CONTROLLER</span>
+			 = <span class="const-default"> 0xB0</span>
+			(line <span class="line-number">46</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Change to a controller for a particular channel</p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/ControllerEvent.html#methodgetType">ControllerEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constMETA" id="META"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">META</span>
+			 = <span class="const-default"> 0xFF</span>
+			(line <span class="line-number">160</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Represents a meta event</p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/MetaEvent.html#methodgetType">MetaEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constNOTE_AFTERTOUCH" id="NOTE_AFTERTOUCH"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NOTE_AFTERTOUCH</span>
+			 = <span class="const-default"> 0xA0</span>
+			(line <span class="line-number">40</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/NoteAftertouchEvent.html#methodgetType">NoteAftertouchEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constNOTE_OFF" id="NOTE_OFF"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NOTE_OFF</span>
+			 = <span class="const-default"> 0x80</span>
+			(line <span class="line-number">28</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Turns a note off for a particular channel</p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/NoteOffEvent.html#methodgetType">NoteOffEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constNOTE_ON" id="NOTE_ON"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">NOTE_ON</span>
+			 = <span class="const-default"> 0x90</span>
+			(line <span class="line-number">34</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Turns a note on for a particular channel</p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/NoteOnEvent.html#methodgetType">NoteOnEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constPITCH_BEND" id="PITCH_BEND"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PITCH_BEND</span>
+			 = <span class="const-default"> 0xE0</span>
+			(line <span class="line-number">64</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Bends the pitch for a particular channel</p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/PitchBendEvent.html#methodgetType">PitchBendEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constPROGRAM_CHANGE" id="PROGRAM_CHANGE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">PROGRAM_CHANGE</span>
+			 = <span class="const-default"> 0xC0</span>
+			(line <span class="line-number">52</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Changes a program (e.g. instrument for a channel)</p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/ProgramChangeEvent.html#methodgetType">ProgramChangeEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constSEQUENCE_CONTINUE" id="SEQUENCE_CONTINUE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SEQUENCE_CONTINUE</span>
+			 = <span class="const-default"> 0xFB</span>
+			(line <span class="line-number">136</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Continues a previously stopped sequence</p>
+	
+	
+</div>
+<a name="constSEQUENCE_START" id="SEQUENCE_START"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SEQUENCE_START</span>
+			 = <span class="const-default"> 0xFA</span>
+			(line <span class="line-number">130</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Starts a sequence</p>
+	
+	
+</div>
+<a name="constSEQUENCE_STOP" id="SEQUENCE_STOP"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SEQUENCE_STOP</span>
+			 = <span class="const-default"> 0xFC</span>
+			(line <span class="line-number">142</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stops a sequence</p>
+	
+	
+</div>
+<a name="constSONG_POSITION_POINTER" id="SONG_POSITION_POINTER"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SONG_POSITION_POINTER</span>
+			 = <span class="const-default"> 0xF2</span>
+			(line <span class="line-number">82</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constSONG_SELECT" id="SONG_SELECT"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SONG_SELECT</span>
+			 = <span class="const-default"> 0xF3</span>
+			(line <span class="line-number">88</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Selects a song</p>
+	
+	
+</div>
+<a name="constSYSTEM_EXCLUSIVE" id="SYSTEM_EXCLUSIVE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">SYSTEM_EXCLUSIVE</span>
+			 = <span class="const-default"> 0xF0</span>
+			(line <span class="line-number">70</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">System exclusive event</p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodgetType">SystemExclusiveEvent::getType()</a></li>
+			</ul>
+	
+	
+</div>
+<a name="constTIMING_CLOCK" id="TIMING_CLOCK"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">TIMING_CLOCK</span>
+			 = <span class="const-default"> 0xF8</span>
+			(line <span class="line-number">118</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constTUNE_REQUEST" id="TUNE_REQUEST"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">TUNE_REQUEST</span>
+			 = <span class="const-default"> 0xF6</span>
+			(line <span class="line-number">106</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constUNDEFINED1" id="UNDEFINED1"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">UNDEFINED1</span>
+			 = <span class="const-default"> 0xF1</span>
+			(line <span class="line-number">76</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reserved event</p>
+	
+	
+</div>
+<a name="constUNDEFINED2" id="UNDEFINED2"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">UNDEFINED2</span>
+			 = <span class="const-default"> 0xF4</span>
+			(line <span class="line-number">94</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reserved event</p>
+	
+	
+</div>
+<a name="constUNDEFINED3" id="UNDEFINED3"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">UNDEFINED3</span>
+			 = <span class="const-default"> 0xF5</span>
+			(line <span class="line-number">100</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reserved event</p>
+	
+	
+</div>
+<a name="constUNDEFINED4" id="UNDEFINED4"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">UNDEFINED4</span>
+			 = <span class="const-default"> 0xF9</span>
+			(line <span class="line-number">124</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reserved event</p>
+	
+	
+</div>
+<a name="constUNDEFINED5" id="UNDEFINED5"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<img src="../../media/images/Variable.png" />
+		<span class="const-title">
+			<span class="const-name">UNDEFINED5</span>
+			 = <span class="const-default"> 0xFD</span>
+			(line <span class="line-number">148</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Reserved event</p>
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 24 Oct 2009 16:07:32 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

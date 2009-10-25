@@ -29,9 +29,6 @@
 	
 	<target name="coverage" depends="set-exe-suffix, test-set-suite" description="Runs unit tests and calculates code coverage">
 		<delete dir="${build.coverage}"/>
-		<delete dir="${build.artifacts}"/>
-		
-		<mkdir dir="${build.artifacts}"/>
 		<mkdir dir="${build.coverage}"/>
 		
 		<echo level="info">Running test suite: ${test.suite}</echo>
@@ -43,6 +40,16 @@
 			<arg line="--coverage-html ${build.coverage}"/>
 			<arg line="--bootstrap ${dir.tests}/bootstrap.php"/>
 			<arg line="${test.suite}"/>
+		</exec>
+	</target>
+	
+	<target name="dependencies" depends="set-exe-suffix" description="Generates dependency graphs and reports">
+		<mkdir dir="${build.artifacts}"/>
+		<exec executable="pdepend${exe.suffix}" failonerror="true">
+			<arg line="--summary-xml=${build.artifacts}/pdepend.xml"/>
+			<arg line="--jdepend-chart=${build.artifacts}/pdepend.svg"/>
+			<arg line="--overview-pyramid=${build.artifacts}/pyramind.svg"/>
+			<arg line="${dir.src}"/>
 		</exec>
 	</target>
 	
@@ -58,7 +65,7 @@
 			<arg line="-ue on"/>
 			<arg line="--title"/>
 			<arg value="${product.name}"/>
-			<!--arg line="-pp on"/-->
+			<arg line="-pp on"/>
 			<!--arg line="-s on"/-->
 		</exec>
 	</target>
@@ -96,7 +103,6 @@
 	</target>
 	
 	<target name="test" depends="set-exe-suffix, test-set-suite" description="Runs all unit tests">
-		<delete dir="${build.artifacts}"/>
 		<mkdir dir="${build.artifacts}"/>
 		
 		<echo level="info">Running test suite: ${test.suite}</echo>
@@ -115,11 +121,11 @@
 			<arg line="--target"/>
 			<arg line="${dir.src}/Midi/Version.php"/>
 			<arg line="--author"/>
-			<arg line="${product.author}"/>
+			<arg value="${product.author}"/>
 			<arg line="--name"/>
-			<arg line="${product.name}"/>
+			<arg value="${product.name}"/>
 			<arg line="--version"/>
-			<arg line="${product.version}"/>
+			<arg value="${product.version}"/>
 			<arg line="--since"/>
 			<arg line="1.0"/>
 		</exec>

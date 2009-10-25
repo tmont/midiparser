@@ -14,8 +14,9 @@
 						The <a href="http://subversion.tigris.org/">Subversion</a> repository is also available
 						for anonymous checkout.
 					</p>
-					
-					<pre><code>svn co http://svn.tommymontgomery.com/midiparser/trunk</code></pre>
+					<p>
+						<code>svn co http://svn.tommymontgomery.com/midiparser/trunk</code>
+					</p>
 					
 					<h3>Packages</h3>
 					<p>

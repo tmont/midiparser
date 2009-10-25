@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class FileParser</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class FileParser</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class for parsing MIDI files</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 1.0</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Parsing---FileParser.php.html">/Parsing/FileParser.php</a> (line <span class="field">24</span>)
+		</p>
+		
+				
+		<pre><a href="../../Midi/Parsing/Parser.html">Parser</a>
+   |
+   --FileParser</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																								<div class="var-title">
+					<span class="var-type"><a href="../../Midi/Parsing/TrackParser.html">TrackParser</a></span>
+					<a href="#$trackParser" title="details" class="var-name">$trackParser</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$tracksExpected" title="details" class="var-name">$tracksExpected</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$tracksParsed" title="details" class="var-name">$tracksParsed</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																												
+												<div class="method-definition">
+											<span class="method-result">FileParser</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											([<span class="var-type"><a href="../../Midi/Parsing/TrackParser.html">TrackParser</a></span>&nbsp;<span class="var-name">$trackParser</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#afterLoad" title="details" class="method-name">afterLoad</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">binary</span>
+										<a href="#getRawFileHeader" title="details" class="method-name">getRawFileHeader</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getTracksExpected" title="details" class="method-name">getTracksExpected</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getTracksParsed" title="details" class="method-name">getTracksParsed</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Midi/Chunk.html">Chunk</a></span>
+										<a href="#parse" title="details" class="method-name">parse</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../../Midi/FileHeader.html">FileHeader</a></span>
+										<a href="#parseFileHeader" title="details" class="method-name">parseFileHeader</a>
+											(<span class="var-type">binary</span>&nbsp;<span class="var-name">$header</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$trackParser" id="$trackParser"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../Midi/Parsing/TrackParser.html">TrackParser</a></span>
+			<span class="var-name">$trackParser</span>
+						(line <span class="line-number">29</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$tracksExpected" id="$tracksExpected"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$tracksExpected</span>
+						(line <span class="line-number">43</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The number of tracks expected to be parsed</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$tracksParsed" id="$tracksParsed"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$tracksParsed</span>
+						(line <span class="line-number">36</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The number of tracks parsed thus far</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../Midi/Parsing/Parser.html">Parser</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Midi/Parsing/Parser.html#var$file">Parser::$file</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Midi/Parsing/Parser.html#var$state">Parser::$state</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">55</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor</p>
+<p class="description"><p>The parse state is initialized to <a href="../../Midi/Parsing/ParseState.html#constFILE_HEADER">ParseState::FILE_HEADER</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Parsing/Parser.html#methodsetState">Parser::setState()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">FileParser</span>
+		<span class="method-name">
+			__construct
+		</span>
+					([<span class="var-type"><a href="../../Midi/Parsing/TrackParser.html">TrackParser</a></span>&nbsp;<span class="var-name">$trackParser</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../../Midi/Parsing/TrackParser.html">TrackParser</a></span>
+				<span class="var-name">$trackParser</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Midi/Parsing/Parser.html#method__construct">Parser::__construct()</a></dt>
+						<dd>Constructor</dd>
+					</dl>
+			
+	</div>
+<a name="methodafterLoad" id="afterLoad"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">afterLoad</span> (line <span class="line-number">90</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">uses:</span> TrackParser::setBuffer()</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			afterLoad
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Midi/Parsing/Parser.html#methodafterLoad">Parser::afterLoad()</a></dt>
+						<dd>Called after load()</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetRawFileHeader" id="getRawFileHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getRawFileHeader</span> (line <span class="line-number">103</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the raw binary file header</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/FileParser.html#methodparse">FileParser::parse()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Parsing/Parser.html#methodread">Parser::read()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/FileHeader.html#constLENGTH">FileHeader::LENGTH</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">binary</span>
+		<span class="method-name">
+			getRawFileHeader
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTracksExpected" id="getTracksExpected"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTracksExpected</span> (line <span class="line-number">82</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the number of tracks that should be in the MIDI file</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getTracksExpected
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTracksParsed" id="getTracksParsed"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTracksParsed</span> (line <span class="line-number">71</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets the number of tracks that have been parsed so far</p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getTracksParsed
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodparse" id="parse"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">parse</span> (line <span class="line-number">160</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">throws:</span> <a href="../../Midi/Parsing/ParseException.html">ParseException</a></li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Parsing/TrackParser.html#methodparse">TrackParser::parse()</a></li>
+				<li><span class="field">uses:</span> TrackParser::getState()</li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Parsing/FileParser.html#methodparseFileHeader">FileParser::parseFileHeader()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Chunk.html#methodgetData">Chunk::getData()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Parsing/FileParser.html#methodgetRawFileHeader">FileParser::getRawFileHeader()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Parsing/Parser.html#methodgetState">Parser::getState()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Midi/Chunk.html">Chunk</a></span>
+		<span class="method-name">
+			parse
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Midi/Parsing/Parser.html#methodparse">Parser::parse()</a></dt>
+						<dd>Parses the buffer stream and returns the next chunk</dd>
+					</dl>
+			
+	</div>
+<a name="methodparseFileHeader" id="parseFileHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">parseFileHeader</span> (line <span class="line-number">119</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parses the given file header</p>
+	<ul class="tags">
+				<li><span class="field">throws:</span> InvalidArgumentException</li>
+				<li><span class="field">since:</span> 1.0</li>
+				<li><span class="field">throws:</span> <a href="../../Midi/Parsing/ParseException.html">ParseException</a> if the file header is not a valid MIDI file header</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/FileParser.html#methodparse">FileParser::parse()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/FileHeader.html#constLENGTH">FileHeader::LENGTH</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodunpack">Util::unpack()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../../Midi/FileHeader.html">FileHeader</a></span>
+		<span class="method-name">
+			parseFileHeader
+		</span>
+					(<span class="var-type">binary</span>&nbsp;<span class="var-name">$header</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">binary</span>
+				<span class="var-name">$header</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../Midi/Parsing/Parser.html">Parser</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#method__construct">Parser::__construct()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodafterLoad">Parser::afterLoad()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodafterSetFile">Parser::afterSetFile()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodcreateFileObject">Parser::createFileObject()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodgetDelta">Parser::getDelta()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodgetState">Parser::getState()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodload">Parser::load()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodparse">Parser::parse()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodread">Parser::read()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodsetFile">Parser::setFile()</a></span><br>
+													<span class="method-name"><a href="../../Midi/Parsing/Parser.html#methodsetState">Parser::setState()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sat, 24 Oct 2009 16:07:33 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

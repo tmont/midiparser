@@ -38,6 +38,7 @@ h1 .keyword {
 }
 h2 {
 	font-size: 20px;
+	border-bottom: 1px dotted #CCCCCC;
 }
 h3 {
 	font-size: 15px;

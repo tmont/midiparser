@@ -27,7 +27,7 @@
 					<ul>
 						<li><a href="/downloads">Downloads</a></li>
 						<li><a href="/demo">Demo</a></li>
-						<li><a href="/docs/">Documentation</a></li>
+						<li><a href="/docs">Documentation</a></li>
 						<li><a href="/quickstart">Quick Start</a></li>
 					</ul>
 					<ul>
