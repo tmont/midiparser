@@ -1,10 +1,11 @@
 					<h2>Demo</h2>
 					
 					<p>
-						Ever wanted to see what Alice in Chains&#039; <em>And We Die Young</em>
+						Ever wanted to see what Alice in Chains&#039; <em>And We Die Young</em> MIDIfied
 						looks like internally? The answer invariably is <strong>OH GOD YES</strong>. 
-						This report was generated using the <code>MultiFilePrinter</code> and the
-						<code>HtmlFormatter</code>.
+						This report was generated using the 
+						<a href="/docs/api/Midi/Reporting/MultiFilePrinter.html"><code>MultiFilePrinter</code></a> and the
+						<a href="/docs/api/Midi/Reporting/HtmlFormatter.html"><code>HtmlFormatter</code></a>.
 					</p>
 					
 					<p>
@@ -16,6 +17,6 @@
 					</p>
 					
 					<ul>
-						<li><a href="/demo/and_we_die_young/">Demo</a></li>
+						<li><a href="/demo/and_we_die_young/">HTML Report</a></li>
 						<li><a href="/downloads/And_We_Die_Young.mid">MIDI file</a></li>
 					</ul>

@@ -43,7 +43,8 @@
 					<p>
 						When you include the bootstrapper, it <a href="http://php.net/autoload">autoloads</a>
 						all the classes you&#039;ll need to use the library. Below is a code snippet that
-						will parse a file named &quot;test.mid&quot; and use the <code>TextFormatter</code>
+						will parse a file named &quot;test.mid&quot; and use the 
+						<a href="/docs/api/Midi/Reporting/TextFormatter.html"><code>TextFormatter</code></a>
 						to format the results. This will print the parse results out to stdout.
 					</p>
 					
@@ -65,11 +66,13 @@
 </pre>
 					<p>
 						To get prettier results, like you can see in the <a href="/demo">demo</a>, use
-						the <code>HtmlFormatter</code> along with the <code>MultiFilePrinter</code>.
+						the <a href="/docs/api/Midi/Reporting/HtmlFormatter.html"><code>HtmlFormatter</code></a> along with the
+						<a href="/docs/api/Midi/Reporting/MultiFilePrinter.html"><code>MultiFilePrinter</code></a>.
 						Note that using this combination of formatter and printer uses AJAX to
 						do pagination, which means you need a webserver to view the results. Use the
-						<code>FilePrinter</code> instead if a webserver is not available. This will
-						make one giant HTML file rather than many, as the <code>MultiFilePrinter</code>
+						<a href="/docs/api/Midi/Reporting/FilePrinter.html"><code>FilePrinter</code></a>
+						instead if a webserver is not available. This will make one giant HTML file rather than
+						many, as the <a href="/docs/api/Midi/Reporting/MultiFilePrinter.html"><code>MultiFilePrinter</code></a>
 						does.
 					</p>
 					

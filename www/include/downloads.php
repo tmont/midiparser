@@ -15,7 +15,7 @@
 						for anonymous checkout.
 					</p>
 					<p>
-						<code>svn co http://svn.tommymontgomery.com/midiparser/trunk</code>
+						<code>svn co <a href="http://svn.tommymontgomery.com/midiparser/trunk">http://svn.tommymontgomery.com/midiparser/trunk</a></code>
 					</p>
 					
 					<h3>Packages</h3>

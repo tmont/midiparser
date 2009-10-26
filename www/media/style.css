@@ -120,10 +120,12 @@ pre.code {
 	margin: 0 0 5px 0;
 }
 #content a {
-	display: inline-block;
 	border-bottom: 1px dotted #000000;
 	color: #006600;
 	text-decoration: none;
+}
+#content code a {
+	color: inherit;
 }
 #content a:hover {
 	border-bottom-style: solid;
