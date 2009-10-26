@@ -139,10 +139,10 @@
 		if (window.XMLHttpRequest) {
 			//Firefox, IE7, Opera, Chrome
 			requestFactory = new XMLHttpRequest();
-			if (typeof(requestFactory.constructor) == "undefined") {
+			if (typeof(requestFactory.constructor) == "undefined" || window.opera) {
 				//not checking for constructor breaks IE8
 				//why is everything so difficult?
-				requestFactory.constructor = XMLHttpRequest; //IE7/8 needs this
+				requestFactory.constructor = XMLHttpRequest; //IE7/8 and Opera needsthis
 			}
 		} else if (window.ActiveXObject) {
 			try {
@@ -170,7 +170,7 @@
 					callback.apply(null, [request, e || window.event]);
 				}
 			}
-			
+
 			request.setRequestHeader("Accept", "text/html");
 			
 			if (method === "POST") {

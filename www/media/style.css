@@ -101,7 +101,7 @@ pre.code {
 	font-size: 10pt;
 	font-weight: bold;
 }
-#menu ul a:hover, #content a:hover {
+#menu ul a:hover {
 	border: 1px solid #99CC99;
 	background-color: #EEFFEE;
 }
@@ -121,9 +121,12 @@ pre.code {
 }
 #content a {
 	display: inline-block;
-	border: 1px solid transparent;
+	border-bottom: 1px dotted #000000;
 	color: #006600;
 	text-decoration: none;
+}
+#content a:hover {
+	border-bottom-style: solid;
 }
 
 #footer {
@@ -133,9 +136,10 @@ pre.code {
 #footer a {
 	text-decoration: none;
 	color: inherit;
+	border-bottom: 1px dotted #000000;
 }
 #footer a:hover {
-	text-decoration: underline;
+	border-bottom-style: solid;
 }
 
 .newsitem .timestamp {

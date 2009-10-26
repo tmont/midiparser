@@ -51,7 +51,7 @@
 		 *
 		 * @var string
 		 */
-		const BUILD_DATE = '2009-10-15 22:59:49 -07:00';
+		const BUILD_DATE = '2009-10-25 22:43:31 -07:00';
 		
 	}
 

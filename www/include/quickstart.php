@@ -5,10 +5,10 @@
 						<li>Download: <code>wget http://phpmidiparser.com/downloads/latest</code></li>
 						<li>Extract: <code>tar xzvf php-midi-library-x.x.x.tar.gz</code></li>
 						<li>Create script: <code>vi midilibtest.php</code></li>
-						<li>Paste:
+						<li>Paste and exchange placeholder MIDI file with location of real MIDI file:
 <pre class="code"><span class="block">&lt;?php</span>
 
-    <span class="keyword">require_once</span> dirname<span class="block">(</span><span class="keyword">__FILE__</span><span class="block">)</span> . <span class="string">&apos;/php-midi-library-x.x.x/Midi/bootstrap.php&apos;</span>;
+    <span class="keyword">require_once</span> <span class="string">&apos;Midi/bootstrap.php&apos;</span>;
 
     <span class="keyword">use</span> \Midi\Parsing\FileParser;
     <span class="keyword">use</span> \Midi\Reporting\TextFormatter;
@@ -31,7 +31,7 @@
 					
 					<h3>Installation</h3>
 					<ol>
-						<li><a href="/downloads">Download </a>the default package</li>
+						<li><a href="/downloads">Download</a> the default package</li>
 						<li>Extract it somewhere</li>
 						<li>
 							To use the library in your code, all you need to do is include
