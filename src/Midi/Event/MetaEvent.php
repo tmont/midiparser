@@ -85,7 +85,7 @@
 		 * @return string
 		 */
 		public function __toString() {
-			return EventType::getEventName($this->getType()) . ' (' . MetaEventType::getEventTypeName($this->getSubtype()) . '): ' . $this->getParamDescription();
+			return MetaEventType::getEventTypeName($this->getSubtype()) . ': ' . $this->getParamDescription();
 		}
 		
 		/**

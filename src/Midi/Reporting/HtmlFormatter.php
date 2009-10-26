@@ -47,6 +47,8 @@
 		 */
 		private $multiFile;
 		
+		private $delta;
+		
 		/**
 		 * @since 1.0
 		 */
@@ -54,6 +56,7 @@
 			$this->currentTrack = 0;
 			$this->offset       = 0;
 			$this->multiFile    = false;
+			$this->delta = null;
 		}
 		
 		/**
@@ -127,10 +130,17 @@ HTML;
 		 * @return string
 		 */
 		public function beforeChunk(Chunk $chunk) {
-			$class = $this->getChunkClass($chunk);
-			$text = "<tr class=\"$class\">" . $this->formatOffset($this->offset);
-			$text .= '<td><tt>' . wordwrap(implode(' ', Util::binaryToHex($chunk->toBinary())), 23, '<br />') . '</tt></td>';
-			$this->offset += $chunk->getLength();
+			$text = '';
+			
+			if ($chunk instanceof Delta) {
+				$this->delta = $chunk;
+			} else if (!($chunk instanceof Event)) {
+				$class = $this->getChunkClass($chunk);
+				$text = "<tr class=\"$class\">" . $this->formatOffset($this->offset);
+				$text .= '<td><tt>' . wordwrap(implode(' ', Util::binaryToHex($chunk->toBinary())), 23, '<br />') . '</tt></td>';
+				$this->offset += $chunk->getLength();
+			}
+			
 			return $text;
 		}
 		
@@ -161,7 +171,7 @@ HTML;
 		 * @return string
 		 */
 		public function afterChunk(Chunk $chunk) {
-			return '</tr>';
+			return $chunk instanceof Delta ? '' : '</tr>';
 		}
 		
 		/**
@@ -232,16 +242,30 @@ HTML;
 			return "<td>Track size: $size bytes</td>";
 		}
 		
-		/**
-		 * @since 1.0
-		 * @uses  Delta::getData()
-		 * 
-		 * @param  Delta $delta
-		 * @return string
-		 */
-		public function formatDelta(Delta $delta) {
-			list($ticks) = $delta->getData();
-			return "<td>delta: $ticks ticks</td>";
+		public function beforeEvent(Event $event) {
+			if ($this->delta === null) {
+				return null;
+			}
+			
+			$class = $this->getChunkClass($event);
+			$text = "<tr class=\"$class\">" . $this->formatOffset($this->offset);
+			
+			$deltaHex = Util::binaryToHex($this->delta->toBinary());
+			$delta = '<span class="delta">' . wordwrap(implode(' ', $deltaHex), 23, '<br />') . '</span>';
+			
+			$eventHex = Util::binaryToHex($event->toBinary());
+			
+			$lineLength = 23 - (strlen(implode(' ', $deltaHex)) % 23);
+			
+			$eventSegment = wordwrap(implode(' ', $eventHex), $lineLength, '|');
+			$bar = strpos($eventSegment, '|');
+			if ($bar !== false) {
+				$eventSegment = substr($eventSegment, 0, $bar) . '<br />' . wordwrap(substr($eventSegment, $bar + 1), 23, '<br />');
+			}
+			
+			$text .= '<td><tt>' . $delta . ' ' . $eventSegment . '</tt></td>';
+			$this->offset += $event->getLength() + $this->delta->getLength();
+			return $text;
 		}
 		
 		/**
@@ -252,7 +276,12 @@ HTML;
 		 * @return string
 		 */
 		public function formatEvent(Event $event) {
-			return '<td>' . $event->__toString() . '</td>';
+			if ($this->delta === null) {
+				return null;
+			}
+			
+			list($ticks) = $this->delta->getData();
+			return '<td><span class="delta">[' . $ticks . ' ticks]</span> ' . (string)$event . '</td>';
 		}
 		
 		/**

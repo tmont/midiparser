@@ -6,19 +6,20 @@
 	 * @package    Midi
 	 * @subpackage Event
 	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
-	 * @version    1.0
+	 * @since      1.0
 	 */
 
 	namespace Midi\Event;
 	
 	use \Midi\Event;
+	use \Midi\Util\Util;
 
 	/**
 	 * Represents events that are associated with a channel
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @version    1.0
+	 * @since      1.0
 	 */
 	abstract class ChannelEvent implements Event, Parameterized {
 		
@@ -40,24 +41,31 @@
 		protected $param2;
 		
 		/**
+		 * @var bool
+		 */
+		private $isContinuation;
+		
+		/**
 		 * Constructor
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
-		 * @param  int $channel Valid values: 0-15
-		 * @param  int $param1  8-bit integer
-		 * @param  int $param2  8-bit integer
+		 * @param  int  $channel        4-bit integer
+		 * @param  int  $param1         8-bit integer
+		 * @param  int  $param2         8-bit integer
+		 * @param  bool $isContinuation
 		 */
-		public function __construct($channel, $param1, $param2 = null) {
-			$this->channel = $channel;
-			$this->param1  = $param1;
-			$this->param2  = $param2;
+		public function __construct($channel, $param1, $param2 = null, $isContinuation = false) {
+			$this->channel        = $channel;
+			$this->param1         = $param1;
+			$this->param2         = $param2;
+			$this->isContinuation = $isContinuation;
 		}
 		
 		/**
 		 * Gets a string representation of this event
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * @uses    EventType::getEventName()
 		 * @uses    getType()
 		 * @uses    getParamDescription()
@@ -71,19 +79,21 @@
 		/**
 		 * Gets a binary representation of this event
 		 *
-		 * @version 1.0
-		 * @uses    Util::pack()
+		 * @since 1.0
+		 * @uses  Util::pack()
 		 * 
 		 * @return binary
 		 */
 		public function toBinary() {
-			return \Midi\Util\Util::pack($this->getType() | $this->channel, 2, $this->param1, $this->param2);
+			$binary = ($this->isContinuation()) ? '' : Util::pack($this->getType() | $this->channel);
+			$binary .= Util::pack($this->param1, $this->param2);
+			return $binary;
 		}
 		
 		/**
 		 * Gets the data associated with this event
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @return array [0] => channel, [1] => param1, [2] => param2
 		 */
@@ -98,12 +108,35 @@
 		/**
 		 * Gets the length of this event in bytes
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @return int
 		 */
 		public function getLength() {
-			return 3;
+			return ($this->isContinuation) ? 2 : 3;
+		}
+		
+		/**
+		 * Sets whether this event is a continuation event
+		 *
+		 * @since 1.0
+		 *
+		 * @param  bool $isContinuation
+		 * @return bool
+		 */
+		public function setContinuation($isContinuation) {
+			$this->isContinuation = (bool)$isContinuation;
+		}
+		
+		/**
+		 * Gets whether this event is a continuation event
+		 *
+		 * @since 1.0
+		 *
+		 * @return bool
+		 */
+		public function isContinuation() {
+			return $this->isContinuation;
 		}
 		
 	}

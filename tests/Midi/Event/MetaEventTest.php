@@ -28,8 +28,7 @@
 			          ->will($this->returnValue(\Midi\Event\MetaEventType::SEQUENCE_NUMBER));
 			
 			$this->assertEquals(
-				\Midi\Event\EventType::getEventName(\Midi\Event\EventType::META) .
-				' (' . \Midi\Event\MetaEventType::getEventTypeName(\Midi\Event\MetaEventType::SEQUENCE_NUMBER) . '): foo',
+				\Midi\Event\MetaEventType::getEventTypeName(\Midi\Event\MetaEventType::SEQUENCE_NUMBER) . ': foo',
 				$this->obj->__toString()
 			);
 		}

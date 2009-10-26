@@ -72,6 +72,11 @@
 				pack('C2', 0x64, 0x00)
 			);
 			
+			$event1 = $this->getMock('Midi\Event\ChannelEvent', array('getType', 'getParamDescription'), array(), '', false);
+			$event2 = $this->getMock('Midi\Event\ChannelEvent', array('setContinuation', 'getType', 'getParamDescription'), array(), '', false);
+			$event2->expects($this->once())
+			       ->method('setContinuation');
+			
 			//normal channel event
 			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('getChannelEvent', 'read'));
 			$this->obj->expects($this->exactly(4))
@@ -80,7 +85,7 @@
 			
 			$this->obj->expects($this->exactly(2))
 			          ->method('getChannelEvent')
-			          ->will($this->onConsecutiveCalls('note on', 'note on 2'));
+			          ->will($this->onConsecutiveCalls($event1, $event2));
 			
 			//continuation event
 			$file->expects($this->once())
@@ -88,8 +93,8 @@
 			     ->with(-1, SEEK_CUR);
 			
 			$this->obj->setFile($file);
-			$this->assertEquals('note on', $this->obj->parse());
-			$this->assertEquals('note on 2', $this->obj->parse());
+			$this->assertEquals($event1, $this->obj->parse());
+			$this->assertEquals($event2, $this->obj->parse());
 		}
 		
 		public function testParseSpecialChannelEvent() {
@@ -102,6 +107,11 @@
 				pack('C', 0x64)
 			);
 			
+			$event1 = $this->getMock('Midi\Event\ChannelEvent', array('getType', 'getParamDescription'), array(), '', false);
+			$event2 = $this->getMock('Midi\Event\ChannelEvent', array('setContinuation', 'getType', 'getParamDescription'), array(), '', false);
+			$event2->expects($this->once())
+			       ->method('setContinuation');
+			
 			//normal channel event
 			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('getChannelEvent', 'read'));
 			$this->obj->expects($this->exactly(4))
@@ -111,7 +121,7 @@
 			$this->obj->expects($this->exactly(2))
 			          ->method('getChannelEvent')
 			          ->with(0xC0, 0x00, 0x64, null)
-			          ->will($this->onConsecutiveCalls('note on', 'note on 2'));
+			          ->will($this->onConsecutiveCalls($event1, $event2));
 			
 			//continuation event
 			$file->expects($this->once())
@@ -119,8 +129,8 @@
 			     ->with(-1, SEEK_CUR);
 			
 			$this->obj->setFile($file);
-			$this->assertEquals('note on', $this->obj->parse());
-			$this->assertEquals('note on 2', $this->obj->parse());
+			$this->assertEquals($event1, $this->obj->parse());
+			$this->assertEquals($event2, $this->obj->parse());
 		}
 		
 		public function testParseChannelEventWithoutContinuation() {

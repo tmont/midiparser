@@ -33,7 +33,7 @@
 			$this->obj->expects($this->once())
 			          ->method('getType')
 			          ->will($this->returnValue(\Midi\Event\EventType::NOTE_OFF));
-			$this->assertEquals(pack('C4', \Midi\Event\EventType::NOTE_OFF | 1, 2, 0x50, 0x64), $this->obj->toBinary());
+			$this->assertEquals(pack('C3', \Midi\Event\EventType::NOTE_OFF | 1, 0x50, 0x64), $this->obj->toBinary());
 		}
 		
 		public function testGetData() {
@@ -42,6 +42,13 @@
 		
 		public function testGetLength() {
 			$this->assertSame(3, $this->obj->getLength());
+		}
+		
+		public function testSetContinuation() {
+			$this->obj->setContinuation(true);
+			$this->assertTrue($this->obj->isContinuation());
+			$this->obj->setContinuation(false);
+			$this->assertFalse($this->obj->isContinuation());
 		}
 		
 	}

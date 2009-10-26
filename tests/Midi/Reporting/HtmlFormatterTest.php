@@ -78,54 +78,18 @@ HTML;
 		}
 		
 		public function testBeforeChunkWithChannelEvent() {
-			$this->obj = $this->getMock('Midi\Reporting\HtmlFormatter', array('formatOffset'));
-			$this->obj->expects($this->any())
-			          ->method('formatOffset')
-			          ->will($this->returnValue('foo'));
-			
-			$chunk = $this->getMock('Midi\Event\ChannelEvent', array('getLength', 'toBinary', 'getType', 'getParamDescription'), array(), '', false);
-			$chunk->expects($this->any())
-			      ->method('toBinary')
-			      ->will($this->returnValue(pack('C', 0x64)));
-			$chunk->expects($this->any())
-			      ->method('getLength')
-			      ->will($this->returnValue(1));
-			
-			$this->assertEquals('<tr class="channel">foo<td><tt>64</tt></td>', $this->obj->beforeChunk($chunk));
+			$chunk = $this->getMock('Midi\Event\ChannelEvent', array('getType', 'getParamDescription'), array(), '', false);
+			$this->assertEquals('', $this->obj->beforeChunk($chunk));
 		}
 		
 		public function testBeforeChunkWithMetaEvent() {
-			$this->obj = $this->getMock('Midi\Reporting\HtmlFormatter', array('formatOffset'));
-			$this->obj->expects($this->any())
-			          ->method('formatOffset')
-			          ->will($this->returnValue('foo'));
-			
-			$chunk = $this->getMock('Midi\Event\MetaEvent', array('getLength', 'toBinary', 'getSubType', 'getParamDescription'), array(), '', false);
-			$chunk->expects($this->any())
-			      ->method('toBinary')
-			      ->will($this->returnValue(pack('C', 0x64)));
-			$chunk->expects($this->any())
-			      ->method('getLength')
-			      ->will($this->returnValue(1));
-			
-			$this->assertEquals('<tr class="meta">foo<td><tt>64</tt></td>', $this->obj->beforeChunk($chunk));
+			$chunk = $this->getMock('Midi\Event\MetaEvent', array('getSubType', 'getParamDescription'), array(), '', false);
+			$this->assertEquals('', $this->obj->beforeChunk($chunk));
 		}
 		
 		public function testBeforeChunkWithDelta() {
-			$this->obj = $this->getMock('Midi\Reporting\HtmlFormatter', array('formatOffset'));
-			$this->obj->expects($this->any())
-			          ->method('formatOffset')
-			          ->will($this->returnValue('foo'));
-			
-			$chunk = $this->getMock('Midi\Delta', array('getLength', 'toBinary'), array(), '', false);
-			$chunk->expects($this->any())
-			      ->method('toBinary')
-			      ->will($this->returnValue(pack('C', 0x64)));
-			$chunk->expects($this->any())
-			      ->method('getLength')
-			      ->will($this->returnValue(1));
-			
-			$this->assertEquals('<tr class="delta">foo<td><tt>64</tt></td>', $this->obj->beforeChunk($chunk));
+			$chunk = $this->getMock('Midi\Delta', array(), array(), '', false);
+			$this->assertEquals('', $this->obj->beforeChunk($chunk));
 		}
 		
 		public function testBeforeChunkWithTrackHeader() {
@@ -215,18 +179,6 @@ HTML;
 			$this->assertEquals(
 				'<td>Track size: 10 bytes</td>',
 				$this->obj->formatTrackHeader($chunk)
-			);
-		}
-		
-		public function testFormatDelta() {
-			$chunk = $this->getMock('Midi\Delta', array('getData'), array(), '', false);
-			$chunk->expects($this->once())
-			      ->method('getData')
-			      ->will($this->returnValue(array(10)));
-			
-			$this->assertEquals(
-				'<td>delta: 10 ticks</td>',
-				$this->obj->formatDelta($chunk)
 			);
 		}
 		

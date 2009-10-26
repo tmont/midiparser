@@ -174,12 +174,14 @@
 			
 			$eventType = Util::unpack($byte);
 			$eventType = $eventType[0];
+			$isContinuation = false;
 			
 			if ($eventType < 0x80) {
 				if ($this->continuationEvent === null) {
 					throw new ParseException('Invalid event: first byte must be greater than or equal to 0x80');
 				} else {
 					$eventType = $this->continuationEvent;
+					$isContinuation = true;
 					//rewind one byte so that parseChannelEvent() doesn't throw an exception
 					//when it can't find two more bytes
 					$this->file->fseek(-1, SEEK_CUR);
@@ -189,7 +191,7 @@
 			}
 			
 			if ($eventType < 0xF0) {
-				return $this->parseChannelEvent($eventType);
+				return $this->parseChannelEvent($eventType, $isContinuation);
 			} else if ($eventType === 0xFF) {
 				return $this->parseMetaEvent();
 			} else if ($eventType === 0xF0) {
@@ -206,10 +208,11 @@
 		 * @uses  Util::unpack()
 		 * @uses  getChannelEvent()
 		 * 
-		 * @param  int $eventType See {@link EventType}
+		 * @param  int  $eventType      See {@link EventType}
+		 * @param  bool $isContinuation Whether the event is a continuation of a previous event
 		 * @return ChannelEvent
 		 */
-		protected function parseChannelEvent($eventType) {
+		protected function parseChannelEvent($eventType, $isContinuation) {
 			$type = $eventType & 0xF0;
 			if ($type === 0xC0 || $type === 0xD0) {
 				$data = Util::unpack($this->read(1, true));
@@ -218,7 +221,12 @@
 				$data = Util::unpack($this->read(2, true));
 			}
 			
-			return $this->getChannelEvent($eventType & 0xF0, $eventType & 0x0F, $data[0], $data[1]);
+			$event = $this->getChannelEvent($eventType & 0xF0, $eventType & 0x0F, $data[0], $data[1]);
+			if ($isContinuation) {
+				$event->setContinuation(true);
+			}
+			
+			return $event;
 		}
 		
 		/**
