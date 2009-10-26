@@ -153,9 +153,7 @@ HTML;
 		 * @return string
 		 */
 		private function getChunkClass(Chunk $chunk) {
-			if ($chunk instanceof Delta) {
-				return 'delta';
-			} else if ($chunk instanceof ChannelEvent) {
+			if ($chunk instanceof ChannelEvent) {
 				return 'channel';
 			} else if ($chunk instanceof MetaEvent) {
 				return 'meta';
@@ -244,7 +242,7 @@ HTML;
 		
 		public function beforeEvent(Event $event) {
 			if ($this->delta === null) {
-				return null;
+				return '';
 			}
 			
 			$class = $this->getChunkClass($event);
@@ -277,7 +275,7 @@ HTML;
 		 */
 		public function formatEvent(Event $event) {
 			if ($this->delta === null) {
-				return null;
+				return '';
 			}
 			
 			list($ticks) = $this->delta->getData();

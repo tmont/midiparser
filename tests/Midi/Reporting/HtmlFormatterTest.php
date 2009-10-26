@@ -182,14 +182,90 @@ HTML;
 			);
 		}
 		
+		public function testBeforeEventWithNoDelta() {
+			$chunk = $this->getMock('Midi\Event', array('getData', '__toString', 'getType', 'toBinary', 'getLength'));
+			$this->assertEquals('', $this->obj->beforeEvent($chunk));
+		}
+		
+		public function testBeforeEventWithChannelEvent() {
+			$this->obj = $this->getMock('Midi\Reporting\HtmlFormatter', array('formatOffset'));
+			$this->obj->expects($this->once())
+			          ->method('formatOffset')
+			          ->will($this->returnValue('foo'));
+			
+			$delta = $this->getMock('Midi\Delta', array('getData', 'toBinary', 'getLength'), array(), '', false);
+			$delta->expects($this->once())
+			      ->method('toBinary')
+			      ->will($this->returnValue(pack('C2', 0x81, 0x7F)));
+			$delta->expects($this->once())
+			      ->method('getLength')
+			      ->will($this->returnValue(2));
+			
+			$this->assertEquals('', $this->obj->beforeChunk($delta));
+			
+			$event = $this->getMock('Midi\Event\ChannelEvent', array('getType', 'getParamDescription', 'toBinary', 'getLength'), array(), '', false);
+			$event->expects($this->once())
+			      ->method('toBinary')
+			      ->will($this->returnValue(pack('C8', 0x80, 0x40, 0x00, 0x00, 0x00, 0x90, 0x87, 0xA9)));
+			$event->expects($this->once())
+			      ->method('getLength')
+			      ->will($this->returnValue(2));
+			
+			$expected = '<tr class="channel">foo<td><tt><span class="delta">81 7F</span> 80 40 00 00 00 90<br />87 A9</tt></td>';
+			
+			$this->assertEquals($expected, $this->obj->beforeEvent($event));
+		}
+		
+		public function testBeforeEventWithMetaEvent() {
+			//this could probably be extracted since it's identical to testBeforeEventWithChannelEvent...
+			$this->obj = $this->getMock('Midi\Reporting\HtmlFormatter', array('formatOffset'));
+			$this->obj->expects($this->once())
+			          ->method('formatOffset')
+			          ->will($this->returnValue('foo'));
+			
+			$delta = $this->getMock('Midi\Delta', array('getData', 'toBinary', 'getLength'), array(), '', false);
+			$delta->expects($this->once())
+			      ->method('toBinary')
+			      ->will($this->returnValue(pack('C2', 0x81, 0x7F)));
+			$delta->expects($this->once())
+			      ->method('getLength')
+			      ->will($this->returnValue(2));
+			
+			$this->assertEquals('', $this->obj->beforeChunk($delta));
+			
+			$event = $this->getMock('Midi\Event\MetaEvent', array('getSubtype', 'getParamDescription', 'toBinary', 'getLength'), array(), '', false);
+			$event->expects($this->once())
+			      ->method('toBinary')
+			      ->will($this->returnValue(pack('C8', 0x80, 0x40, 0x00, 0x00, 0x00, 0x90, 0x87, 0xA9)));
+			$event->expects($this->once())
+			      ->method('getLength')
+			      ->will($this->returnValue(2));
+			
+			$expected = '<tr class="meta">foo<td><tt><span class="delta">81 7F</span> 80 40 00 00 00 90<br />87 A9</tt></td>';
+			
+			$this->assertEquals($expected, $this->obj->beforeEvent($event));
+		}
+		
+		public function testFormatEventWithNoDelta() {
+			$chunk = $this->getMock('Midi\Event', array('getData', '__toString', 'getType', 'toBinary', 'getLength'));
+			$this->assertEquals('', $this->obj->formatEvent($chunk));
+		}
+		
 		public function testFormatEvent() {
+			$delta = $this->getMock('Midi\Delta', array('getData'), array(), '', false);
+			$delta->expects($this->once())
+			      ->method('getData')
+			      ->will($this->returnValue(array(10)));
+			
+			$this->assertEquals('', $this->obj->beforeChunk($delta));
+			
 			$chunk = $this->getMock('Midi\Event', array('getData', '__toString', 'getType', 'toBinary', 'getLength'));
 			$chunk->expects($this->once())
 			      ->method('__toString')
 			      ->will($this->returnValue('foo'));
 			
 			$this->assertEquals(
-				'<td>foo</td>',
+				'<td><span class="delta">[10 ticks]</span> foo</td>',
 				$this->obj->formatEvent($chunk)
 			);
 		}
