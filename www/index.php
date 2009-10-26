@@ -115,7 +115,7 @@
 			} else {
 				//trying to download something
 				if ($page === 'latest') {
-					$page = 'php-midi-library-1.0.161.tar.gz';
+					$page = 'php-midi-library-1.0.163.tar.gz';
 				}
 				
 				$download = $downloadDir . '/' . $page;
@@ -124,6 +124,22 @@
 				if (strpos($headers[0], '200 OK') === false) {
 					prepare404($file, $title, $delimiter);
 				} else {
+					//store download data
+					$ip = isset($_SERVER['REMOTE_ADDR']) ? substr($_SERVER['REMOTE_ADDR'], 0, 15) : 'unknown';
+					if ($ip !== '127.0.0.1') {
+						$query = '
+							INSERT INTO downloads (
+								ip,
+								path
+							)
+							VALUES(
+								\'' . mysql_real_escape_string($ip, $conn) . '\',
+								\'' . mysql_real_escape_string($page, $conn) . '\'
+							)';
+						
+						mysql_query($query, $conn);
+					}
+					
 					$size = $headers['Content-Length'];
 					header('Content-Length', $size);
 					
