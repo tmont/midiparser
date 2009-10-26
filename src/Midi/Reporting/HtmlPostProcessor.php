@@ -10,6 +10,8 @@
 	 */
 
 	namespace Midi\Reporting;
+	
+	use \SplFileObject;
 
 	/**
 	 * Handles post processing for HTML formatters
@@ -59,7 +61,7 @@
 		 * @return SplFileObject
 		 */
 		public function createFileObject($file) {
-			return new \SplFileObject($file, 'w');
+			return new SplFileObject($file, 'w');
 		}
 		
 		/**

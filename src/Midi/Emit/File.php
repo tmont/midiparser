@@ -14,6 +14,7 @@
 	use \Midi\Util\Timer;
 	use \Midi\FileHeader;
 	use \Midi\MidiException;
+	use \SplFileObject;
 	
 	/**
 	 * Represents a MIDI file
@@ -100,7 +101,7 @@
 		 * @return int The amount of data that was written
 		 */
 		public function save($file) {
-			if (!($file instanceof \SplFileObject)) {
+			if (!($file instanceof SplFileObject)) {
 				$file = $this->createFileObject($file);
 			}
 			
@@ -118,7 +119,7 @@
 		 * @return SplFileObject
 		 */
 		public function createFileObject($file) {
-			return new \SplFileObject($file, 'wb');
+			return new SplFileObject($file, 'wb');
 		}
 		
 		/**

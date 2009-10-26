@@ -12,6 +12,7 @@
 	namespace Midi\Parsing;
 	
 	use \Midi\Util\Util;
+	use \SplFileObject;
 
 	/**
 	 * Base parsing class
@@ -56,7 +57,7 @@
 		 * @return SplFileObject
 		 */
 		public function createFileObject($file) {
-			return new \SplFileObject($file, 'rb');
+			return new SplFileObject($file, 'rb');
 		}
 		
 		/**
@@ -69,7 +70,7 @@
 		 * @param  string|SplFileObject $file A file path, or an SplFileObject opened in "rb" mode
 		 */
 		public function load($file) {
-			if (!($file instanceof \SplFileObject)) {
+			if (!($file instanceof SplFileObject)) {
 				$file = $this->createFileObject($file);
 			}
 			
@@ -85,7 +86,7 @@
 		 * 
 		 * @param  SplFileObject $file
 		 */
-		public function setFile(\SplFileObject $file) {
+		public function setFile(SplFileObject $file) {
 			$this->file = $file;
 			$this->afterSetFile();
 		}

@@ -13,6 +13,7 @@
 	
 	use \Midi\Parsing\Parser;
 	use \Midi\MidiException;
+	use \SplFileObject;
 	
 	/**
 	 * Printer that redirects its output to a file
@@ -56,7 +57,7 @@
 		 */
 		public function createFileObject($file, $binary = false) {
 			$mode = 'w' . ($binary ? 'b' : '');
-			return new \SplFileObject($file, $mode);
+			return new SplFileObject($file, $mode);
 		}
 		
 		/**

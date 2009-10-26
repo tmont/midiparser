@@ -1,11 +1,12 @@
 <?php
 	
 	/**
-	 * \Midi\Event
+	 * \Midi\Event\MetaEventType
 	 *
-	 * @package   Midi
-	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.com/>
-	 * @since     1.0
+	 * @package    Midi
+	 * @subpackage Event
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
+	 * @since      1.0
 	 */
 
 	namespace Midi\Event;
@@ -14,8 +15,9 @@
 	 * Collection of constants representing the different
 	 * meta event types
 	 *
-	 * @package Midi
-	 * @since   1.0
+	 * @package    Midi
+	 * @subpackage Event
+	 * @since      1.0
 	 */
 	final class MetaEventType {
 		/**
