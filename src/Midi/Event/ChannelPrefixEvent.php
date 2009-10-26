@@ -5,8 +5,8 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
-	 * @version    1.0
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
+	 * @since      1.0
 	 */
 
 	namespace Midi\Event;
@@ -16,7 +16,7 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @version    1.0
+	 * @since      1.0
 	 * @todo       Document what this event actually does
 	 */
 	class ChannelPrefixEvent extends MetaEvent {
@@ -24,7 +24,7 @@
 		/**
 		 * Constructor
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @param  int $channel Valid values: 0-15
 		 */
@@ -33,7 +33,7 @@
 		}
 		
 		/**
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @return string
 		 */
@@ -42,8 +42,8 @@
 		}
 		
 		/**
-		 * @version 1.0
-		 * @uses    MetaEventType::CHANNEL_PREFIX
+		 * @since 1.0
+		 * @uses  MetaEventType::CHANNEL_PREFIX
 		 * 
 		 * @return int
 		 */

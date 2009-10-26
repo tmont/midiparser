@@ -5,8 +5,8 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
-	 * @version    1.0
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
+	 * @since      1.0
 	 */
 
 	namespace Midi\Event;
@@ -23,7 +23,7 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @version    1.0
+	 * @since      1.0
 	 */
 	class SystemExclusiveEvent implements Event {
 		
@@ -42,7 +42,7 @@
 		/**
 		 * Constructor
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @param  array $data
 		 */
@@ -54,8 +54,8 @@
 		/**
 		 * Gets the length of this event in bytes
 		 *
-		 * @version 1.0
-		 * @uses    Util::getDeltaByteSequence()
+		 * @since 1.0
+		 * @uses  Util::getDeltaByteSequence()
 		 * 
 		 * @return int
 		 */
@@ -69,9 +69,9 @@
 		/**
 		 * Gets the string representation of this event
 		 *
-		 * @version 1.0
-		 * @uses    EventType::getEventName()
-		 * @uses    getType()
+		 * @since 1.0
+		 * @uses  EventType::getEventName()
+		 * @uses  getType()
 		 * 
 		 * @return string
 		 */
@@ -82,10 +82,10 @@
 		/**
 		 * Gets a binary representation of this event
 		 *
-		 * @version 1.0
-		 * @uses    Util::getDeltaByteSequence()
-		 * @uses    getType()
-		 * @uses    Util::pack()
+		 * @since 1.0
+		 * @uses  Util::getDeltaByteSequence()
+		 * @uses  getType()
+		 * @uses  Util::pack()
 		 * 
 		 * @return Midi
 		 */
@@ -102,9 +102,9 @@
 		 * several divided events.
 		 * 
 		 *
-		 * @version 1.0
-		 * @uses    isNormal()
-		 * @see     isNormal()
+		 * @since 1.0
+		 * @uses  isNormal()
+		 * @see   isNormal()
 		 * 
 		 * @return bool
 		 */
@@ -118,21 +118,22 @@
 		 * Normal sysex events are signified by the last byte of data
 		 * being 0xF7.
 		 *
-		 * @version 1.0
-		 * @uses    Util::unpack()
-		 * @see     isDivided()
+		 * @since 1.0
+		 * @uses  Util::pack()
+		 * @see   isDivided()
 		 * 
 		 * @return bool
 		 */
 		public function isNormal() {
-			$bytes = Util::unpack($this->data[$this->length - 1]);
-			return end($bytes) !== 0xF7;
+			$byte = end($this->data);
+			reset($this->data);
+			return $byte === Util::pack(0xF7);
 		}
 		
 		/**
 		 * Gets the data associated with this event
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @return array
 		 */
@@ -143,8 +144,8 @@
 		/**
 		 * Gets the event type
 		 *
-		 * @version 1.0
-		 * @uses    EventType::SYSTEM_EXCLUSIVE
+		 * @since 1.0
+		 * @uses  EventType::SYSTEM_EXCLUSIVE
 		 * 
 		 * @return int
 		 */

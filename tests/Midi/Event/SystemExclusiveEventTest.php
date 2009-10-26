@@ -29,12 +29,12 @@
 		
 		public function testIsNormalOrIsDivided() {
 			$this->obj = new \Midi\Event\SystemExclusiveEvent(array(pack('C', 0x00)));
-			$this->assertFalse($this->obj->isDivided());
-			$this->assertTrue($this->obj->isNormal());
-			
-			$this->obj = new \Midi\Event\SystemExclusiveEvent(array(pack('C', 0xF7)));
 			$this->assertTrue($this->obj->isDivided());
 			$this->assertFalse($this->obj->isNormal());
+			
+			$this->obj = new \Midi\Event\SystemExclusiveEvent(array(pack('C', 0xF7)));
+			$this->assertFalse($this->obj->isDivided());
+			$this->assertTrue($this->obj->isNormal());
 		}
 		
 		public function testGetData() {

@@ -4,8 +4,7 @@
 	 * \Midi\Delta
 	 *
 	 * @package   Midi
-	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.php>
-	 * @version   1.0
+	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.com>
 	 * @since     1.0
 	 */
 
@@ -15,7 +14,6 @@
 	 * Represents a variable-length delta time
 	 *
 	 * @package Midi
-	 * @version 1.0
 	 * @since   1.0
 	 */
 	class Delta implements Chunk {

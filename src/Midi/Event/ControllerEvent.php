@@ -5,7 +5,7 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
 	 */
 
@@ -24,8 +24,8 @@
 		/**
 		 * Gets a description of each controller type
 		 *
-		 * @version 1.0
-		 * @todo    Implement each controller type
+		 * @since 1.0
+		 * @todo  Implement each controller type
 		 * 
 		 * @return string
 		 */

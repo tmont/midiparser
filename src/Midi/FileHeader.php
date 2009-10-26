@@ -4,8 +4,7 @@
 	 * \Midi\FileHeader
 	 *
 	 * @package   Midi
-	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.php>
-	 * @version   1.0
+	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.com>
 	 * @since     1.0
 	 */
 
@@ -15,7 +14,6 @@
 	 * Represents a MIDI file header
 	 *
 	 * @package Midi
-	 * @version 1.0
 	 * @since   1.0
 	 */
 	class FileHeader implements Chunk {

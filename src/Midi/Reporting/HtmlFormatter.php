@@ -5,7 +5,7 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Reporting
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
 	 */
 
@@ -240,6 +240,19 @@ HTML;
 			return "<td>Track size: $size bytes</td>";
 		}
 		
+		/**
+		 * @since 1.0
+		 * @uses  getChunkClass()
+		 * @uses  formatOffset()
+		 * @uses  Delta::toBinary()
+		 * @uses  Util::binaryToHex()
+		 * @uses  Event::toBinary()
+		 * @uses  Event::getLength()
+		 * @uses  Delta::getLength()
+		 * 
+		 * @param  Event $event
+		 * @return string
+		 */
 		public function beforeEvent(Event $event) {
 			if ($this->delta === null) {
 				return '';

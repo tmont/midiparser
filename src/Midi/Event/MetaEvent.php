@@ -5,8 +5,8 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
-	 * @version    1.0
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
+	 * @since      1.0
 	 */
 
 	namespace Midi\Event;
@@ -19,7 +19,7 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @version    1.0
+	 * @since      1.0
 	 * @todo       Still missing meta events 0xF1-0xFE
 	 */
 	abstract class MetaEvent implements Parameterized, Event {
@@ -41,7 +41,7 @@
 		/**
 		 * Constructor
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @param  string|array $data
 		 */
@@ -60,8 +60,8 @@
 		/**
 		 * Gets the length of this meta event in bytes
 		 *
-		 * @version 1.0
-		 * @uses    Util::getDeltaByteSequence()
+		 * @since 1.0
+		 * @uses  Util::getDeltaByteSequence()
 		 * 
 		 * @return int
 		 */
@@ -75,12 +75,12 @@
 		/**
 		 * Gets the string representation of this meta event
 		 *
-		 * @version 1.0
-		 * @uses    EventType::getEventName()
-		 * @uses    MetaEventType::getEventTypeName()
-		 * @uses    getParamDescription()
-		 * @uses    getType()
-		 * @uses    getSubtype()
+		 * @since 1.0
+		 * @uses  EventType::getEventName()
+		 * @uses  MetaEventType::getEventTypeName()
+		 * @uses  getParamDescription()
+		 * @uses  getType()
+		 * @uses  getSubtype()
 		 * 
 		 * @return string
 		 */
@@ -91,10 +91,10 @@
 		/**
 		 * Gets the binary representation of this meta event
 		 *
-		 * @version 1.0
-		 * @uses    Util::pack()
-		 * @uses    Util::getDeltaByteSequence()
-		 * @uses    getSubtype()
+		 * @since 1.0
+		 * @uses  Util::pack()
+		 * @uses  Util::getDeltaByteSequence()
+		 * @uses  getSubtype()
 		 * 
 		 * @return binary
 		 */
@@ -117,8 +117,8 @@
 		/**
 		 * Gets the data associated with this meta event
 		 *
-		 * @version 1.0
-		 * @uses    getSubtype()
+		 * @since 1.0
+		 * @uses  getSubtype()
 		 * 
 		 * @return array [0] => meta subtype, [1] => length, [2] => data
 		 */
@@ -133,8 +133,8 @@
 		/**
 		 * Gets the event type
 		 *
-		 * @version 1.0
-		 * @uses    EventType::META
+		 * @since 1.0
+		 * @uses  EventType::META
 		 * 
 		 * @return int
 		 */
@@ -145,7 +145,7 @@
 		/**
 		 * Gets the meta event subtype for this event
 		 *
-		 * @version 1.0
+		 * @since 1.0
 		 * 
 		 * @return int
 		 */

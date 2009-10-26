@@ -4,7 +4,7 @@
 	 * \Midi\Parsing\DeltaParser
 	 *
 	 * @package   Midi
-	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.php/>
+	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since     1.0
 	 */
 

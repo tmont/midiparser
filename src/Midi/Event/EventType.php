@@ -5,7 +5,7 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
 	 */
 
@@ -16,7 +16,7 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.php/>
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
 	 */
 	final class EventType {
