@@ -1,5 +1,11 @@
 					<h2>Quick Start</h2>
 					
+					<p>
+						The PHP MIDI Library requires <strong>PHP 5.3.0</strong> or later. If you have
+						no patience and a UNIX shell, take a look at the quick and dirty section.
+						Otherwise, read the entire page (it won&#039;t take long).
+					</p>
+					
 					<h3>Quick and Dirty</h3>
 					<ol>
 						<li>Download: <code>wget http://phpmidiparser.com/downloads/latest</code></li>
