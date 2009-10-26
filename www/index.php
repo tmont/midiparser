@@ -142,6 +142,7 @@
 					
 					$size = $headers['Content-Length'];
 					header('Content-Length', $size);
+					header('Content-Disposition: attachment; filename=' . basename($page));
 					
 					switch(pathinfo($download, PATHINFO_EXTENSION)) {
 						case 'gz':
