@@ -70,14 +70,14 @@
 	
 	var setDivHeight = function() {
 		var parseResults = document.getElementById("content");
-		var windowHeight = typeof(window.innerHeight) != "undefined" ? window.innerHeight : document.body.clientHeight;
+		var windowHeight = typeof(window.innerHeight) != "undefined" ? window.innerHeight : document.documentElement.clientHeight;
+		
 		parseResults.style.height = Math.max(100, (windowHeight - 100)) + "px";
 		setPageCoordinates();
 	}
 	
 	var gotoPage = function(pageNumber) {
 		if (typeof(pageHistory[pageNumber]) != "undefined") {
-			document.getElementById("parse-results").innerHTML = pageHistory[pageNumber];
 			setParseResultsContents(pageNumber);
 		} else {
 			var request = createAjaxRequest("data" + pageNumber + ".html", "GET", true, pageHandler);
@@ -99,9 +99,20 @@
 	}
 	
 	var setParseResultsContents = function(pageNumber) {
-		document.getElementById("parse-results").innerHTML = pageHistory[pageNumber];
-		
 		var page = document.getElementById("page");
+		
+		if (window.event) {
+			//ie hackery
+			var parseResults = document.getElementById("parse-results");
+			parseResults.parentNode.removeChild(parseResults);
+			document.getElementById("content").innerHTML = "<table id=\"parse-results\">" + pageHistory[pageNumber] + "</table>";
+			if (!page.firstChild) {
+				page.appendChild(document.createTextNode("dummy"));
+			}
+		} else {
+			document.getElementById("parse-results").innerHTML = pageHistory[pageNumber];
+		}
+		
 		page.replaceChild(document.createTextNode("page " + pageNumber + "/" + numPages), page.firstChild);
 	}
 	

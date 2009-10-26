@@ -30,7 +30,7 @@
 	
 	var setDivHeight = function() {
 		var parseResults = document.getElementById("content");
-		var windowHeight = typeof(window.innerHeight) != "undefined" ? window.innerHeight : document.body.clientHeight;
+		var windowHeight = typeof(window.innerHeight) != "undefined" ? window.innerHeight : document.documentElement.clientHeight;
 		parseResults.style.height = Math.max(100, (windowHeight - 100)) + "px";
 	}
 	
