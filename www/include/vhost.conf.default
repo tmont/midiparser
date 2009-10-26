@@ -1,0 +1,22 @@
+<VirtualHost @IP@:80>
+	ServerName midiparser
+    DocumentRoot @DOCUMENT_ROOT@
+	
+	<Directory "@DOCUMENT_ROOT@">
+		Options -Indexes
+		
+		Order Allow,Deny
+		Allow From All
+		
+		AllowOverride None
+	</Directory>
+	
+	<Directory "@DOCUMENT_ROOT@/include">
+		Order Deny,Allow
+		Deny From All
+	</Directory>
+	
+	RewriteEngine On
+	RewriteCond %{REQUEST_URI} !^/media*
+	RewriteRule .* /index.php [L]
+</VirtualHost>

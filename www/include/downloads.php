@@ -1,8 +1,8 @@
 					<h2>Downloads</h2>
 					
 					<ul>
-						<li><a href="/downloads/php-midi-library-1.0.tar.gz">PHP MIDI Library 1.0</a></li>
-						<li><a href="/downloads/php-midi-library-1.0-src.tar.gz">PHP MIDI Library 1.0 Source</a></li>
+						<li><a href="/downloads/php-midi-library-1.0.161.tar.gz">PHP MIDI Library 1.0</a></li>
+						<li><a href="/downloads/php-midi-library-1.0.161-src.tar.gz">PHP MIDI Library 1.0 Source</a></li>
 					</ul>
 					
 					<p>

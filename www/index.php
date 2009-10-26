@@ -1,7 +1,8 @@
 <?php
 
 	function connect() {
-		$conn = mysql_connect('localhost', 'midiparser', 'midiparser');
+		global $config;
+		$conn = mysql_connect($config['host'], $config['username'], $config['password']);
 		if (!$conn) {
 			return false;
 		}
@@ -30,6 +31,14 @@
 		return htmlentities($string, ENT_QUOTES, 'utf-8');
 	}
 	
+	function prepare404(&$file, &$title, $delimiter) {
+		header('HTTP/1.1 404 Not Found');
+		
+		global $includeDir;
+		$file = $includeDir . '/404.html';
+		$title = $delimiter . 'Not Found';
+	}
+	
 	session_start();
 
 	$uri = trim($_SERVER['REQUEST_URI'], '/');
@@ -41,9 +50,10 @@
 		$section = 'news';
 	}
 	
-	global $includeDir, $conn, $downloadDir;
+	global $includeDir, $conn, $downloadDir, $config;
 	$downloadDir = 'http://static.tommymontgomery.com/sites/phpmidiparser.com';
 	$includeDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'include';
+	$config = parse_ini_file($includeDir . '/www.config');
 	
 	$title = '';
 	$file = null;
@@ -60,8 +70,7 @@
 		case 'resources':
 		case 'statistics':
 			if ($page !== null) {
-				$title = $delimiter . 'Not Found';
-				$file = $includeDir . '/404.html';
+				prepare404($file, $title, $delimiter);
 			} else {
 				$file = $includeDir . '/' . $section . '.php';
 			}
@@ -79,8 +88,7 @@
 				$file = $includeDir . '/demo/' . $basename;
 				
 				if (!is_file($file)) {
-					$title = $delimiter . 'Not Found';
-					$file = $includeDir . '/404.html';
+					prepare404($file, $title, $delimiter);
 				} else {
 					switch (pathinfo($file, PATHINFO_EXTENSION)) {
 						case 'css':
@@ -94,8 +102,7 @@
 					exit;
 				}
 			} else {
-				$title = $delimiter . 'Not Found';
-				$file = $includeDir . '/404.html';
+				prepare404($file, $title, $delimiter);
 			}
 			break;
 		case 'error':
@@ -108,22 +115,21 @@
 			} else {
 				//trying to download something
 				if ($page === 'latest') {
-					$page = 'php-midi-library-1.0.tar.gz';
+					$page = 'php-midi-library-1.0.161.tar.gz';
 				}
 				
 				$download = $downloadDir . '/' . $page;
 				
 				$headers = get_headers($download, true);
 				if (strpos($headers[0], '200 OK') === false) {
-					$title = $delimiter . 'Not Found';
-					$file = $includeDir . '/404.html';
+					prepare404($file, $title, $delimiter);
 				} else {
 					$size = $headers['Content-Length'];
 					header('Content-Length', $size);
 					
 					switch(pathinfo($download, PATHINFO_EXTENSION)) {
 						case 'gz':
-							header('Content-Type: application/gz');
+							header('Content-Type: application/x-tar-gz');
 							break;
 						case 'mid':
 							header('Content-Type: audio/midi');
@@ -151,8 +157,7 @@
 					$file = $includeDir . '/docs/' . $page . '/' . $basename;
 					
 					if (!is_file($file)) {
-						$title = $delimiter . 'Not Found';
-						$file = $includeDir . '/404.html';
+						prepare404($file, $title, $delimiter);
 					} else if (substr($file, -4) === '.css') {
 						header('Content-Type: text/css');
 						require $file;
@@ -164,8 +169,7 @@
 					break;
 				case 'pdepend':
 					if (count($uriSegments) > 2) {
-						$title = $delimiter . 'Not Found';
-						$file = $includeDir . '/404.html';
+						prepare404($file, $title, $delimiter);
 					} else {
 						$title = $delimiter . 'Dependencies';
 						$file = $includeDir . '/docs/pdepend.php';
@@ -178,8 +182,7 @@
 			}
 			break;
 		default:
-			$title = $delimiter . 'Not Found';
-			$file = $includeDir . '/404.html';
+			prepare404($file, $title, $delimiter);
 			break;
 	}
 	

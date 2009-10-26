@@ -12,20 +12,24 @@
 		<mkdir dir="${build.dist}"/>
 		
 		<!-- just library -->
-		<tar destfile="${build.dist}/${product.shortname}.${product.version}.${product.revision}.tar.gz"  compression="gzip"> 
+		<tar destfile="${build.dist}/${product.shortname}-${product.version}.${product.revision}.tar.gz"  compression="gzip"> 
 			<tarfileset dir="${dir.src}" includes="Midi/**"/>
 			<tarfileset dir="${basedir}" includes="README,LICENSE"/>
 		</tar>
 		
 		<!-- source code -->
-		<tar destfile="${build.dist}/${product.shortname}.${product.version}.${product.revision}-src.tar.gz"  compression="gzip"> 
-			<tarfileset dir="${basedir}" excludes="build/**,dist/**"/>
+		<tar destfile="${build.dist}/${product.shortname}-${product.version}.${product.revision}-src.tar.gz"  compression="gzip"> 
+			<tarfileset dir="${basedir}" excludes="build/**,dist/**,sample/test/**"/>
 		</tar>
 	</target>
 	
 	<target name="clean" depends="init" description="Deletes directories and files created by the build sequence">
 		<delete dir="${build.base}"/> 
 		<delete dir="${build.dist}"/>
+	</target>
+	
+	<target name="config" depends="init" description="Creates the configuration file for the website">
+		<copy file="${dir.www}/include/www.config.default" tofile="${dir.www}/include/www.config"/>
 	</target>
 	
 	<target name="coverage" depends="set-exe-suffix, test-set-suite" description="Runs unit tests and calculates code coverage">
@@ -42,6 +46,13 @@
 			<arg line="--bootstrap ${dir.tests}/bootstrap.php"/>
 			<arg line="${test.suite}"/>
 		</exec>
+	</target>
+	
+	<target name="deploy" depends="archive, vhost, config" description="Prepares the website and tarballs for deployment">
+		<tar destfile="${build.dist}/${product.shortname}-www.tar.gz"  compression="gzip">
+			<tarfileset dir="${basedir}" includes="www/**" excludes="www/include/*.default"/>
+			<tarfileset dir="${build.base}" includes="phpmidiparser.com.conf"/>
+		</tar>
 	</target>
 	
 	<target name="dependencies" depends="set-exe-suffix" description="Generates dependency graphs and reports">
@@ -132,6 +143,15 @@
 		</exec>
 		
 		<echo level="info">Wrote to ${dir.src}/Midi/Version.php</echo>
+	</target>
+	
+	<target name="vhost" depends="init" description="Generates the virtual host file">
+		<mkdir dir="${build.base}"/>
+		<copy file="${dir.www}/include/vhost.conf.default" tofile="${build.base}/phpmidiparser.com.conf"/>
+		<replace file="${build.base}/phpmidiparser.com.conf" propertyFile="./properties/vhost.properties">
+			<replacefilter token="@IP@" property="ip"/>
+			<replacefilter token="@DOCUMENT_ROOT@" property="docroot"/>
+		</replace>
 	</target>
 	
 	<!-- 
