@@ -106,9 +106,10 @@
 				<li><span class="field">return:</span> Each element is a hex string</li>
 				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Reporting/HtmlFormatter.html#methodbeforeEvent">HtmlFormatter::beforeEvent()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Reporting/HtmlFormatter.html#methodbeforeChunk">HtmlFormatter::beforeChunk()</a></li>
-				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodunpack">Util::unpack()</a></li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodbinaryToHexCallback">Util::binaryToHexCallback()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodunpack">Util::unpack()</a></li>
 			</ul>
 	
 	<div class="method-signature">
@@ -252,6 +253,7 @@
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/MetaEvent.html#methodtoBinary">MetaEvent::toBinary()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/ChannelEvent.html#methodtoBinary">ChannelEvent::toBinary()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodtoBinary">SystemExclusiveEvent::toBinary()</a></li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodisNormal">SystemExclusiveEvent::isNormal()</a></li>
 			</ul>
 	
 	<div class="method-signature">
@@ -287,16 +289,15 @@
 				<li><span class="field">return:</span> A zero-indexed array</li>
 				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
-				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/FileParser.html#methodparseFileHeader">FileParser::parseFileHeader()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/TrackParser.html#methodparseTrackHeader">TrackParser::parseTrackHeader()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Util/Util.html#methodbinaryToHex">Util::binaryToHex()</a></li>
-				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/EventParser.html#methodparseMetaEvent">EventParser::parseMetaEvent()</a></li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/FileParser.html#methodparseFileHeader">FileParser::parseFileHeader()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Util/Util.html#methodgetTicksFromDeltaByteSequence">Util::getTicksFromDeltaByteSequence()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/EventParser.html#methodparse">EventParser::parse()</a></li>
-				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodisNormal">SystemExclusiveEvent::isNormal()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/Parser.html#methodgetDelta">Parser::getDelta()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/EventParser.html#methodgetMetaEvent">EventParser::getMetaEvent()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/EventParser.html#methodparseChannelEvent">EventParser::parseChannelEvent()</a></li>
+				<li><span class="field">usedby:</span> <a href="../../Midi/Parsing/EventParser.html#methodparseMetaEvent">EventParser::parseMetaEvent()</a></li>
 			</ul>
 	
 	<div class="method-signature">
@@ -326,7 +327,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 24 Oct 2009 16:07:38 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 25 Oct 2009 22:38:22 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

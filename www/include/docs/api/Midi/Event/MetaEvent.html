@@ -30,9 +30,9 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Base class for all meta events</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
 				<li><span class="field">todo:</span> Still missing meta events 0xF1-0xFE</li>
 				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">since:</span> 1.0</li>
 			</ul>
 		<p class="notes">
 			Located in <a class="field" href="_Event---MetaEvent.php.html">/Event/MetaEvent.php</a> (line <span class="field">25</span>)
@@ -324,7 +324,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Constructor</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -381,7 +381,7 @@
 <p class="short-description">Gets the data associated with this meta event</p>
 	<ul class="tags">
 				<li><span class="field">return:</span> [0] =&gt; meta subtype, [1] =&gt; length, [2] =&gt; data</li>
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/MetaEvent.html#methodgetSubtype">MetaEvent::getSubtype()</a></li>
 			</ul>
@@ -413,7 +413,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the length of this meta event in bytes</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodgetDeltaByteSequence">Util::getDeltaByteSequence()</a></li>
 			</ul>
@@ -445,8 +445,8 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the meta event subtype for this event</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
 				<li><span class="field">abstract:</span> </li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/MetaEvent.html#methodgetData">MetaEvent::getData()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/MetaEvent.html#method__toString">MetaEvent::__toString()</a></li>
@@ -526,7 +526,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the event type</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/MetaEvent.html#method__toString">MetaEvent::__toString()</a></li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/EventType.html#constMETA">EventType::META</a></li>
@@ -559,7 +559,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the binary representation of this meta event</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodpack">Util::pack()</a></li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodgetDeltaByteSequence">Util::getDeltaByteSequence()</a></li>
@@ -593,10 +593,10 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the string representation of this meta event</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/MetaEvent.html#methodgetType">MetaEvent::getType()</a></li>
-				<li><span class="field">uses:</span> <a href="../../Midi/MetaEventType.html#methodgetEventTypeName">MetaEventType::getEventTypeName()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Event/MetaEventType.html#methodgetEventTypeName">MetaEventType::getEventTypeName()</a></li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/MetaEvent.html#methodgetSubtype">MetaEvent::getSubtype()</a></li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/EventType.html#methodgetEventName">EventType::getEventName()</a></li>
 				<li><span class="field">uses:</span> getParamDescription()</li>
@@ -625,7 +625,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 24 Oct 2009 16:07:34 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 25 Oct 2009 22:38:18 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

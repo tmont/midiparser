@@ -729,6 +729,12 @@
 							<div class="index-item-description">Before an event is parsed</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">beforeEvent</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#methodbeforeEvent">HtmlFormatter::beforeEvent()</a> in HtmlFormatter.php</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">beforeFile</span>
 					</dt>
 		<dd class="index-item-body">
@@ -739,13 +745,13 @@
 						<span class="method-title">beforeFile</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/TextFormatter.html#methodbeforeFile">TextFormatter::beforeFile()</a> in TextFormatter.php</div>
+			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#methodbeforeFile">HtmlFormatter::beforeFile()</a> in HtmlFormatter.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">beforeFile</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#methodbeforeFile">HtmlFormatter::beforeFile()</a> in HtmlFormatter.php</div>
+			<div class="index-item-details"><a href="Midi/Reporting/TextFormatter.html#methodbeforeFile">TextFormatter::beforeFile()</a> in TextFormatter.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">beforeFileHeader</span>
@@ -1012,12 +1018,6 @@
 	</div>
 	<dl>
 			<dt class="field">
-						CHANNEL_PREFIX
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constCHANNEL_PREFIX">MetaEventType::CHANNEL_PREFIX</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
 						Chunk
 					</dt>
 		<dd class="index-item-body">
@@ -1029,19 +1029,6 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/_Chunk.php.html">Chunk.php</a> in Chunk.php</div>
-					</dd>
-			<dt class="field">
-						COPYRIGHT_NOTICE
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constCOPYRIGHT_NOTICE">MetaEventType::COPYRIGHT_NOTICE</a> in MetaEventType.php</div>
-							<div class="index-item-description">Adds a copyright notice to a track; should be in the  first track chunk</div>
-					</dd>
-			<dt class="field">
-						CUE_POINT
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constCUE_POINT">MetaEventType::CUE_POINT</a> in MetaEventType.php</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$chunks</span>
@@ -1105,6 +1092,12 @@
 			<div class="index-item-details"><a href="Midi/Event/EventType.html#constCHANNEL_AFTERTOUCH">EventType::CHANNEL_AFTERTOUCH</a> in EventType.php</div>
 					</dd>
 			<dt class="field">
+						CHANNEL_PREFIX
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constCHANNEL_PREFIX">MetaEventType::CHANNEL_PREFIX</a> in MetaEventType.php</div>
+					</dd>
+			<dt class="field">
 						CONTROLLER
 					</dt>
 		<dd class="index-item-body">
@@ -1126,11 +1119,24 @@
 							<div class="index-item-description">Represents the copyright notice meta event</div>
 					</dd>
 			<dt class="field">
+						COPYRIGHT_NOTICE
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constCOPYRIGHT_NOTICE">MetaEventType::COPYRIGHT_NOTICE</a> in MetaEventType.php</div>
+							<div class="index-item-description">Adds a copyright notice to a track; should be in the  first track chunk</div>
+					</dd>
+			<dt class="field">
 						CuePointEvent
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/CuePointEvent.html">CuePointEvent</a> in CuePointEvent.php</div>
 							<div class="index-item-description">Represents a cue point meta event</div>
+					</dd>
+			<dt class="field">
+						CUE_POINT
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constCUE_POINT">MetaEventType::CUE_POINT</a> in MetaEventType.php</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">ChannelAftertouchEvent.php</span>
@@ -1588,12 +1594,6 @@
 			<div class="index-item-details"><a href="Midi/_Delta.php.html">Delta.php</a> in Delta.php</div>
 					</dd>
 			<dt class="field">
-						DEVICE_NAME
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constDEVICE_NAME">MetaEventType::DEVICE_NAME</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
 						<span class="include-title">DeltaParser.php</span>
 					</dt>
 		<dd class="index-item-body">
@@ -1603,14 +1603,20 @@
 						<span class="var-title">$data</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/SystemExclusiveEvent.html#var$data">SystemExclusiveEvent::$data</a> in SystemExclusiveEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/MetaEvent.html#var$data">MetaEvent::$data</a> in MetaEvent.php</div>
+							<div class="index-item-description">The content of the meta event</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$data</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/MetaEvent.html#var$data">MetaEvent::$data</a> in MetaEvent.php</div>
-							<div class="index-item-description">The content of the meta event</div>
+			<div class="index-item-details"><a href="Midi/Event/SystemExclusiveEvent.html#var$data">SystemExclusiveEvent::$data</a> in SystemExclusiveEvent.php</div>
+					</dd>
+			<dt class="field">
+						DEVICE_NAME
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constDEVICE_NAME">MetaEventType::DEVICE_NAME</a> in MetaEventType.php</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$deltaParser</span>
@@ -1631,6 +1637,12 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Parsing/DeltaParser.html">DeltaParser</a> in DeltaParser.php</div>
 							<div class="index-item-description">Class for parsing delta times</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$delta</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#var$delta">HtmlFormatter::$delta</a> in HtmlFormatter.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">decreaseIndent</span>
@@ -1920,19 +1932,6 @@
 	</div>
 	<dl>
 			<dt class="field">
-						<span class="var-title">$eventNameMap</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#var$eventNameMap">MetaEventType::$eventNameMap</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
-						END_OF_TRACK
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constEND_OF_TRACK">MetaEventType::END_OF_TRACK</a> in MetaEventType.php</div>
-							<div class="index-item-description">Signifies the end of the track; should always be the  last event of each track</div>
-					</dd>
-			<dt class="field">
 						Event
 					</dt>
 		<dd class="index-item-body">
@@ -1952,11 +1951,24 @@
 			<div class="index-item-details"><a href="Midi/Event/EventType.html#var$eventNameMap">EventType::$eventNameMap</a> in EventType.php</div>
 					</dd>
 			<dt class="field">
+						<span class="var-title">$eventNameMap</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#var$eventNameMap">MetaEventType::$eventNameMap</a> in MetaEventType.php</div>
+					</dd>
+			<dt class="field">
 						EndOfTrackEvent
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/EndOfTrackEvent.html">EndOfTrackEvent</a> in EndOfTrackEvent.php</div>
 							<div class="index-item-description">Represents an end of track meta event</div>
+					</dd>
+			<dt class="field">
+						END_OF_TRACK
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constEND_OF_TRACK">MetaEventType::END_OF_TRACK</a> in MetaEventType.php</div>
+							<div class="index-item-description">Signifies the end of the track; should always be the  last event of each track</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">EndOfTrackEvent.php</span>
@@ -2371,27 +2383,20 @@
 						<span class="method-title">formatDelta</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatDelta">Formatter::formatDelta()</a> in Formatter.php</div>
-							<div class="index-item-description">Formts a delta time</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">formatDelta</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Reporting/TextFormatter.html#methodformatDelta">TextFormatter::formatDelta()</a> in TextFormatter.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">formatDelta</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#methodformatDelta">HtmlFormatter::formatDelta()</a> in HtmlFormatter.php</div>
+			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatDelta">Formatter::formatDelta()</a> in Formatter.php</div>
+							<div class="index-item-description">Formts a delta time</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">formatEvent</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatEvent">Formatter::formatEvent()</a> in Formatter.php</div>
-							<div class="index-item-description">Formats an event</div>
+			<div class="index-item-details"><a href="Midi/Reporting/TextFormatter.html#methodformatEvent">TextFormatter::formatEvent()</a> in TextFormatter.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">formatEvent</span>
@@ -2403,13 +2408,15 @@
 						<span class="method-title">formatEvent</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/TextFormatter.html#methodformatEvent">TextFormatter::formatEvent()</a> in TextFormatter.php</div>
+			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatEvent">Formatter::formatEvent()</a> in Formatter.php</div>
+							<div class="index-item-description">Formats an event</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">formatFileHeader</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#methodformatFileHeader">HtmlFormatter::formatFileHeader()</a> in HtmlFormatter.php</div>
+			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatFileHeader">Formatter::formatFileHeader()</a> in Formatter.php</div>
+							<div class="index-item-description">Formats a file header</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">formatFileHeader</span>
@@ -2421,8 +2428,7 @@
 						<span class="method-title">formatFileHeader</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatFileHeader">Formatter::formatFileHeader()</a> in Formatter.php</div>
-							<div class="index-item-description">Formats a file header</div>
+			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#methodformatFileHeader">HtmlFormatter::formatFileHeader()</a> in HtmlFormatter.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">formatOffset</span>
@@ -2449,13 +2455,6 @@
 						<span class="method-title">formatTrackHeader</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatTrackHeader">Formatter::formatTrackHeader()</a> in Formatter.php</div>
-							<div class="index-item-description">Formats a track header</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">formatTrackHeader</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Reporting/TextFormatter.html#methodformatTrackHeader">TextFormatter::formatTrackHeader()</a> in TextFormatter.php</div>
 					</dd>
 			<dt class="field">
@@ -2463,6 +2462,13 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Reporting/HtmlFormatter.html#methodformatTrackHeader">HtmlFormatter::formatTrackHeader()</a> in HtmlFormatter.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">formatTrackHeader</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Reporting/Formatter.html#methodformatTrackHeader">Formatter::formatTrackHeader()</a> in Formatter.php</div>
+							<div class="index-item-description">Formats a track header</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">FilePrinter.php</span>
@@ -2718,14 +2724,14 @@
 						<span class="method-title">getData</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Chunk.html#methodgetData">Chunk::getData()</a> in Chunk.php</div>
-							<div class="index-item-description">Gets the data associated with this chunk</div>
+			<div class="index-item-details"><a href="Midi/FileHeader.html#methodgetData">FileHeader::getData()</a> in FileHeader.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getData</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/FileHeader.html#methodgetData">FileHeader::getData()</a> in FileHeader.php</div>
+			<div class="index-item-details"><a href="Midi/Chunk.html#methodgetData">Chunk::getData()</a> in Chunk.php</div>
+							<div class="index-item-description">Gets the data associated with this chunk</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getData</span>
@@ -2735,11 +2741,10 @@
 							<div class="index-item-description">Describe this function</div>
 					</dd>
 			<dt class="field">
-						<span class="method-title">getEventTypeName</span>
+						<span class="method-title">getLength</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#methodgetEventTypeName">MetaEventType::getEventTypeName()</a> in MetaEventType.php</div>
-							<div class="index-item-description">Gets the name of the event type</div>
+			<div class="index-item-details"><a href="Midi/TrackHeader.html#methodgetLength">TrackHeader::getLength()</a> in TrackHeader.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getLength</span>
@@ -2747,12 +2752,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Chunk.html#methodgetLength">Chunk::getLength()</a> in Chunk.php</div>
 							<div class="index-item-description">Gets the length of this chunk in bytes</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getLength</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/TrackHeader.html#methodgetLength">TrackHeader::getLength()</a> in TrackHeader.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getLength</span>
@@ -2819,8 +2818,8 @@
 						<span class="method-title">getData</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/MetaEvent.html#methodgetData">MetaEvent::getData()</a> in MetaEvent.php</div>
-							<div class="index-item-description">Gets the data associated with this meta event</div>
+			<div class="index-item-details"><a href="Midi/Event/SystemExclusiveEvent.html#methodgetData">SystemExclusiveEvent::getData()</a> in SystemExclusiveEvent.php</div>
+							<div class="index-item-description">Gets the data associated with this event</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getData</span>
@@ -2833,8 +2832,8 @@
 						<span class="method-title">getData</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/SystemExclusiveEvent.html#methodgetData">SystemExclusiveEvent::getData()</a> in SystemExclusiveEvent.php</div>
-							<div class="index-item-description">Gets the data associated with this event</div>
+			<div class="index-item-details"><a href="Midi/Event/MetaEvent.html#methodgetData">MetaEvent::getData()</a> in MetaEvent.php</div>
+							<div class="index-item-description">Gets the data associated with this meta event</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getEventName</span>
@@ -2844,11 +2843,25 @@
 							<div class="index-item-description">Gets the name of an event</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">getEventTypeName</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#methodgetEventTypeName">MetaEventType::getEventTypeName()</a> in MetaEventType.php</div>
+							<div class="index-item-description">Gets the name of the event type</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">getFrameRateDescription</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/SmpteOffsetEvent.html#methodgetFrameRateDescription">SmpteOffsetEvent::getFrameRateDescription()</a> in SmpteOffsetEvent.php</div>
 							<div class="index-item-description">Gets the user-friendly description of the different  frame rate types</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getLength</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/ChannelEvent.html#methodgetLength">ChannelEvent::getLength()</a> in ChannelEvent.php</div>
+							<div class="index-item-description">Gets the length of this event in bytes</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getLength</span>
@@ -2874,14 +2887,43 @@
 						<span class="method-title">getLength</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ChannelEvent.html#methodgetLength">ChannelEvent::getLength()</a> in ChannelEvent.php</div>
-							<div class="index-item-description">Gets the length of this event in bytes</div>
+			<div class="index-item-details"><a href="Midi/Event/ChannelAftertouchEvent.html#methodgetLength">ChannelAftertouchEvent::getLength()</a> in ChannelAftertouchEvent.php</div>
 					</dd>
 			<dt class="field">
-						<span class="method-title">getLength</span>
+						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ChannelAftertouchEvent.html#methodgetLength">ChannelAftertouchEvent::getLength()</a> in ChannelAftertouchEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/ChannelAftertouchEvent.html#methodgetParamDescription">ChannelAftertouchEvent::getParamDescription()</a> in ChannelAftertouchEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/TextEvent.html#methodgetParamDescription">TextEvent::getParamDescription()</a> in TextEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/TimeSignatureEvent.html#methodgetParamDescription">TimeSignatureEvent::getParamDescription()</a> in TimeSignatureEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/NoteAftertouchEvent.html#methodgetParamDescription">NoteAftertouchEvent::getParamDescription()</a> in NoteAftertouchEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/NoteOffEvent.html#methodgetParamDescription">NoteOffEvent::getParamDescription()</a> in NoteOffEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/PitchBendEvent.html#methodgetParamDescription">PitchBendEvent::getParamDescription()</a> in PitchBendEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
@@ -2894,13 +2936,7 @@
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/NoteAftertouchEvent.html#methodgetParamDescription">NoteAftertouchEvent::getParamDescription()</a> in NoteAftertouchEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/PitchBendEvent.html#methodgetParamDescription">PitchBendEvent::getParamDescription()</a> in PitchBendEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/SequencerSpecificEvent.html#methodgetParamDescription">SequencerSpecificEvent::getParamDescription()</a> in SequencerSpecificEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
@@ -2912,7 +2948,7 @@
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ProgramChangeEvent.html#methodgetParamDescription">ProgramChangeEvent::getParamDescription()</a> in ProgramChangeEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/TrackNameEvent.html#methodgetParamDescription">TrackNameEvent::getParamDescription()</a> in TrackNameEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
@@ -2924,31 +2960,7 @@
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/TrackNameEvent.html#methodgetParamDescription">TrackNameEvent::getParamDescription()</a> in TrackNameEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/UnknownMetaEvent.html#methodgetParamDescription">UnknownMetaEvent::getParamDescription()</a> in UnknownMetaEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/TimeSignatureEvent.html#methodgetParamDescription">TimeSignatureEvent::getParamDescription()</a> in TimeSignatureEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/TextEvent.html#methodgetParamDescription">TextEvent::getParamDescription()</a> in TextEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/SequencerSpecificEvent.html#methodgetParamDescription">SequencerSpecificEvent::getParamDescription()</a> in SequencerSpecificEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/EndOfTrackEvent.html#methodgetParamDescription">EndOfTrackEvent::getParamDescription()</a> in EndOfTrackEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
@@ -2960,19 +2972,37 @@
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/SequenceNumberEvent.html#methodgetParamDescription">SequenceNumberEvent::getParamDescription()</a> in SequenceNumberEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/ProgramChangeEvent.html#methodgetParamDescription">ProgramChangeEvent::getParamDescription()</a> in ProgramChangeEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/NoteOffEvent.html#methodgetParamDescription">NoteOffEvent::getParamDescription()</a> in NoteOffEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/CuePointEvent.html#methodgetParamDescription">CuePointEvent::getParamDescription()</a> in CuePointEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/UnknownMetaEvent.html#methodgetParamDescription">UnknownMetaEvent::getParamDescription()</a> in UnknownMetaEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/CopyrightNoticeEvent.html#methodgetParamDescription">CopyrightNoticeEvent::getParamDescription()</a> in CopyrightNoticeEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/ChannelPrefixEvent.html#methodgetParamDescription">ChannelPrefixEvent::getParamDescription()</a> in ChannelPrefixEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getParamDescription</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/InstrumentNameEvent.html#methodgetParamDescription">InstrumentNameEvent::getParamDescription()</a> in InstrumentNameEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
@@ -2990,31 +3020,13 @@
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/CopyrightNoticeEvent.html#methodgetParamDescription">CopyrightNoticeEvent::getParamDescription()</a> in CopyrightNoticeEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/SequenceNumberEvent.html#methodgetParamDescription">SequenceNumberEvent::getParamDescription()</a> in SequenceNumberEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/InstrumentNameEvent.html#methodgetParamDescription">InstrumentNameEvent::getParamDescription()</a> in InstrumentNameEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/EndOfTrackEvent.html#methodgetParamDescription">EndOfTrackEvent::getParamDescription()</a> in EndOfTrackEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/CuePointEvent.html#methodgetParamDescription">CuePointEvent::getParamDescription()</a> in CuePointEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getParamDescription</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ChannelAftertouchEvent.html#methodgetParamDescription">ChannelAftertouchEvent::getParamDescription()</a> in ChannelAftertouchEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/KeySignatureEvent.html#methodgetParamDescription">KeySignatureEvent::getParamDescription()</a> in KeySignatureEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getParamDescription</span>
@@ -3023,10 +3035,10 @@
 			<div class="index-item-details"><a href="Midi/Event/MarkerEvent.html#methodgetParamDescription">MarkerEvent::getParamDescription()</a> in MarkerEvent.php</div>
 					</dd>
 			<dt class="field">
-						<span class="method-title">getParamDescription</span>
+						<span class="method-title">getSubtype</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/KeySignatureEvent.html#methodgetParamDescription">KeySignatureEvent::getParamDescription()</a> in KeySignatureEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/SequenceNumberEvent.html#methodgetSubtype">SequenceNumberEvent::getSubtype()</a> in SequenceNumberEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getSubtype</span>
@@ -3038,43 +3050,7 @@
 						<span class="method-title">getSubtype</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/CopyrightNoticeEvent.html#methodgetSubtype">CopyrightNoticeEvent::getSubtype()</a> in CopyrightNoticeEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ChannelPrefixEvent.html#methodgetSubtype">ChannelPrefixEvent::getSubtype()</a> in ChannelPrefixEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/TrackNameEvent.html#methodgetSubtype">TrackNameEvent::getSubtype()</a> in TrackNameEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/UnknownMetaEvent.html#methodgetSubtype">UnknownMetaEvent::getSubtype()</a> in UnknownMetaEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/TimeSignatureEvent.html#methodgetSubtype">TimeSignatureEvent::getSubtype()</a> in TimeSignatureEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/TextEvent.html#methodgetSubtype">TextEvent::getSubtype()</a> in TextEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/CuePointEvent.html#methodgetSubtype">CuePointEvent::getSubtype()</a> in CuePointEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getSubtype</span>
@@ -3092,20 +3068,38 @@
 						<span class="method-title">getSubtype</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/MarkerEvent.html#methodgetSubtype">MarkerEvent::getSubtype()</a> in MarkerEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/LyricsEvent.html#methodgetSubtype">LyricsEvent::getSubtype()</a> in LyricsEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getSubtype</span>
-					</dt>
-		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/MetaEvent.html#methodgetSubtype">MetaEvent::getSubtype()</a> in MetaEvent.php</div>
 							<div class="index-item-description">Gets the meta event subtype for this event</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getSubtype</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/CuePointEvent.html#methodgetSubtype">CuePointEvent::getSubtype()</a> in CuePointEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getSubtype</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/EndOfTrackEvent.html#methodgetSubtype">EndOfTrackEvent::getSubtype()</a> in EndOfTrackEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getSubtype</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/CopyrightNoticeEvent.html#methodgetSubtype">CopyrightNoticeEvent::getSubtype()</a> in CopyrightNoticeEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getSubtype</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/ChannelPrefixEvent.html#methodgetSubtype">ChannelPrefixEvent::getSubtype()</a> in ChannelPrefixEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getSubtype</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/UnknownMetaEvent.html#methodgetSubtype">UnknownMetaEvent::getSubtype()</a> in UnknownMetaEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getSubtype</span>
@@ -3123,13 +3117,25 @@
 						<span class="method-title">getSubtype</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/EndOfTrackEvent.html#methodgetSubtype">EndOfTrackEvent::getSubtype()</a> in EndOfTrackEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/TrackNameEvent.html#methodgetSubtype">TrackNameEvent::getSubtype()</a> in TrackNameEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getSubtype</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/SequenceNumberEvent.html#methodgetSubtype">SequenceNumberEvent::getSubtype()</a> in SequenceNumberEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/TimeSignatureEvent.html#methodgetSubtype">TimeSignatureEvent::getSubtype()</a> in TimeSignatureEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getSubtype</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MarkerEvent.html#methodgetSubtype">MarkerEvent::getSubtype()</a> in MarkerEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getSubtype</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/LyricsEvent.html#methodgetSubtype">LyricsEvent::getSubtype()</a> in LyricsEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getTimeSignature</span>
@@ -3142,7 +3148,7 @@
 						<span class="method-title">getType</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ChannelAftertouchEvent.html#methodgetType">ChannelAftertouchEvent::getType()</a> in ChannelAftertouchEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/NoteAftertouchEvent.html#methodgetType">NoteAftertouchEvent::getType()</a> in NoteAftertouchEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getType</span>
@@ -3155,13 +3161,31 @@
 						<span class="method-title">getType</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/NoteAftertouchEvent.html#methodgetType">NoteAftertouchEvent::getType()</a> in NoteAftertouchEvent.php</div>
+			<div class="index-item-details"><a href="Midi/Event/ControllerEvent.html#methodgetType">ControllerEvent::getType()</a> in ControllerEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getType</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/ChannelAftertouchEvent.html#methodgetType">ChannelAftertouchEvent::getType()</a> in ChannelAftertouchEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getType</span>
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/NoteOffEvent.html#methodgetType">NoteOffEvent::getType()</a> in NoteOffEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getType</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/NoteOnEvent.html#methodgetType">NoteOnEvent::getType()</a> in NoteOnEvent.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">getType</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/ProgramChangeEvent.html#methodgetType">ProgramChangeEvent::getType()</a> in ProgramChangeEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getType</span>
@@ -3175,24 +3199,6 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/SystemExclusiveEvent.html#methodgetType">SystemExclusiveEvent::getType()</a> in SystemExclusiveEvent.php</div>
 							<div class="index-item-description">Gets the event type</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getType</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ProgramChangeEvent.html#methodgetType">ProgramChangeEvent::getType()</a> in ProgramChangeEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getType</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/NoteOnEvent.html#methodgetType">NoteOnEvent::getType()</a> in NoteOnEvent.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">getType</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ControllerEvent.html#methodgetType">ControllerEvent::getType()</a> in ControllerEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">getChannelEvent</span>
@@ -3796,10 +3802,10 @@
 	</div>
 	<dl>
 			<dt class="field">
-						INSTRUMENT_NAME
+						<span class="var-title">$isContinuation</span>
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constINSTRUMENT_NAME">MetaEventType::INSTRUMENT_NAME</a> in MetaEventType.php</div>
+			<div class="index-item-details"><a href="Midi/Event/ChannelEvent.html#var$isContinuation">ChannelEvent::$isContinuation</a> in ChannelEvent.php</div>
 					</dd>
 			<dt class="field">
 						<span class="include-title">InstrumentNameEvent.php</span>
@@ -3813,6 +3819,19 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/InstrumentNameEvent.html">InstrumentNameEvent</a> in InstrumentNameEvent.php</div>
 							<div class="index-item-description">Represents an instrument name meta event</div>
+					</dd>
+			<dt class="field">
+						INSTRUMENT_NAME
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constINSTRUMENT_NAME">MetaEventType::INSTRUMENT_NAME</a> in MetaEventType.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">isContinuation</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/ChannelEvent.html#methodisContinuation">ChannelEvent::isContinuation()</a> in ChannelEvent.php</div>
+							<div class="index-item-description">Gets whether this event is a continuation event</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">isDivided</span>
@@ -3883,13 +3902,6 @@
 	</div>
 	<dl>
 			<dt class="field">
-						KEY_SIGNATURE
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constKEY_SIGNATURE">MetaEventType::KEY_SIGNATURE</a> in MetaEventType.php</div>
-							<div class="index-item-description">Sets the key signature</div>
-					</dd>
-			<dt class="field">
 						<span class="include-title">KeySignatureEvent.php</span>
 					</dt>
 		<dd class="index-item-body">
@@ -3901,6 +3913,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/KeySignatureEvent.html">KeySignatureEvent</a> in KeySignatureEvent.php</div>
 							<div class="index-item-description">Represents a set key signature event</div>
+					</dd>
+			<dt class="field">
+						KEY_SIGNATURE
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constKEY_SIGNATURE">MetaEventType::KEY_SIGNATURE</a> in MetaEventType.php</div>
+							<div class="index-item-description">Sets the key signature</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$keyMap</span>
@@ -3947,21 +3966,15 @@
 						LENGTH
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/FileHeader.html#constLENGTH">FileHeader::LENGTH</a> in FileHeader.php</div>
-							<div class="index-item-description">The length of a MIDI file header</div>
+			<div class="index-item-details"><a href="Midi/TrackHeader.html#constLENGTH">TrackHeader::LENGTH</a> in TrackHeader.php</div>
+							<div class="index-item-description">The length of a MIDI track header in bytes</div>
 					</dd>
 			<dt class="field">
 						LENGTH
 					</dt>
 		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/TrackHeader.html#constLENGTH">TrackHeader::LENGTH</a> in TrackHeader.php</div>
-							<div class="index-item-description">The length of a MIDI track header in bytes</div>
-					</dd>
-			<dt class="field">
-						LYRICS
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constLYRICS">MetaEventType::LYRICS</a> in MetaEventType.php</div>
+			<div class="index-item-details"><a href="Midi/FileHeader.html#constLENGTH">FileHeader::LENGTH</a> in FileHeader.php</div>
+							<div class="index-item-description">The length of a MIDI file header</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$length</span>
@@ -3982,6 +3995,12 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/_Event---LyricsEvent.php.html">LyricsEvent.php</a> in LyricsEvent.php</div>
+					</dd>
+			<dt class="field">
+						LYRICS
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constLYRICS">MetaEventType::LYRICS</a> in MetaEventType.php</div>
 					</dd>
 			<dt class="field">
 						LyricsEvent
@@ -4201,25 +4220,6 @@
 			<div class="index-item-details"><a href="Midi/FileHeader.html#var$midiFormat">FileHeader::$midiFormat</a> in FileHeader.php</div>
 					</dd>
 			<dt class="field">
-						<span class="include-title">MetaEventType.php</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/_Event---MetaEventType.php.html">MetaEventType.php</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
-						MARKER
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constMARKER">MetaEventType::MARKER</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
-						MetaEventType
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html">MetaEventType</a> in MetaEventType.php</div>
-							<div class="index-item-description">Collection of constants representing the different  meta event types</div>
-					</dd>
-			<dt class="field">
 						MidiException
 					</dt>
 		<dd class="index-item-body">
@@ -4245,6 +4245,18 @@
 			<div class="index-item-details"><a href="Midi/Event/_Event---MetaEvent.php.html">MetaEvent.php</a> in MetaEvent.php</div>
 					</dd>
 			<dt class="field">
+						<span class="include-title">MetaEventType.php</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/_Event---MetaEventType.php.html">MetaEventType.php</a> in MetaEventType.php</div>
+					</dd>
+			<dt class="field">
+						MARKER
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constMARKER">MetaEventType::MARKER</a> in MetaEventType.php</div>
+					</dd>
+			<dt class="field">
 						MarkerEvent
 					</dt>
 		<dd class="index-item-body">
@@ -4264,6 +4276,13 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/MetaEvent.html">MetaEvent</a> in MetaEvent.php</div>
 							<div class="index-item-description">Base class for all meta events</div>
+					</dd>
+			<dt class="field">
+						MetaEventType
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html">MetaEventType</a> in MetaEventType.php</div>
+							<div class="index-item-description">Collection of constants representing the different  meta event types</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$multiFile</span>
@@ -5122,32 +5141,6 @@
 			<div class="index-item-details"><a href="Midi/TrackHeader.html#var$size">TrackHeader::$size</a> in TrackHeader.php</div>
 					</dd>
 			<dt class="field">
-						SEQUENCER_SPECIFIC
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constSEQUENCER_SPECIFIC">MetaEventType::SEQUENCER_SPECIFIC</a> in MetaEventType.php</div>
-							<div class="index-item-description">Sequencer specific events</div>
-					</dd>
-			<dt class="field">
-						SEQUENCE_NUMBER
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constSEQUENCE_NUMBER">MetaEventType::SEQUENCE_NUMBER</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
-						SET_TEMPO
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constSET_TEMPO">MetaEventType::SET_TEMPO</a> in MetaEventType.php</div>
-							<div class="index-item-description">Sets the tempo</div>
-					</dd>
-			<dt class="field">
-						SMPTE_OFFSET
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constSMPTE_OFFSET">MetaEventType::SMPTE_OFFSET</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
 						<span class="method-title">save</span>
 					</dt>
 		<dd class="index-item-body">
@@ -5199,11 +5192,24 @@
 							<div class="index-item-description">Represents a sequencer specific meta event</div>
 					</dd>
 			<dt class="field">
+						SEQUENCER_SPECIFIC
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constSEQUENCER_SPECIFIC">MetaEventType::SEQUENCER_SPECIFIC</a> in MetaEventType.php</div>
+							<div class="index-item-description">Sequencer specific events</div>
+					</dd>
+			<dt class="field">
 						SEQUENCE_CONTINUE
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/EventType.html#constSEQUENCE_CONTINUE">EventType::SEQUENCE_CONTINUE</a> in EventType.php</div>
 							<div class="index-item-description">Continues a previously stopped sequence</div>
+					</dd>
+			<dt class="field">
+						SEQUENCE_NUMBER
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constSEQUENCE_NUMBER">MetaEventType::SEQUENCE_NUMBER</a> in MetaEventType.php</div>
 					</dd>
 			<dt class="field">
 						SEQUENCE_START
@@ -5220,6 +5226,13 @@
 							<div class="index-item-description">Stops a sequence</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">setContinuation</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/ChannelEvent.html#methodsetContinuation">ChannelEvent::setContinuation()</a> in ChannelEvent.php</div>
+							<div class="index-item-description">Sets whether this event is a continuation event</div>
+					</dd>
+			<dt class="field">
 						SetTempoEvent
 					</dt>
 		<dd class="index-item-body">
@@ -5227,11 +5240,24 @@
 							<div class="index-item-description">Represents the set tempo meta event</div>
 					</dd>
 			<dt class="field">
+						SET_TEMPO
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constSET_TEMPO">MetaEventType::SET_TEMPO</a> in MetaEventType.php</div>
+							<div class="index-item-description">Sets the tempo</div>
+					</dd>
+			<dt class="field">
 						SmpteOffsetEvent
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/SmpteOffsetEvent.html">SmpteOffsetEvent</a> in SmpteOffsetEvent.php</div>
 							<div class="index-item-description">Class SmpteOffsetEvent</div>
+					</dd>
+			<dt class="field">
+						SMPTE_OFFSET
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constSMPTE_OFFSET">MetaEventType::SMPTE_OFFSET</a> in MetaEventType.php</div>
 					</dd>
 			<dt class="field">
 						SONG_POSITION_POINTER
@@ -5649,26 +5675,6 @@
 			<div class="index-item-details"><a href="Midi/FileHeader.html#var$timeDivision">FileHeader::$timeDivision</a> in FileHeader.php</div>
 					</dd>
 			<dt class="field">
-						TEXT_EVENT
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constTEXT_EVENT">MetaEventType::TEXT_EVENT</a> in MetaEventType.php</div>
-							<div class="index-item-description">Adds generic text content to a track</div>
-					</dd>
-			<dt class="field">
-						TIME_SIGNATURE
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constTIME_SIGNATURE">MetaEventType::TIME_SIGNATURE</a> in MetaEventType.php</div>
-							<div class="index-item-description">Sets the time signature</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">toBinary</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/FileHeader.html#methodtoBinary">FileHeader::toBinary()</a> in FileHeader.php</div>
-					</dd>
-			<dt class="field">
 						<span class="method-title">toBinary</span>
 					</dt>
 		<dd class="index-item-body">
@@ -5679,6 +5685,12 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Delta.html#methodtoBinary">Delta::toBinary()</a> in Delta.php</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">toBinary</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/FileHeader.html#methodtoBinary">FileHeader::toBinary()</a> in FileHeader.php</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">toBinary</span>
@@ -5699,13 +5711,6 @@
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/_TrackHeader.php.html">TrackHeader.php</a> in TrackHeader.php</div>
-					</dd>
-			<dt class="field">
-						TRACK_NAME
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constTRACK_NAME">MetaEventType::TRACK_NAME</a> in MetaEventType.php</div>
-							<div class="index-item-description">Name of the track</div>
 					</dd>
 			<dt class="field">
 						<span class="var-title">$timeDivision</span>
@@ -5759,6 +5764,13 @@
 							<div class="index-item-description">Represents a text meta event</div>
 					</dd>
 			<dt class="field">
+						TEXT_EVENT
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constTEXT_EVENT">MetaEventType::TEXT_EVENT</a> in MetaEventType.php</div>
+							<div class="index-item-description">Adds generic text content to a track</div>
+					</dd>
+			<dt class="field">
 						TimeSignatureEvent
 					</dt>
 		<dd class="index-item-body">
@@ -5766,17 +5778,17 @@
 							<div class="index-item-description">Represents the set time signature meta event</div>
 					</dd>
 			<dt class="field">
+						TIME_SIGNATURE
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constTIME_SIGNATURE">MetaEventType::TIME_SIGNATURE</a> in MetaEventType.php</div>
+							<div class="index-item-description">Sets the time signature</div>
+					</dd>
+			<dt class="field">
 						TIMING_CLOCK
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/EventType.html#constTIMING_CLOCK">EventType::TIMING_CLOCK</a> in EventType.php</div>
-					</dd>
-			<dt class="field">
-						<span class="method-title">toBinary</span>
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/Event/ChannelEvent.html#methodtoBinary">ChannelEvent::toBinary()</a> in ChannelEvent.php</div>
-							<div class="index-item-description">Gets a binary representation of this event</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">toBinary</span>
@@ -5793,11 +5805,25 @@
 							<div class="index-item-description">Gets the binary representation of this meta event</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">toBinary</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/ChannelEvent.html#methodtoBinary">ChannelEvent::toBinary()</a> in ChannelEvent.php</div>
+							<div class="index-item-description">Gets a binary representation of this event</div>
+					</dd>
+			<dt class="field">
 						TrackNameEvent
 					</dt>
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/TrackNameEvent.html">TrackNameEvent</a> in TrackNameEvent.php</div>
 							<div class="index-item-description">Represents a track name meta event</div>
+					</dd>
+			<dt class="field">
+						TRACK_NAME
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constTRACK_NAME">MetaEventType::TRACK_NAME</a> in MetaEventType.php</div>
+							<div class="index-item-description">Name of the track</div>
 					</dd>
 			<dt class="field">
 						TUNE_REQUEST
@@ -5984,12 +6010,6 @@
 	</div>
 	<dl>
 			<dt class="field">
-						UNKNOWN
-					</dt>
-		<dd class="index-item-body">
-			<div class="index-item-details"><a href="Midi/MetaEventType.html#constUNKNOWN">MetaEventType::UNKNOWN</a> in MetaEventType.php</div>
-					</dd>
-			<dt class="field">
 						<span class="include-title">UnknownMetaEvent.php</span>
 					</dt>
 		<dd class="index-item-body">
@@ -6029,6 +6049,12 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="Midi/Event/EventType.html#constUNDEFINED5">EventType::UNDEFINED5</a> in EventType.php</div>
 							<div class="index-item-description">Reserved event</div>
+					</dd>
+			<dt class="field">
+						UNKNOWN
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="Midi/Event/MetaEventType.html#constUNKNOWN">MetaEventType::UNKNOWN</a> in MetaEventType.php</div>
 					</dd>
 			<dt class="field">
 						UnknownMetaEvent

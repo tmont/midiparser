@@ -30,7 +30,7 @@
 <p class="short-description">Represents a system exclusive event</p>
 <p class="description"><p>These events are exclusive to the (duh) system. Meaning,  each manufacturer can use these events in whatever way  they choose.</p></p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 			</ul>
 		<p class="notes">
 			Located in <a class="field" href="_Event---SystemExclusiveEvent.php.html">/Event/SystemExclusiveEvent.php</a> (line <span class="field">28</span>)
@@ -207,7 +207,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Constructor</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -231,13 +231,13 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getData</span> (line <span class="line-number">139</span>)
+		<span class="method-title">getData</span> (line <span class="line-number">140</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the data associated with this event</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
@@ -268,7 +268,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the length of this event in bytes</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodgetDeltaByteSequence">Util::getDeltaByteSequence()</a></li>
 			</ul>
@@ -294,13 +294,13 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">getType</span> (line <span class="line-number">151</span>)
+		<span class="method-title">getType</span> (line <span class="line-number">152</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the event type</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodtoBinary">SystemExclusiveEvent::toBinary()</a></li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#method__toString">SystemExclusiveEvent::__toString()</a></li>
@@ -335,8 +335,8 @@
 <p class="short-description">Gets whether this is a divided system exclusive event</p>
 <p class="description"><p>In order to avoid delays in playback with very long  sysex events, normal sysex events can be broken up into  several divided events.</p></p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
 				<li><span class="field">see:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodisNormal">SystemExclusiveEvent::isNormal()</a></li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodisNormal">SystemExclusiveEvent::isNormal()</a></li>
 			</ul>
@@ -363,11 +363,11 @@
 <p class="short-description">Gets whether this is a normal system exclusive event</p>
 <p class="description"><p>Normal sysex events are signified by the last byte of data  being 0xF7.</p></p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
 				<li><span class="field">see:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodisDivided">SystemExclusiveEvent::isDivided()</a></li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">usedby:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodisDivided">SystemExclusiveEvent::isDivided()</a></li>
-				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodunpack">Util::unpack()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodpack">Util::pack()</a></li>
 			</ul>
 	
 	<div class="method-signature">
@@ -391,7 +391,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets a binary representation of this event</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodpack">Util::pack()</a></li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Util/Util.html#methodgetDeltaByteSequence">Util::getDeltaByteSequence()</a></li>
@@ -425,7 +425,7 @@
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Gets the string representation of this event</p>
 	<ul class="tags">
-				<li><span class="field">version:</span> 1.0</li>
+				<li><span class="field">since:</span> 1.0</li>
 				<li><span class="field">access:</span> public</li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/EventType.html#methodgetEventName">EventType::getEventName()</a></li>
 				<li><span class="field">uses:</span> <a href="../../Midi/Event/SystemExclusiveEvent.html#methodgetType">SystemExclusiveEvent::getType()</a></li>
@@ -454,7 +454,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 24 Oct 2009 16:07:37 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 25 Oct 2009 22:38:20 -0700 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

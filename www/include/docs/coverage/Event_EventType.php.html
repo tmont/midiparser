@@ -160,7 +160,7 @@
 <span class="lineNum" id="container5"><a name="5"></a><a href="#5" id="line5">       5</a> </span>                :      *                                                                                                     
 <span class="lineNum" id="container6"><a name="6"></a><a href="#6" id="line6">       6</a> </span>                :      * @package    Midi                                                                                    
 <span class="lineNum" id="container7"><a name="7"></a><a href="#7" id="line7">       7</a> </span>                :      * @subpackage Event                                                                                   
-<span class="lineNum" id="container8"><a name="8"></a><a href="#8" id="line8">       8</a> </span>                :      * @copyright  © 2009 Tommy Montgomery &lt;http://phpmidiparser.php/&gt;                                     
+<span class="lineNum" id="container8"><a name="8"></a><a href="#8" id="line8">       8</a> </span>                :      * @copyright  © 2009 Tommy Montgomery &lt;http://phpmidiparser.com/&gt;                                     
 <span class="lineNum" id="container9"><a name="9"></a><a href="#9" id="line9">       9</a> </span>                :      * @since      1.0                                                                                     
 <span class="lineNum" id="container10"><a name="10"></a><a href="#10" id="line10">      10</a> </span>                :      */                                                                                                    
 <span class="lineNum" id="container11"><a name="11"></a><a href="#11" id="line11">      11</a> </span>                :                                                                                                            
@@ -171,7 +171,7 @@
 <span class="lineNum" id="container16"><a name="16"></a><a href="#16" id="line16">      16</a> </span>                :      *                                                                                                     
 <span class="lineNum" id="container17"><a name="17"></a><a href="#17" id="line17">      17</a> </span>                :      * @package    Midi                                                                                    
 <span class="lineNum" id="container18"><a name="18"></a><a href="#18" id="line18">      18</a> </span>                :      * @subpackage Event                                                                                   
-<span class="lineNum" id="container19"><a name="19"></a><a href="#19" id="line19">      19</a> </span>                :      * @copyright  © 2009 Tommy Montgomery &lt;http://phpmidiparser.php/&gt;                                     
+<span class="lineNum" id="container19"><a name="19"></a><a href="#19" id="line19">      19</a> </span>                :      * @copyright  © 2009 Tommy Montgomery &lt;http://phpmidiparser.com/&gt;                                     
 <span class="lineNum" id="container20"><a name="20"></a><a href="#20" id="line20">      20</a> </span>                :      * @since      1.0                                                                                     
 <span class="lineNum" id="container21"><a name="21"></a><a href="#21" id="line21">      21</a> </span>                :      */                                                                                                    
 <span class="lineNum" id="container22"><a name="22"></a><a href="#22" id="line22">      22</a> </span><span class="lineCov">              1 :     final class EventType {                                                                                </span>
@@ -350,11 +350,11 @@
 <span class="lineNum" id="container195"><a name="195"></a><a href="#195" id="line195">     195</a> </span>                :          * @return string The friendly name of the event                                                   
 <span class="lineNum" id="container196"><a name="196"></a><a href="#196" id="line196">     196</a> </span>                :          */                                                                                                
 <span class="lineNum" id="container197"><a name="197"></a><a href="#197" id="line197">     197</a> </span>                :         public static function getEventName($event) {                                                      
-<span class="lineNum" id="container198"><a name="198"></a><a href="#198" id="line198">     198</a> </span><span class="lineCov">              5 :             if (!isset(self::$eventNameMap[$event])) {                                                     </span>
+<span class="lineNum" id="container198"><a name="198"></a><a href="#198" id="line198">     198</a> </span><span class="lineCov">              4 :             if (!isset(self::$eventNameMap[$event])) {                                                     </span>
 <span class="lineNum" id="container199"><a name="199"></a><a href="#199" id="line199">     199</a> </span><span class="lineCov">              1 :                 throw new \InvalidArgumentException('1st argument must be one of the EventType constants');</span>
 <span class="lineNum" id="container200"><a name="200"></a><a href="#200" id="line200">     200</a> </span><span class="lineDeadCode">                :             }                                                                                              </span>
 <span class="lineNum" id="container201"><a name="201"></a><a href="#201" id="line201">     201</a> </span>                :                                                                                                            
-<span class="lineNum" id="container202"><a name="202"></a><a href="#202" id="line202">     202</a> </span><span class="lineCov">              4 :             return self::$eventNameMap[$event];                                                            </span>
+<span class="lineNum" id="container202"><a name="202"></a><a href="#202" id="line202">     202</a> </span><span class="lineCov">              3 :             return self::$eventNameMap[$event];                                                            </span>
 <span class="lineNum" id="container203"><a name="203"></a><a href="#203" id="line203">     203</a> </span><span class="lineDeadCode">                :         }                                                                                                  </span>
 <span class="lineNum" id="container204"><a name="204"></a><a href="#204" id="line204">     204</a> </span>                :     }                                                                                                      
 <span class="lineNum" id="container205"><a name="205"></a><a href="#205" id="line205">     205</a> </span>                :                                                                                                            
@@ -367,7 +367,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://www.phpunit.de/" target="_top">PHPUnit 3.4.1</a> and <a href="http://www.xdebug.org/" target="_top">Xdebug 2.0.5</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.0</a> at Sat Oct 24 15:22:58 PDT 2009.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://www.phpunit.de/" target="_top">PHPUnit 3.4.1</a> and <a href="http://www.xdebug.org/" target="_top">Xdebug 2.0.5</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.0</a> at Sun Oct 25 22:38:01 PDT 2009.</td></tr>
     </table>
 
     <br />
@@ -383,8 +383,8 @@
           "footer": ""
         },
         "panel198": {
-          "header": "5 tests cover line 198",
-          "body": "<ul><li class=\"testPassed\">Midi\\Tests\\Event\\ChannelEventTest::testToString</li><li class=\"testPassed\">Midi\\Tests\\Event\\EventTypeTest::testGetEventNameThrowsInvalidArgumentException</li><li class=\"testPassed\">Midi\\Tests\\Event\\EventTypeTest::testGetEventName</li><li class=\"testPassed\">Midi\\Tests\\Event\\MetaEventTest::testToString</li><li class=\"testPassed\">Midi\\Tests\\Event\\SystemExclusiveEventTest::testToString</li></ul>",
+          "header": "4 tests cover line 198",
+          "body": "<ul><li class=\"testPassed\">Midi\\Tests\\Event\\ChannelEventTest::testToString</li><li class=\"testPassed\">Midi\\Tests\\Event\\EventTypeTest::testGetEventNameThrowsInvalidArgumentException</li><li class=\"testPassed\">Midi\\Tests\\Event\\EventTypeTest::testGetEventName</li><li class=\"testPassed\">Midi\\Tests\\Event\\SystemExclusiveEventTest::testToString</li></ul>",
           "footer": ""
         },
         "panel199": {
@@ -393,8 +393,8 @@
           "footer": ""
         },
         "panel202": {
-          "header": "4 tests cover line 202",
-          "body": "<ul><li class=\"testPassed\">Midi\\Tests\\Event\\ChannelEventTest::testToString</li><li class=\"testPassed\">Midi\\Tests\\Event\\EventTypeTest::testGetEventName</li><li class=\"testPassed\">Midi\\Tests\\Event\\MetaEventTest::testToString</li><li class=\"testPassed\">Midi\\Tests\\Event\\SystemExclusiveEventTest::testToString</li></ul>",
+          "header": "3 tests cover line 202",
+          "body": "<ul><li class=\"testPassed\">Midi\\Tests\\Event\\ChannelEventTest::testToString</li><li class=\"testPassed\">Midi\\Tests\\Event\\EventTypeTest::testGetEventName</li><li class=\"testPassed\">Midi\\Tests\\Event\\SystemExclusiveEventTest::testToString</li></ul>",
           "footer": ""
         },
       "dummy": ""
