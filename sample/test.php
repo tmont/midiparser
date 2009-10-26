@@ -6,7 +6,7 @@
 	use \Midi\Reporting\HtmlFormatter;
 	use \Midi\Reporting\MultiFilePrinter;
 
-	$file = dirname(__FILE__) . '/FourHorsemen.mid';
+	$file = dirname(__FILE__) . '/And_We_Die_Young.mid';
 	
 	$parser = new FileParser();
 	$parser->load($file);

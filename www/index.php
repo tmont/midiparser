@@ -42,7 +42,7 @@
 	}
 	
 	global $includeDir, $conn, $downloadDir;
-	$downloadDir = 'http://static.tommymontgomery.com/projects/php-midi-parser';
+	$downloadDir = 'http://static.tommymontgomery.com/sites/phpmidiparser.com';
 	$includeDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'include';
 	
 	$title = '';
@@ -66,6 +66,38 @@
 				$file = $includeDir . '/' . $section . '.php';
 			}
 			break;
+		case 'demo':
+			if ($page === null) {
+				$file = $includeDir . '/demo.php';
+			} else if ($page === 'and_we_die_young') {
+				//demo
+				$basename = ltrim(str_replace('demo/' . $page, '', $uri), '/');
+				if (empty($basename)) {
+					$basename = 'index.html';
+				}
+				
+				$file = $includeDir . '/demo/' . $basename;
+				
+				if (!is_file($file)) {
+					$title = $delimiter . 'Not Found';
+					$file = $includeDir . '/404.html';
+				} else {
+					switch (pathinfo($file, PATHINFO_EXTENSION)) {
+						case 'css':
+							header('Content-Type: text/css');
+							break;
+						case 'js':
+							header('Content-Type: application/js');
+							break;
+					}
+					require $file;
+					exit;
+				}
+			} else {
+				$title = $delimiter . 'Not Found';
+				$file = $includeDir . '/404.html';
+			}
+			break;
 		case 'error':
 			$title = $delimiter . 'OH NOES!!';
 			$file = $includeDir . '/error.html';
@@ -79,7 +111,7 @@
 					$page = 'php-midi-library-1.0.tar.gz';
 				}
 				
-				$download = $downloadDir . $page;
+				$download = $downloadDir . '/' . $page;
 				
 				$headers = get_headers($download, true);
 				if (strpos($headers[0], '200 OK') === false) {
@@ -88,7 +120,16 @@
 				} else {
 					$size = $headers['Content-Length'];
 					header('Content-Length', $size);
-					header('Content-Type', 'application/gz');
+					
+					switch(pathinfo($download, PATHINFO_EXTENSION)) {
+						case 'gz':
+							header('Content-Type: application/gz');
+							break;
+						case 'mid':
+							header('Content-Type: audio/midi');
+							break;
+					}
+					
 					readfile($download);
 					exit;
 				}
