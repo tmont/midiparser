@@ -247,8 +247,8 @@
 		 *
 		 * @since 1.0
 		 *
-		 * @param  int $accidentals 0 + # of sharps or 256 - # of flats
-		 * @param  int $mode        0 for major, 1 for minor
+		 * @param  int $accidentals <kbd>0 + # of sharps</kbd> or <kbd>256 - #</kbd> of flats
+		 * @param  int $mode        <kbd>0</kbd> for major, <kbd>1</kbd> for minor
 		 * @throws InvalidArgumentException
 		 * @return string
 		 */

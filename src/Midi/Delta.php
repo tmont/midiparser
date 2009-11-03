@@ -9,6 +9,8 @@
 	 */
 
 	namespace Midi;
+	
+	use Util\Util;
 
 	/**
 	 * Represents a variable-length delta time
@@ -49,10 +51,10 @@
 		 * @since 1.0
 		 * @uses  Util::getDeltaByteSequence()
 		 * 
-		 * @return Util
+		 * @return binary
 		 */
 		public function toBinary() {
-			return Util\Util::getDeltaByteSequence($this->ticks);
+			return Util::getDeltaByteSequence($this->ticks);
 		}
 		
 		/**
