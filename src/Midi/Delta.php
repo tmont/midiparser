@@ -10,7 +10,7 @@
 
 	namespace Midi;
 	
-	use Util\Util;
+	use \Midi\Util\Util;
 
 	/**
 	 * Represents a variable-length delta time

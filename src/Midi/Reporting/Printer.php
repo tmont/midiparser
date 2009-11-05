@@ -105,7 +105,6 @@
 		 *
 		 * @since 1.0
 		 *
-		 *
 		 * @param  string $key
 		 * @param  string $value
 		 */
@@ -190,7 +189,9 @@
 		 *
 		 * @since 1.0
 		 * @uses  Formatter::beforeEvent()
+		 * @uses  Formatter::beforeChunk()
 		 * @uses  Formatter::formatEvent()
+		 * @uses  Formatter::afterChunk()
 		 * @uses  Formatter::afterEvent()
 		 * @uses  printData()
 		 * 
@@ -209,7 +210,9 @@
 		 *
 		 * @since 1.0
 		 * @uses  Formatter::beforeDelta()
+		 * @uses  Formatter::beforeChunk()
 		 * @uses  Formatter::formatDelta()
+		 * @uses  Formatter::afterChunk()
 		 * @uses  Formatter::afterDelta()
 		 * @uses  printData()
 		 * 
@@ -230,7 +233,9 @@
 		 * @uses  isParsingTrack()
 		 * @uses  Formatter::afterTrack()
 		 * @uses  Formatter::beforeTrack()
+		 * @uses  Formatter::beforeChunk()
 		 * @uses  Formatter::beforeTrackHeader()
+		 * @uses  Formatter::afterChunk()
 		 * @uses  Formatter::afterTrackHeader()
 		 * @uses  TrackHeader::getSize()
 		 * @uses  printData()
@@ -262,7 +267,9 @@
 		 * @since 1.0
 		 * @uses  Formatter::beforeFile()
 		 * @uses  Formatter::beforeFileHeader()
+		 * @uses  Formatter::beforeChunk()
 		 * @uses  Formatter::formatFileHeader()
+		 * @uses  Formatter::afterChunk()
 		 * @uses  Formatter::afterFileHeader()
 		 * @uses  printData()
 		 * 

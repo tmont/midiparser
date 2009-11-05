@@ -22,7 +22,7 @@
 	use \Midi\Util\Util;
 
 	/**
-	 * Formats parse results into HTML
+	 * Formats parse results in HTML
 	 *
 	 * @package    Midi
 	 * @subpackage Reporting
@@ -47,6 +47,9 @@
 		 */
 		private $multiFile;
 		
+		/**
+		 * @var Delta
+		 */
 		private $delta;
 		
 		/**
@@ -56,7 +59,7 @@
 			$this->currentTrack = 0;
 			$this->offset       = 0;
 			$this->multiFile    = false;
-			$this->delta = null;
+			$this->delta        = null;
 		}
 		
 		/**
@@ -261,6 +264,7 @@ HTML;
 			$class = $this->getChunkClass($event);
 			$text = "<tr class=\"$class\">" . $this->formatOffset($this->offset);
 			
+			// -- all of this goofy looking math just formats everything prettily -- //
 			$deltaHex = Util::binaryToHex($this->delta->toBinary());
 			$delta = '<span class="delta">' . wordwrap(implode(' ', $deltaHex), 23, '<br />') . '</span>';
 			
@@ -273,6 +277,7 @@ HTML;
 			if ($bar !== false) {
 				$eventSegment = substr($eventSegment, 0, $bar) . '<br />' . wordwrap(substr($eventSegment, $bar + 1), 23, '<br />');
 			}
+			// -- end goofiness -- //
 			
 			$text .= '<td><tt>' . $delta . ' ' . $eventSegment . '</tt></td>';
 			$this->offset += $event->getLength() + $this->delta->getLength();
@@ -313,6 +318,7 @@ HTML;
 		 */
 		public function afterFile($parseTime, $totalTime) {
 			if ($this->multiFile) {
+				//irrelevant for multi file mode, since each file is truncated to a certain length
 				$parseTime = '';
 			} else {
 				$parseTime = ' in ' . round($parseTime, 3) . ' seconds';

@@ -47,7 +47,7 @@
 		 * @since 1.0
 		 * 
 		 * @param  int      $type    See {@link EventType}
-		 * @param  int      $channel Valid values: 0-15
+		 * @param  int      $channel 4-bit unsigned integer
 		 * @param  int      $param1
 		 * @param  int|null $param2
 		 * @throws {@link MidiException}

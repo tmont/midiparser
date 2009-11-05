@@ -9,6 +9,8 @@
 	 */
 
 	namespace Midi;
+	
+	use \Midi\Util\Util;
 
 	/**
 	 * Represents a MIDI file header
@@ -85,11 +87,11 @@
 		 */
 		public function toBinary() {
 			return
-				Util\Util::pack(0x4D, 0x54, 0x68, 0x64) . 
-				Util\Util::pack(0x00, 0x00, 0x00, 0x06) .
-				Util\Util::pack(0x00, $this->midiFormat) .
-				Util\Util::pack($this->numTracks >> 8, $this->numTracks & 0xFF) .
-				Util\Util::pack($this->timeDivision >> 8, $this->timeDivision & 0xFF);
+				Util::pack(0x4D, 0x54, 0x68, 0x64) . 
+				Util::pack(0x00, 0x00, 0x00, 0x06) .
+				Util::pack(0x00, $this->midiFormat) .
+				Util::pack($this->numTracks >> 8, $this->numTracks & 0xFF) .
+				Util::pack($this->timeDivision >> 8, $this->timeDivision & 0xFF);
 		}
 		
 		/**

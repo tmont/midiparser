@@ -17,7 +17,7 @@
 	use \Midi\Event;
 
 	/**
-	 * Textual parse results formatter
+	 * Formats parse results in plaintext
 	 *
 	 * @package    Midi
 	 * @subpackage Reporting

@@ -31,7 +31,7 @@
 		 *
 		 * @param  Formatter $formatter
 		 * @param  Parser    $parser
-		 * @param  string    $directory   The directory to write the report to
+		 * @param  string    $directory The directory to write the report to
 		 */
 		public function __construct(Formatter $formatter, Parser $parser, $directory = null) {
 			parent::__construct($formatter, $parser);

@@ -85,7 +85,7 @@
 		
 		/**
 		 * @since 1.0
-		 * @uses  TrackParser::setBuffer()
+		 * @uses  TrackParser::setFile()
 		 */
 		protected function afterLoad() {
 			$this->trackParser->setFile($this->file);
@@ -187,7 +187,6 @@
 					//one more should push it over the edge
 					$this->file->fgetc();
 					if (!$this->file->eof()) {
-						//$this->file->fseek(-1, SEEK_CUR);
 						throw new ParseException('Expected EOF');
 					}
 					break;
