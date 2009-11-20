@@ -53,7 +53,7 @@
 	global $includeDir, $conn, $downloadDir, $config;
 	$downloadDir = 'http://static.tommymontgomery.com/sites/phpmidiparser.com';
 	$includeDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'include';
-	$config = parse_ini_file($includeDir . '/www.config');
+	$config = parse_ini_file($includeDir . '/meta/www.config');
 	
 	$title = '';
 	$file = null;

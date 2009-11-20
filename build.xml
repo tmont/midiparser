@@ -29,7 +29,7 @@
 	</target>
 	
 	<target name="config" depends="init" description="Creates the configuration file for the website">
-		<copy file="${dir.www}/include/www.config.default" tofile="${dir.www}/include/www.config"/>
+		<copy file="${dir.www}/include/meta/www.config.default" tofile="${dir.www}/include/meta/www.config"/>
 	</target>
 	
 	<target name="coverage" depends="set-exe-suffix, test-set-suite" description="Runs unit tests and calculates code coverage">
@@ -147,7 +147,7 @@
 	
 	<target name="vhost" depends="init" description="Generates the virtual host file">
 		<mkdir dir="${build.base}"/>
-		<copy file="${dir.www}/include/vhost.conf.default" tofile="${build.base}/phpmidiparser.com.conf"/>
+		<copy file="${dir.www}/include/meta/vhost.conf.default" tofile="${build.base}/phpmidiparser.com.conf"/>
 		<replace file="${build.base}/phpmidiparser.com.conf" propertyFile="./properties/vhost.properties">
 			<replacefilter token="@IP@" property="ip"/>
 			<replacefilter token="@DOCUMENT_ROOT@" property="docroot"/>
