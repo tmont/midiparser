@@ -21,7 +21,7 @@
 			$_SESSION['contact-errors'] = $errors;
 			$_SESSION['contact-values'] = array(
 				'name' => $name,
-				'email' => $mail,
+				'email' => $email,
 				'message' => $message
 			);
 		} else {
