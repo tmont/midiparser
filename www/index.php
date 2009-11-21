@@ -80,6 +80,11 @@
 			return $id;
 		}
 		
+		$size = filesize($midiFile);
+		if ($size > 20 * 1024) {
+			throw new Exception('File too large, cannot exceed 20KB');
+		}
+		
 		//create the report
 		$location = str_replace(DIRECTORY_SEPARATOR, '/', dirname(__FILE__)) . '/' . $config['report']['dir'];
 		$tempLocation =  $location . '/' . $hash .'_'. $type;
@@ -93,28 +98,20 @@
 		$parser->load($midiFile);
 
 		if ($type === 'html') {
-			//limit is 50KB
-			if (filesize($midiFile) > 50 * 1024) {
-				throw new Exception('File too large, cannot exceed 50KB');
-			}
 			$formatter = new \Midi\Reporting\HtmlFormatter();
 			$formatter->setMultiFile(true);
 			$printer = new \Midi\Reporting\MultiFilePrinter($formatter, $parser, $tempLocation);
 		} else {
-			//limit is 100KB
-			if (filesize($midiFile) > 100 * 1024) {
-				throw new Exception('File too large, cannot exceed 100KB');
-			}
 			$formatter = new \Midi\Reporting\TextFormatter();
 			$printer = new \Midi\Reporting\FilePrinter($formatter, $parser);
-			$printer->setFile($tempLocation . '/index.html');
+			$printer->setFile($tempLocation . '/report.txt');
 		}
 		
 		$printer->printAll();
 		$printer = null;
 		
 		$ip = (string)@$_SERVER['REMOTE_ADDR'];
-		$size = filesize($midiFile);
+		
 		$query = "
 			INSERT INTO reports (
 				ip,
@@ -133,8 +130,8 @@
 		query($query);
 		
 		$id = queryResult('SELECT LAST_INSERT_ID()');
-		if (is_dir($tempLocation)) {
-			rename(realpath($tempLocation), realpath($location) . DIRECTORY_SEPARATOR . $id);
+		if (!rename(realpath($tempLocation), realpath($location) . DIRECTORY_SEPARATOR . $id)) {
+			throw new Exception('Filesystem error. So sorry.');
 		}
 		return $id;
 	}
@@ -169,45 +166,19 @@
 		case 'quickstart':
 		case 'contact':
 		case 'resources':
-		case 'statistics':
+		case 'demo':
 			if ($page !== null) {
 				prepare404($file, $title, $delimiter);
 			} else {
 				$file = $includeDir . '/' . $section . '.php';
 			}
 			break;
-		case 'demo':
-			if ($page === null) {
-				$file = $includeDir . '/demo.php';
-			} else if ($page === 'and_we_die_young') {
-				//demo
-				$basename = ltrim(str_replace('demo/' . $page, '', $uri), '/');
-				if (empty($basename)) {
-					$basename = 'index.html';
-				}
-				
-				$file = $includeDir . '/demo/' . $basename;
-				
-				if (!is_file($file)) {
-					prepare404($file, $title, $delimiter);
-				} else {
-					switch (pathinfo($file, PATHINFO_EXTENSION)) {
-						case 'css':
-							header('Content-Type: text/css');
-							break;
-						case 'js':
-							header('Content-Type: application/js');
-							break;
-					}
-					require $file;
-					exit;
-				}
-			} else if (preg_match('@^report(?:/(?<report_id>\d+))?$@', $page, $matches)) {
-				//var_dump($matches); exit;
+		case 'report':
+			if (preg_match('@^(?<report_id>\d+)?$@', $page, $matches)) {
 				if ($requestMethod === 'POST') {
 					if (isset($matches['report_id'])) {
 						//redirect to same page with GET request
-						header('Location: /demo/' . $page);
+						header('Location: /report/' . $page);
 						exit;
 					} else {
 						//create a new report
@@ -246,9 +217,30 @@
 				} else {
 					prepare404($file, $title, $delimiter);
 				}
-			} else {
-				prepare404($file, $title, $delimiter);
 			}
+			break;
+		case 'generate':
+			if ($requestMethod === 'POST') {
+				//create a new report
+				if (!isset($_FILES['midi_file'], $_POST['report_type'])) {
+					//form error, redirect back to form
+					header('Location: /generate');
+					exit;
+				} else {
+					try {
+						$reportId = createReport($_FILES['midi_file']['tmp_name'], basename($_FILES['midi_file']['name']), $_POST['report_type']);
+						header('Location: /report/' . $reportId);
+						exit;
+					} catch (Exception $e) {
+						//set errors in session for redirect
+						$_SESSION['report-error'] = $e->getMessage();
+						header('Location: /generate');
+						exit;
+					}
+				}
+			}
+			$title = $delimiter . 'Generate Report';
+			$file = $includeDir . '/generate.php';
 			break;
 		case 'error':
 			$title = $delimiter . 'OH NOES!!';

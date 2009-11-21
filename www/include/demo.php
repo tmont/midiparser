@@ -18,38 +18,7 @@
 					</p>
 					
 					<ul>
-						<li><a href="/demo/report/1">HTML Report</a></li>
+						<li><a href="/report/1/">And We Die Young Parse Report</a></li>
 						<li><a href="/downloads/And_We_Die_Young.mid">MIDI file</a></li>
+						<li><a href="/generate">Create your own</a></li>
 					</ul>
-					
-					<h3>Generate Your Own Parse Report</h3>
-					<div class="report-form">
-<?php 
-	
-	if (isset($_SESSION['report-error'])) {
-		$error = htmlspecialchars(unserialize($_SESSION['report-error'])->getMessage());
-		unset($_SESSION['report-error']);
-		
-?>
-						<div class="error"><?php echo $error; ?></div>
-<?php } ?>
-						<form method="post" action="/demo/report" enctype="multipart/form-data">
-							<table>
-								<tr>
-									<th>MIDI File</th>
-									<td><input type="file" name="midi_file"/></td>
-								</tr>
-								<tr>
-									<th>Report Type</th>
-									<td>
-										<input type="radio" id="type_text" value="text" name="report_type" checked="checked"/><label for="type_text">Text</label>
-										<input type="radio" id="type_html" value="html" name="report_type"/><label for="type_html">HTML</label>
-									</td>
-								</tr>
-								<tr>
-									<td></td>
-									<td><input type="submit" value="Generate Report"/></td>
-								</tr>
-							</table>
-						</form>
-					</div>
