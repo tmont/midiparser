@@ -2,7 +2,7 @@
 				<div class="parse-summary">
 					<p>
 						<a href="/reports/<?php echo $row['report_id']; ?>/">View report</a> |
-						<a href="/downloads/report/<?php echo $row['report_id']; ?>.tar.gz">Download</a>
+						<a href="/downloads/report/<?php echo $row['report_id']; ?>.zip">Download</a>
 					</p>
 					
 					<table>

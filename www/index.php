@@ -152,6 +152,51 @@
 		return $id;
 	}
 	
+	function download($file, array $headers = array()) {
+		if (empty($headers)) {
+			$headers = get_headers($file, true);
+		}
+		
+		if (strpos($headers[0], '200 OK') === false) {
+			return false;
+		}
+		
+		//store download data
+		$ip = isset($_SERVER['REMOTE_ADDR']) ? substr($_SERVER['REMOTE_ADDR'], 0, 15) : 'unknown';
+		if ($ip !== '127.0.0.1') {
+			$query = '
+				INSERT INTO downloads (
+					ip,
+					path
+				)
+				VALUES(
+					\'' . mysql_real_escape_string($ip, $conn) . '\',
+					\'' . mysql_real_escape_string($file, $conn) . '\'
+				)';
+			
+			mysql_query($query, $conn);
+		}
+		
+		$size = $headers['Content-Length'];
+		header('Content-Length', $size);
+		header('Content-Disposition: attachment; filename=' . basename($file));
+		
+		switch (pathinfo($file, PATHINFO_EXTENSION)) {
+			case 'gz':
+				header('Content-Type: application/x-tar-gz');
+				break;
+			case 'zip':
+				header('Content-Type: application/zip');
+				break;
+			case 'mid':
+				header('Content-Type: audio/midi');
+				break;
+		}
+		
+		readfile($file);
+		exit;
+	}
+	
 	session_start();
 
 	$uri = trim($_SERVER['REQUEST_URI'], '/');
@@ -265,49 +310,38 @@
 		case 'downloads':
 			if ($page === null) {
 				$file = $includeDir . '/downloads.php';
+			} else if (preg_match('@^report/(\d+).zip$@', $page, $matches)) {
+				$file = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . '/phpmidiparser-report-' . $matches[1] . '.zip';
+				
+				if (!is_file($file)) {
+					//create zip
+					$zip = new ZipArchive();
+					$zip->open($file, ZipArchive::CREATE);
+					foreach (new DirectoryIterator(dirname(__FILE__) . '/' . $config['report']['dir'] . '/' . $matches[1]) as $fileInfo) {
+						if ($fileInfo->isFile()) {
+							$zip->addFile($fileInfo->getPathName(), $fileInfo->getFileName());
+						}
+					}
+					unset($fileInfo);
+					
+					$zip->close();
+				}
+				
+				$headers = array(
+					0 => '200 OK',
+					'Content-Length' => filesize($file)
+				);
+				if (download($file, $headers) === false) {
+					prepare404($file, $title, $delimiter);
+				}
 			} else {
-				//trying to download something
 				if ($page === 'latest') {
 					$page = 'php-midi-library-1.0.163.tar.gz';
 				}
 				
 				$download = $downloadDir . '/' . $page;
-				
-				$headers = get_headers($download, true);
-				if (strpos($headers[0], '200 OK') === false) {
+				if (download($download) === false) {
 					prepare404($file, $title, $delimiter);
-				} else {
-					//store download data
-					$ip = isset($_SERVER['REMOTE_ADDR']) ? substr($_SERVER['REMOTE_ADDR'], 0, 15) : 'unknown';
-					if ($ip !== '127.0.0.1') {
-						$query = '
-							INSERT INTO downloads (
-								ip,
-								path
-							)
-							VALUES(
-								\'' . mysql_real_escape_string($ip, $conn) . '\',
-								\'' . mysql_real_escape_string($page, $conn) . '\'
-							)';
-						
-						mysql_query($query, $conn);
-					}
-					
-					$size = $headers['Content-Length'];
-					header('Content-Length', $size);
-					header('Content-Disposition: attachment; filename=' . basename($page));
-					
-					switch(pathinfo($download, PATHINFO_EXTENSION)) {
-						case 'gz':
-							header('Content-Type: application/x-tar-gz');
-							break;
-						case 'mid':
-							header('Content-Type: audio/midi');
-							break;
-					}
-					
-					readfile($download);
-					exit;
 				}
 			}
 			break;
