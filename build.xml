@@ -49,7 +49,7 @@
 		</exec>
 	</target>
 	
-	<target name="deploy" depends="archive, vhost, config" description="Prepares the website and tarballs for deployment">
+	<target name="deploy" depends="archive, vhost, config, libs" description="Prepares the website and tarballs for deployment">
 		<tar destfile="${build.dist}/${product.shortname}-www.tar.gz"  compression="gzip">
 			<tarfileset dir="${basedir}" includes="www/**" excludes="www/include/*.default"/>
 			<tarfileset dir="${build.base}" includes="phpmidiparser.com.conf"/>
