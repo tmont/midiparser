@@ -22,9 +22,12 @@
 			throw new Exception('Query failed: ' . $query .' (' . mysql_error($conn) . ')');
 		}
 		
-		require_once $includeDir . '/lib/RecordIterator.php';
+		if (is_resource($result)) {
+			require_once $includeDir . '/lib/RecordIterator.php';
+			return new RecordIterator($result);
+		}
 		
-		return new RecordIterator($result);
+		return $result;
 	}
 	
 	function queryResult($query) {
@@ -78,8 +81,9 @@
 		}
 		
 		//create the report
-		$location = str_replac(DIRECTORY_SEPARATOR, '/', dirname(__FILE__)) . '/' . $config['report']['dir'] . '/' . $hash;
-		if (!is_dir($location) && !mkdir($location)) {
+		$location = str_replace(DIRECTORY_SEPARATOR, '/', dirname(__FILE__)) . '/' . $config['report']['dir'];
+		$tempLocation =  $location . '/' . $hash .'_'. $type;
+		if (!is_dir($tempLocation) && !mkdir($tempLocation)) {
 			throw new Exception('Could not create directory');
 		}
 		
@@ -95,7 +99,7 @@
 			}
 			$formatter = new \Midi\Reporting\HtmlFormatter();
 			$formatter->setMultiFile(true);
-			$printer = new \Midi\Reporting\MultiFilePrinter($formatter, $parser, $location);
+			$printer = new \Midi\Reporting\MultiFilePrinter($formatter, $parser, $tempLocation);
 		} else {
 			//limit is 100KB
 			if (filesize($midiFile) > 100 * 1024) {
@@ -103,23 +107,22 @@
 			}
 			$formatter = new \Midi\Reporting\TextFormatter();
 			$printer = new \Midi\Reporting\FilePrinter($formatter, $parser);
-			$printer->setFile($location . '/report.txt');
+			$printer->setFile($tempLocation . '/index.html');
 		}
 		
 		$printer->printAll();
+		$printer = null;
 		
 		$ip = (string)@$_SERVER['REMOTE_ADDR'];
 		$size = filesize($midiFile);
 		$query = "
 			INSERT INTO reports (
-				location,
 				ip,
 				midi_filename,
 				midi_file_hash,
 				midi_file_size,
 				report_type
 			) VALUES (
-				'$location',
 				'$ip',
 				'" . mysql_real_escape_string($fileName, $conn) . "',
 				'$hash',
@@ -129,11 +132,11 @@
 			
 		query($query);
 		
-		return queryResult('SELECT LAST_INSERT_ID()');
-	}
-	
-	function showReport($id) {
-		echo 'this should be report #' . $id;
+		$id = queryResult('SELECT LAST_INSERT_ID()');
+		if (is_dir($tempLocation)) {
+			rename(realpath($tempLocation), realpath($location) . DIRECTORY_SEPARATOR . $id);
+		}
+		return $id;
 	}
 	
 	session_start();
@@ -199,7 +202,7 @@
 					require $file;
 					exit;
 				}
-			} else if (preg_match('@^report(?:/(?<report_id>\d+)(?<view>/view)?)?$@', $page, $matches)) {
+			} else if (preg_match('@^report(?:/(?<report_id>\d+))?$@', $page, $matches)) {
 				//var_dump($matches); exit;
 				if ($requestMethod === 'POST') {
 					if (isset($matches['report_id'])) {
@@ -228,10 +231,16 @@
 				} else if (isset($matches['report_id'])) {
 					//show a previously created report
 					$reportId = $matches['report_id'];
-					if (isset($matches['view'])) {
-						showReport($reportId);
-						exit;
+					
+					$query = '
+						SELECT * FROM reports
+						WHERE report_id=' . $reportId;
+					
+					$row = query($query)->current();
+					if (!is_array($row)) {
+						prepare404($file, $title, $delimiter);
 					} else {
+						$title = $delimiter . 'Parse Report: ' . $row['midi_filename'];
 						$file = $includeDir . '/report.php';
 					}
 				} else {

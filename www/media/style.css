@@ -76,6 +76,11 @@ pre.code {
 	margin: 10px;
 	text-align: center;
 }
+.parse-summary th {
+	text-align: right;
+	padding: 2px 10px 2px 2px;
+}
+
 
 #wrapper {
 	margin: 10px;
