@@ -1,5 +1,5 @@
 				<h2>Parse Report</h2>
-				<div class="parse-summary">
+				<div class="parse-summary inset">
 					<p>
 						<a href="/reports/<?php echo $row['report_id']; ?>/">View report</a> |
 						<a href="/downloads/report/<?php echo $row['report_id']; ?>.zip">Download</a>

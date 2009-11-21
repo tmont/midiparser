@@ -68,6 +68,9 @@ pre.code {
 .code .string {
 	color: #99FF99;
 }
+.inset {
+	margin-left: 10px;
+}
 
 .error {
 	padding: 10px;
@@ -127,6 +130,7 @@ pre.code {
 	float: left;
 	width: 795px;
 	margin-left: 5px;
+	position: relative;
 }
 #content p {
 	padding: 3px;
@@ -141,12 +145,12 @@ pre.code {
 	text-decoration: none;
 	padding: 0 1px 1px 1px;
 }
-#content code a {
-	color: inherit;
-}
 #content a:hover {
 	border-bottom-style: solid;
-	color: #000099;
+	color: #336699;
+}
+#content code a {
+	color: inherit;
 }
 
 #footer {
@@ -172,10 +176,14 @@ pre.code {
 	clear: both;
 	padding: 10px;
 }
+.report-form {
+	margin-bottom: 10px;
+}
 
-#error img {
+#error .error-image {
 	width: 256px;
 	height: 224px;
+	margin: auto;
 }
 
 #contact-form table {

@@ -53,26 +53,27 @@
 					
 					
 					<h2>Contact</h2>
-					
+					<div class="inset">
 <?php if (isset($success) && $success === false) { ?>
-					<p>
-						Your message was unable to be sent. It&#039;s our fault, so please
-						do not try again. You can email us directly at
-						<a href="mailto:contact@phpmidiparser.com">contact@phpmidiparser.com</a>.
-					</p>
+						<p>
+							Your message was unable to be sent. It&#039;s our fault, so please
+							do not try again. You can email us directly at
+							<a href="mailto:contact@phpmidiparser.com">contact@phpmidiparser.com</a>.
+						</p>
 <?php } else if (!isset($success)) { ?>
-					<form method="post" action="/contact" id="contact-form">
-						<table>
-							<tr><th><label for="name">Name</label></th></tr>
-							<tr><td><input type="text" name="name" id="name"<?php if (isset($errors['name'])) echo ' class="error"'; ?> value="<?php echo escape($values['name']); ?>"/></td></tr>
-							<tr><th><label for="email">Email</label></th></tr>
-							<tr><td><input type="text" name="email" id="email"<?php if (isset($errors['email'])) echo ' class="error"'; ?> value="<?php echo escape($values['email']); ?>"/></td></tr>
-							<tr><th><label for="message">Message</label></th></tr>
-							<tr><td><textarea name="message" id="message" rows="10" cols="40"<?php if (isset($errors['message'])) echo ' class="error"'; ?>><?php echo escape($values['message']); ?></textarea></td></tr>
-							<tr><td class="submit"><input type="submit" name="contact" value="Submit"/></td></tr>
-						</table>
-					</form>
+						<form method="post" action="/contact" id="contact-form">
+							<table>
+								<tr><th><label for="name">Name</label></th></tr>
+								<tr><td><input type="text" name="name" id="name"<?php if (isset($errors['name'])) echo ' class="error"'; ?> value="<?php echo escape($values['name']); ?>"/></td></tr>
+								<tr><th><label for="email">Email</label></th></tr>
+								<tr><td><input type="text" name="email" id="email"<?php if (isset($errors['email'])) echo ' class="error"'; ?> value="<?php echo escape($values['email']); ?>"/></td></tr>
+								<tr><th><label for="message">Message</label></th></tr>
+								<tr><td><textarea name="message" id="message" rows="10" cols="40"<?php if (isset($errors['message'])) echo ' class="error"'; ?>><?php echo escape($values['message']); ?></textarea></td></tr>
+								<tr><td class="submit"><input type="submit" name="contact" value="Submit"/></td></tr>
+							</table>
+						</form>
 <?php } else { ?>
-					<p>Thank you for your message. You are awesome.</p>
+						<p>Thank you for your message. You are awesome.</p>
 <?php } ?>
+					</div>
 					

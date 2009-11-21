@@ -1,17 +1,18 @@
 					<h2>Quick Start</h2>
-					
-					<p>
-						The PHP MIDI Library requires <strong>PHP 5.3.0</strong> or later. If you have
-						no patience and a UNIX shell, take a look at the quick and dirty section.
-						Otherwise, read the entire page (it won&#039;t take long).
-					</p>
-					
-					<h3>Quick and Dirty</h3>
-					<ol>
-						<li>Download: <code>wget http://phpmidiparser.com/downloads/latest</code></li>
-						<li>Extract: <code>tar xzvf php-midi-library-x.x.x.tar.gz</code></li>
-						<li>Create script: <code>vi midilibtest.php</code></li>
-						<li>Paste and exchange placeholder MIDI file with location of real MIDI file:
+					<div class="inset">
+						<p>
+							The PHP MIDI Library requires <strong>PHP 5.3.0</strong> or later. If you have
+							no patience and a UNIX shell, take a look at the quick and dirty section.
+							Otherwise, read the entire page (it won&#039;t take long).
+						</p>
+						
+						<h3>Quick and Dirty</h3>
+						<div class="inset">
+							<ol>
+								<li>Download: <code>wget http://phpmidiparser.com/downloads/latest</code></li>
+								<li>Extract: <code>tar xzvf php-midi-library-x.x.x.tar.gz</code></li>
+								<li>Create script: <code>vi midilibtest.php</code></li>
+								<li>Paste and exchange placeholder MIDI file with location of real MIDI file:
 <pre class="code"><span class="block">&lt;?php</span>
 
     <span class="keyword">require_once</span> <span class="string">&apos;Midi/bootstrap.php&apos;</span>;
@@ -28,31 +29,35 @@
 
 <span class="block">?&gt;</span>
 </pre>
-						</li>
-						<li>Save</li>
-						<li>Run: <code>php midilibtest.php</code></li>
-						<li>???</li>
-						<li>Profit</li>
-					</ol>
+							</li>
+							<li>Save</li>
+							<li>Run: <code>php midilibtest.php</code></li>
+							<li>???</li>
+							<li>Profit</li>
+						</ol>
+					</div>
 					
 					<h3>Installation</h3>
-					<ol>
-						<li><a href="/downloads">Download</a> the default package</li>
-						<li>Extract it somewhere</li>
-						<li>
-							To use the library in your code, all you need to do is include
-							the bootstrap.php file, which is located at <code>Midi/bootstrap.php</code>.
-						</li>
-					</ol>
+					<div class="inset">
+						<ol>
+							<li><a href="/downloads">Download</a> the default package</li>
+							<li>Extract it somewhere</li>
+							<li>
+								To use the library in your code, all you need to do is include
+								the bootstrap.php file, which is located at <code>Midi/bootstrap.php</code>.
+							</li>
+						</ol>
+					</div>
 					
 					<h3>Usage</h3>
-					<p>
-						When you include the bootstrapper, it <a href="http://php.net/autoload">autoloads</a>
-						all the classes you&#039;ll need to use the library. Below is a code snippet that
-						will parse a file named &quot;test.mid&quot; and use the 
-						<a href="/docs/api/Midi/Reporting/TextFormatter.html"><code>TextFormatter</code></a>
-						to format the results. This will print the parse results out to stdout.
-					</p>
+					<div class="inset">
+						<p>
+							When you include the bootstrapper, it <a href="http://php.net/autoload">autoloads</a>
+							all the classes you&#039;ll need to use the library. Below is a code snippet that
+							will parse a file named &quot;test.mid&quot; and use the 
+							<a href="/docs/api/Midi/Reporting/TextFormatter.html"><code>TextFormatter</code></a>
+							to format the results. This will print the parse results out to stdout.
+						</p>
 					
 <pre class="code"><span class="block">&lt;?php</span>
 
@@ -70,22 +75,22 @@
 
 <span class="block">?&gt;</span>
 </pre>
-					<p>
-						To get prettier results, like you can see in the <a href="/demo">demo</a>, use
-						the <a href="/docs/api/Midi/Reporting/HtmlFormatter.html"><code>HtmlFormatter</code></a> along with the
-						<a href="/docs/api/Midi/Reporting/MultiFilePrinter.html"><code>MultiFilePrinter</code></a>.
-						Note that using this combination of formatter and printer uses AJAX to
-						do pagination, which means you need a webserver to view the results. Use the
-						<a href="/docs/api/Midi/Reporting/FilePrinter.html"><code>FilePrinter</code></a>
-						instead if a webserver is not available. This will make one giant HTML file rather than
-						many, as the <a href="/docs/api/Midi/Reporting/MultiFilePrinter.html"><code>MultiFilePrinter</code></a>
-						does.
-					</p>
-					
-					<p>
-						When you run this code snippet, it will create a directory called &quot;test&quot;
-						and place the resultant HTML files in there.
-					</p>
+						<p>
+							To get prettier results, like you can see in the <a href="/demo">demo</a>, use
+							the <a href="/docs/api/Midi/Reporting/HtmlFormatter.html"><code>HtmlFormatter</code></a> along with the
+							<a href="/docs/api/Midi/Reporting/MultiFilePrinter.html"><code>MultiFilePrinter</code></a>.
+							Note that using this combination of formatter and printer uses AJAX to
+							do pagination, which means you need a webserver to view the results. Use the
+							<a href="/docs/api/Midi/Reporting/FilePrinter.html"><code>FilePrinter</code></a>
+							instead if a webserver is not available. This will make one giant HTML file rather than
+							many, as the <a href="/docs/api/Midi/Reporting/MultiFilePrinter.html"><code>MultiFilePrinter</code></a>
+							does.
+						</p>
+						
+						<p>
+							When you run this code snippet, it will create a directory called &quot;test&quot;
+							and place the resultant HTML files in there.
+						</p>
 					
 <pre class="code"><span class="block">&lt;?php</span>
 
@@ -108,4 +113,5 @@
 
 <span class="block">?&gt;</span>
 </pre>
-					
+					</div>
+				</div>
