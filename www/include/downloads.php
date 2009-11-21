@@ -13,7 +13,7 @@
 					<p>
 						The <a href="http://svn.tommymontgomery.com/midiparser/trunk">Subversion repository</a>
 						is also available for anonymous checkout. You can also browse the source via
-						<a href="http://websvn.tommymontgomery.com/listing.php?repname=midiparser">WebSVN</a>.
+						<a href="http://websvn.tommymontgomery.com/listing.php?repname=midiparser&path=%2Ftrunk%2F#path_trunk_">WebSVN</a>.
 					</p>
 					
 					<h3>Packages</h3>
