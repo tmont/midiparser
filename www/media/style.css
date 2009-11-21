@@ -55,6 +55,7 @@ pre.code {
 	background-color: #000000;
 	color: #CCCCCC;
 }
+
 .code .block {
 	color: #CCCCCC;
 }
@@ -68,6 +69,13 @@ pre.code {
 	color: #99FF99;
 }
 
+.error {
+	padding: 10px;
+	border: 1px solid #990000;
+	background-color: #FFDDDD;
+	margin: 10px;
+	text-align: center;
+}
 
 #wrapper {
 	margin: 10px;
@@ -119,16 +127,21 @@ pre.code {
 	padding: 3px;
 	margin: 0 0 5px 0;
 }
+#content p, #content li {
+	line-height: 1.5em;
+}
 #content a {
 	border-bottom: 1px dotted #000000;
 	color: #006600;
 	text-decoration: none;
+	padding: 0 1px 1px 1px;
 }
 #content code a {
 	color: inherit;
 }
 #content a:hover {
 	border-bottom-style: solid;
+	color: #000099;
 }
 
 #footer {

@@ -26,6 +26,7 @@
 	<target name="clean" depends="init" description="Deletes directories and files created by the build sequence">
 		<delete dir="${build.base}"/> 
 		<delete dir="${build.dist}"/>
+		<delete dir="${dir.www}/include/lib/Midi"/>
 	</target>
 	
 	<target name="config" depends="init" description="Creates the configuration file for the website">
@@ -86,6 +87,13 @@
 		<exec executable="ant${exe.suffix}" failonerror="true">
 			<arg value="-p"/>
 		</exec>
+	</target>
+	
+	<target name="libs" depends="init" description="Prepares the libs that the site depends on">
+		<delete dir="${dir.www}/include/lib/Midi"/>
+		<copy todir="${dir.www}/include/lib/Midi">
+			<fileset dir="${dir.src}/Midi"/>
+		</copy>
 	</target>
 	
 	<target name="lint" depends="init, set-component" description="Scans for parse errors">

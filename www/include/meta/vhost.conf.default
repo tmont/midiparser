@@ -17,6 +17,7 @@
 	</Directory>
 	
 	RewriteEngine On
-	RewriteCond %{REQUEST_URI} !^/media*
+	RewriteCond %{REQUEST_URI} !^/media/*
+	RewriteCond %{REQUEST_URI} !^/reports/*
 	RewriteRule .* /index.php [L]
 </VirtualHost>

@@ -2,7 +2,7 @@
 
 	function connect() {
 		global $config;
-		$conn = mysql_connect($config['host'], $config['username'], $config['password']);
+		$conn = mysql_connect($config['database']['host'], $config['database']['username'], $config['database']['password']);
 		if (!$conn) {
 			return false;
 		}
@@ -19,12 +19,30 @@
 		
 		$result = mysql_query($query, $conn);
 		if (!$result) {
-			return false;
+			throw new Exception('Query failed: ' . $query .' (' . mysql_error($conn) . ')');
 		}
 		
 		require_once $includeDir . '/lib/RecordIterator.php';
 		
 		return new RecordIterator($result);
+	}
+	
+	function queryResult($query) {
+		global $conn, $includeDir;
+		if (!$conn) {
+			return false;
+		}
+		
+		$result = mysql_query($query, $conn);
+		if (!$result) {
+			throw new Exception('Query failed: ' . $query .' (' . mysql_error($conn) . ')');
+		}
+		
+		if (mysql_num_rows($result) > 0) {
+			return mysql_result($result, 0);
+		}
+		
+		return false;
 	}
 	
 	function escape($string) {
@@ -39,11 +57,91 @@
 		$title = $delimiter . 'Not Found';
 	}
 	
+	function createReport($midiFile, $fileName, $type) {
+		global $config, $conn, $includeDir;
+		
+		if (!is_file($midiFile)) {
+			throw new Exception('Invalid filename');
+		}
+		
+		$type = ($type === 'html') ? 'html' : 'text';
+		$hash = md5_file($midiFile);
+		$query = '
+			SELECT report_id FROM reports
+			WHERE midi_file_hash=\'' . $hash . '\'
+			AND report_type=\'' . mysql_real_escape_string($type, $conn) . '\'';
+		
+		$id = queryResult($query);
+		if ($id) {
+			//already been created, so use that one
+			return $id;
+		}
+		
+		//create the report
+		$location = str_replac(DIRECTORY_SEPARATOR, '/', dirname(__FILE__)) . '/' . $config['report']['dir'] . '/' . $hash;
+		if (!is_dir($location) && !mkdir($location)) {
+			throw new Exception('Could not create directory');
+		}
+		
+		require_once $includeDir . '/lib/Midi/bootstrap.php';
+		
+		$parser = new \Midi\Parsing\FileParser();
+		$parser->load($midiFile);
+
+		if ($type === 'html') {
+			//limit is 50KB
+			if (filesize($midiFile) > 50 * 1024) {
+				throw new Exception('File too large, cannot exceed 50KB');
+			}
+			$formatter = new \Midi\Reporting\HtmlFormatter();
+			$formatter->setMultiFile(true);
+			$printer = new \Midi\Reporting\MultiFilePrinter($formatter, $parser, $location);
+		} else {
+			//limit is 100KB
+			if (filesize($midiFile) > 100 * 1024) {
+				throw new Exception('File too large, cannot exceed 100KB');
+			}
+			$formatter = new \Midi\Reporting\TextFormatter();
+			$printer = new \Midi\Reporting\FilePrinter($formatter, $parser);
+			$printer->setFile($location . '/report.txt');
+		}
+		
+		$printer->printAll();
+		
+		$ip = (string)@$_SERVER['REMOTE_ADDR'];
+		$size = filesize($midiFile);
+		$query = "
+			INSERT INTO reports (
+				location,
+				ip,
+				midi_filename,
+				midi_file_hash,
+				midi_file_size,
+				report_type
+			) VALUES (
+				'$location',
+				'$ip',
+				'" . mysql_real_escape_string($fileName, $conn) . "',
+				'$hash',
+				$size,
+				'$type'
+			)";
+			
+		query($query);
+		
+		return queryResult('SELECT LAST_INSERT_ID()');
+	}
+	
+	function showReport($id) {
+		echo 'this should be report #' . $id;
+	}
+	
 	session_start();
 
 	$uri = trim($_SERVER['REQUEST_URI'], '/');
+	$requestMethod = strtoupper($_SERVER['REQUEST_METHOD']);
 	
-	$uriSegments = explode('/', $uri);
+	$uriSegments = explode('/', $uri, 2);
 	@list($section, $page) = $uriSegments;
 	
 	if (empty($section)) {
@@ -53,7 +151,7 @@
 	global $includeDir, $conn, $downloadDir, $config;
 	$downloadDir = 'http://static.tommymontgomery.com/sites/phpmidiparser.com';
 	$includeDir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'include';
-	$config = parse_ini_file($includeDir . '/meta/www.config');
+	$config = parse_ini_file($includeDir . '/meta/www.config', true);
 	
 	$title = '';
 	$file = null;
@@ -100,6 +198,44 @@
 					}
 					require $file;
 					exit;
+				}
+			} else if (preg_match('@^report(?:/(?<report_id>\d+)(?<view>/view)?)?$@', $page, $matches)) {
+				//var_dump($matches); exit;
+				if ($requestMethod === 'POST') {
+					if (isset($matches['report_id'])) {
+						//redirect to same page with GET request
+						header('Location: /demo/' . $page);
+						exit;
+					} else {
+						//create a new report
+						if (!isset($_FILES['midi_file'], $_POST['report_type'])) {
+							//form error, redirect back to demo page
+							header('Location: /demo');
+							exit;
+						} else {
+							try {
+								$reportId = createReport($_FILES['midi_file']['tmp_name'], basename($_FILES['midi_file']['name']), $_POST['report_type']);
+								header('Location: /demo/report/' . $reportId);
+								exit;
+							} catch (Exception $e) {
+								//set errors in session for redirect
+								$_SESSION['report-error'] = serialize($e);
+								header('Location: /demo');
+								exit;
+							}
+						}
+					}
+				} else if (isset($matches['report_id'])) {
+					//show a previously created report
+					$reportId = $matches['report_id'];
+					if (isset($matches['view'])) {
+						showReport($reportId);
+						exit;
+					} else {
+						$file = $includeDir . '/report.php';
+					}
+				} else {
+					prepare404($file, $title, $delimiter);
 				}
 			} else {
 				prepare404($file, $title, $delimiter);
