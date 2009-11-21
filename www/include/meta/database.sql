@@ -1,3 +1,5 @@
+ALTER TABLE news CHANGE created created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
 UPDATE news SET content='<p>
 	PHP MIDI Parser 1.0 has been released, along with the site
 	dedicated to it. It&#039;s obviously total overkill, but I had
@@ -27,6 +29,23 @@ UPDATE news SET content='<p>
 	line</a> to report bugs or if you have any questions.
 </p>'
 WHERE news_id=1;
+
+INSERT INTO news (title, content)
+VALUES ('Parse Your Own MIDI File',
+'<p>
+	Now you can generate your own MIDI parse report by uploading
+	a MIDI file using the <a href="/generate">Generate a Report</a>
+	link over there to the left. Once generated, you will be able
+	to download a zip archive or just view it online. The form is
+	limited to a 20KB file since it&#039;s a strain on both my
+	server and my disk space.
+</p>
+
+<p>
+	Go ahead and <a href="/generate">try it out</a>, or you can
+	view/download the <a href="/report/1/"><strong>And We Die Young demo</strong></a>
+	report.
+</p>');
 
 CREATE TABLE `reports` (
 	`report_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
