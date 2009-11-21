@@ -54,7 +54,7 @@ CREATE TABLE `reports` (
 	`midi_file_hash` char(32) NOT NULL,
 	`midi_file_size` int(10) unsigned NOT NULL,
 	`report_type` enum('html','text') NOT NULL DEFAULT 'text',
-	`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (`report_id`),
 	KEY `hash_and_report` (`midi_file_hash`,`report_type`)
 ) ENGINE=InnoDB default charset=utf8;
