@@ -346,6 +346,8 @@
 			}
 			break;
 		case 'docs':
+			$segments = explode('/', $page);
+			$page = $segments[0];
 			switch ($page) {
 				case null:
 					$title = $delimiter . 'Documentation';
