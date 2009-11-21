@@ -314,17 +314,28 @@
 				$file = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . '/phpmidiparser-report-' . $matches[1] . '.zip';
 				
 				if (!is_file($file)) {
-					//create zip
-					$zip = new ZipArchive();
-					$zip->open($file, ZipArchive::CREATE);
-					foreach (new DirectoryIterator(dirname(__FILE__) . '/' . $config['report']['dir'] . '/' . $matches[1]) as $fileInfo) {
-						if ($fileInfo->isFile()) {
-							$zip->addFile($fileInfo->getPathName(), $fileInfo->getFileName());
+					//create zip 
+					try {
+						$zip = new ZipArchive();
+						if (!$zip->open($file, ZipArchive::CREATE)) {
+							throw new Exception('Unable to open zip');
 						}
+						foreach (new DirectoryIterator(dirname(__FILE__) . '/' . $config['report']['dir'] . '/' . $matches[1]) as $fileInfo) {
+							if ($fileInfo->isFile()) {
+								$zip->addFile($fileInfo->getPathName(), $fileInfo->getFileName());
+							}
+						}
+						unset($fileInfo);
+						
+						if (!$zip->close()) {
+							throw new Exception('Unable to close zip');
+						}
+					} catch (Exception $e) {
+						error_log($e->getMessage());
+						$file = $includeDir . '/error.html';
+						$title = $delimiter . 'OH NOES!!';
+						break;
 					}
-					unset($fileInfo);
-					
-					$zip->close();
 				}
 				
 				$headers = array(
@@ -401,9 +412,16 @@
 		$file = $includeDir . '/error.html';
 	}
 	
-	ob_start();
-	require $file;
-	$content = ob_get_clean();
+	try {
+		ob_start();
+		require $file;
+		$content = ob_get_clean();
+	} catch (Exception $e) {
+		ob_end_clean();
+		ob_start();
+		require $includeDir . '/error.html';
+		$content = ob_get_clean();
+	}
 	
 	echo preg_replace(
 		array('/@title@/', '/@content@/'),

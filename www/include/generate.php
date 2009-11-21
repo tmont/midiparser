@@ -31,8 +31,23 @@
 							</form>
 						</div>
 					
-						<h3>View Other Reports</h3>
+						<h3>Recent Reports</h3>
 						<div class="inset">
-						
+							<table class="recent-reports">
+								<tr><td></td><th>MIDI File</th><th>Size</th><th>Type</th><th>Created</th></tr>
+									
+<?php
+	
+	$query = 'SELECT * from reports ORDER BY report_id DESC LIMIT 10';
+	foreach (query($query) as $row) { ?>
+								<tr>
+									<td><a href="/report/<?php echo $row['report_id']; ?>">View</a></td>
+									<td><tt><?php echo htmlspecialchars($row['midi_filename'], ENT_QUOTES); ?></tt></td>
+									<td><tt><?php echo $row['midi_file_size']; ?></tt></td>
+									<td><?php echo $row['report_type']; ?></td>
+									<td><?php echo date('Y-m-d H:i:s', strtotime($row['created'])); ?></td>
+								</tr>
+<?php } ?>
+							</table>
 						</div>
 					</div>

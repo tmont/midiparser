@@ -166,6 +166,10 @@ pre.code {
 	border-bottom-style: solid;
 }
 
+
+table.recent-reports {
+	width: 100%;
+}
 .newsitem .timestamp {
 	float: right;
 	font-size: 8pt;
