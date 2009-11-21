@@ -64,12 +64,12 @@
 					<form method="post" action="/contact" id="contact-form">
 						<table>
 							<tr><th><label for="name">Name</label></th></tr>
-							<tr><td><input type="text" name="name" id="name"<?php if (isset($errors['name'])) echo ' class="error"'; ?> value="<?php echo escape($values['name']); ?>"/></tr>
+							<tr><td><input type="text" name="name" id="name"<?php if (isset($errors['name'])) echo ' class="error"'; ?> value="<?php echo escape($values['name']); ?>"/></td></tr>
 							<tr><th><label for="email">Email</label></th></tr>
-							<tr><td><input type="text" name="email" id="email"<?php if (isset($errors['email'])) echo ' class="error"'; ?> value="<?php echo escape($values['email']); ?>"/></tr>
+							<tr><td><input type="text" name="email" id="email"<?php if (isset($errors['email'])) echo ' class="error"'; ?> value="<?php echo escape($values['email']); ?>"/></td></tr>
 							<tr><th><label for="message">Message</label></th></tr>
-							<tr><td><textarea name="message" id="message" rows="10" cols="40"<?php if (isset($errors['message'])) echo ' class="error"'; ?>><?php echo escape($values['message']); ?></textarea></tr>
-							<tr><td class="submit"><input type="submit" name="contact" value="Submit"/></tr>
+							<tr><td><textarea name="message" id="message" rows="10" cols="40"<?php if (isset($errors['message'])) echo ' class="error"'; ?>><?php echo escape($values['message']); ?></textarea></td></tr>
+							<tr><td class="submit"><input type="submit" name="contact" value="Submit"/></td></tr>
 						</table>
 					</form>
 <?php } else { ?>

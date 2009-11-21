@@ -6,7 +6,7 @@
 					</p>
 					
 					<table>
-						<tr><th>File name</td><td><tt><?php echo $row['midi_filename']; ?></tt></td></td></tr>
+						<tr><th>File name</th><td><tt><?php echo $row['midi_filename']; ?></tt></td></tr>
 						<tr><th>File size</th><td><tt><?php echo $row['midi_file_size']; ?></tt></td></tr>
 						<tr><th>Report type</th><td><tt><?php echo $row['report_type']; ?></tt></td></tr>
 						<tr><th>Created</th><td><tt><?php echo date('Y-m-d H:i:s', strtotime($row['created'])); ?></tt></td></tr>
