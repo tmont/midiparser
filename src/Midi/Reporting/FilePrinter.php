@@ -39,10 +39,11 @@
 		 *
 		 * @param  Formatter $formatter
 		 * @param  Parser    $parser
+		 * @param  string    $file
 		 */
-		public function __construct(Formatter $formatter, Parser $parser) {
+		public function __construct(Formatter $formatter, Parser $parser, $file = null) {
 			parent::__construct($formatter, $parser);
-			$this->file         = null;
+			$this->file         = ($file !== null) ? $this->createFileObject($file, true) : null;
 			$this->bytesWritten = 0;
 		}
 		
@@ -58,6 +59,22 @@
 		public function createFileObject($file, $binary = false) {
 			$mode = 'w' . ($binary ? 'b' : '');
 			return new SplFileObject($file, $mode);
+		}
+		
+		/**
+		 * Sets the output file
+		 *
+		 * @since 1.1
+		 * @uses  createFileObject()
+		 *
+		 * @param  string|SplFileObject $file
+		 */
+		public function setFile($file) {
+			if (!($file instanceof SplFileObject)) {
+				$file = $this->createFileObject($file, true);
+			}
+			
+			$this->file = $file;
 		}
 		
 		/**

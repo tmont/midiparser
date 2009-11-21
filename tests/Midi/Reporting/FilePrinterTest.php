@@ -27,6 +27,12 @@
 			$this->obj->faker();
 		}
 		
+		public function testSetFile() {
+			$parser = $this->getMock('Midi\Parsing\Parser', array('parse'));
+			$this->obj = new FilePrinter(new Formatter(), $parser);
+			$this->obj->setFile(dirname(dirname(dirname(__FILE__))) . '/data/file.txt');
+		}
+		
 	}
 	
 	class FakePrinter extends FilePrinter {
