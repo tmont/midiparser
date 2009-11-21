@@ -107,7 +107,23 @@
 			$printer->setFile($tempLocation . '/report.txt');
 		}
 		
-		$printer->printAll();
+		try {
+			$printer->printAll();
+		} catch (Exception $e) {
+			$printer = null;
+			
+			//clear directory
+			foreach (new DirectoryIterator($tempLocation) as $file) {
+				if ($file->isFile()) {
+					$fileName = $file->getPathName();
+					unset($file);
+					unlink($fileName);
+				}
+			}
+			
+			rmdir($tempLocation);
+			throw $e;
+		}
 		$printer = null;
 		
 		$ip = (string)@$_SERVER['REMOTE_ADDR'];
