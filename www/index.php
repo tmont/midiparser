@@ -171,10 +171,10 @@
 				)
 				VALUES(
 					\'' . mysql_real_escape_string($ip, $conn) . '\',
-					\'' . mysql_real_escape_string($file, $conn) . '\'
+					\'' . mysql_real_escape_string(basename($file), $conn) . '\'
 				)';
 			
-			mysql_query($query, $conn);
+			query($query);
 		}
 		
 		$size = $headers['Content-Length'];
