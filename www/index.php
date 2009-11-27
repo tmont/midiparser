@@ -164,6 +164,8 @@
 		//store download data
 		$ip = isset($_SERVER['REMOTE_ADDR']) ? substr($_SERVER['REMOTE_ADDR'], 0, 15) : 'unknown';
 		if ($ip !== '127.0.0.1') {
+			global $conn;
+			
 			$query = '
 				INSERT INTO downloads (
 					ip,
