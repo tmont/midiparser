@@ -2,7 +2,7 @@
 
 	namespace Midi\Tests\Util;
 	
-	use \Midi\Util\Util;
+	use Midi\Util\Util;
 
 	class UtilTest extends \PHPUnit_Framework_TestCase {
 		
@@ -19,6 +19,10 @@
 		public function testBinaryToHex() {	
 			$binary = pack('C3', 0x00, 0x80, 0x9A);
 			$this->assertSame(array('00', '80', '9A'), Util::binaryToHex($binary));
+		}
+		
+		public function testPackWithNullValues() {	
+			$this->assertSame(pack('C2', 0x30, 0x20),Util::pack(0x30, 0x20, null));
 		}
 		
 	}

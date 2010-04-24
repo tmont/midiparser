@@ -7,7 +7,7 @@
 		private $obj;
 		
 		public function setUp() {
-			$this->obj = new \Midi\Event\ProgramChangeEvent(1, \Midi\Util\Instrument::HonkyTonk, 0x00);
+			$this->obj = new \Midi\Event\ProgramChangeEvent(1, \Midi\Util\Instrument::HonkyTonk);
 		}
 		
 		public function tearDown() {
@@ -24,6 +24,10 @@
 		
 		public function testGetLength() {
 			$this->assertEquals(2, $this->obj->getLength());
+		}
+		
+		public function testToBinary() {
+			$this->assertEquals(pack('C2', 0xC1, \Midi\Util\Instrument::HonkyTonk), $this->obj->toBinary());
 		}
 		
 	}

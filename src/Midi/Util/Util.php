@@ -11,6 +11,8 @@
 
 	namespace Midi\Util;
 	
+	use ReflectionFunction;
+	
 	/**
 	 * Contains static utility methods
 	 *
@@ -19,6 +21,8 @@
 	 * @since      1.0
 	 */
 	class Util {
+		
+		private static $packer = null;
 		
 		//@codeCoverageIgnoreStart
 		/**
@@ -44,7 +48,7 @@
 		}
 		
 		/**
-		 * Packs 8-bit integers into a binary string
+		 * Packs 8-bit integers into a binary string, ignoring null values
 		 *
 		 * @since 1.0
 		 * 
@@ -52,10 +56,13 @@
 		 * @return binary
 		 */
 		public static function pack($ascii) {
-			$packer = new \ReflectionFunction('pack');
-			$args   = func_get_args();
+			if (self::$packer === null) {
+				self::$packer = new ReflectionFunction('pack');
+			}
+			
+			$args = array_filter(func_get_args(), function($value) { return $value !== null; });
 			array_unshift($args, 'C*');
-			return $packer->invokeArgs($args);
+			return self::$packer->invokeArgs($args);
 		}
 		
 		/**
