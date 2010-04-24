@@ -22,7 +22,8 @@
 		}
 		
 		public function testLoad() {
-			$file = $this->getMock('SplFileObject', array(), array(), '', false);
+			//see http://www.phpunit.de/ticket/1046 for why we're mocking fgets() for no reason
+			$file = $this->getMock('SplFileObject', array('fgets'), array(), '', false);
 			
 			$this->obj = $this->getMock('Midi\Parsing\Parser', array('parse', 'createFileObject'));
 			$this->obj->expects($this->once())
@@ -34,7 +35,8 @@
 		}
 		
 		public function testSetFile() {
-			$file = $this->getMock('SplFileObject', array(), array(), '', false);
+			//see http://www.phpunit.de/ticket/1046 for why we're mocking fgets() for no reason
+			$file = $this->getMock('SplFileObject', array('fgets'), array(), '', false);
 			$this->obj->setFile($file);
 		}
 		

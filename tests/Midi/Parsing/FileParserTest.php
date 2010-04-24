@@ -47,7 +47,11 @@
 		}
 		
 		public function testLoad() {
-			$file = $this->getMock('SplFileObject', array(), array(), '', false);
+			//i really don't care what method we mock here, i just need an instance of SplFileObject,
+			//but PHP's reflection API returns $... for one of the parameter names of fscanf and it jacks
+			//up PHPUnit's mock object generator
+			//@see http://www.phpunit.de/ticket/1046
+			$file = $this->getMock('SplFileObject', array('fgets'), array(), '', false);
 			$trackParser = $this->getMock('Midi\Parsing\TrackParser', array('setFile'), array(), '', false);
 			
 			//called by afterLoad()

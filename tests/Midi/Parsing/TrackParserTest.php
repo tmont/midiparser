@@ -23,7 +23,8 @@
 		}
 		
 		public function testAfterSetFile() {
-			$file = $this->getMock('SplFileObject', array(), array(), '', false);
+			//see http://www.phpunit.de/ticket/1046 for why we're mocking fgets() for no reason
+			$file = $this->getMock('SplFileObject', array('fgets'), array(), '', false);
 			$deltaParser = $this->getMock('Midi\Parsing\DeltaParser', array('setFile'), array(), '', false);
 			$deltaParser->expects($this->once())
 			            ->method('setFile')
