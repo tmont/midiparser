@@ -11,6 +11,8 @@
 
 	namespace Midi\Event;
 	
+	use Midi\Util\Instrument;
+	
 	/**
 	 * Represents a program change event
 	 *
@@ -30,7 +32,7 @@
 		 * @return string
 		 */
 		public function getParamDescription() {
-			return \Midi\Util\Instrument::getInstrumentName($this->param1);
+			return Instrument::getInstrumentName($this->param1);
 		}
 		
 		/**

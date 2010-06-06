@@ -11,11 +11,11 @@
 
 	namespace Midi\Reporting;
 	
-	use \Midi\Chunk;
-	use \Midi\Delta;
-	use \Midi\FileHeader;
-	use \Midi\TrackHeader;
-	use \Midi\Event;
+	use Midi\Chunk;
+	use Midi\Delta;
+	use Midi\FileHeader;
+	use Midi\TrackHeader;
+	use Midi\Event;
 
 	/**
 	 * Default (empty) class for formatting parse results

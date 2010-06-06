@@ -10,7 +10,7 @@
 
 	namespace Midi;
 	
-	use \Midi\Util\Util;
+	use Midi\Util\Util;
 
 	/**
 	 * Represents a MIDI track header

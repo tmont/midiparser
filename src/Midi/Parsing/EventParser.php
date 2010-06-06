@@ -11,8 +11,12 @@
 
 	namespace Midi\Parsing;
 	
-	use \Midi\Event;
-	use \Midi\Util\Util;
+	use Midi\Event;
+	use Midi\Event\EventType;
+	use Midi\Util\Util;
+	use Midi\MidiException;
+	use Midi\Event\NoteOnEvent, Midi\Event\NoteOffEvent, Midi\Event\NoteAftertouchEvent, Midi\Event\ChannelAftertouchEvent;
+	use Midi\Event\ProgramChangeEvent, Midi\Event\ControllerEvent, Midi\Event\PitchBendEvent; 
 
 	/**
 	 * Class for parsing MIDI events
@@ -31,8 +35,6 @@
 		protected $continuationEvent;
 		
 		/**
-		 * Constructor
-		 *
 		 * @since 1.0
 		 */
 		public function __construct() {
@@ -45,6 +47,7 @@
 		 * Channel event factory
 		 *
 		 * @since 1.0
+		 * @todo  Factor this out into its own class
 		 * 
 		 * @param  int      $type    See {@link EventType}
 		 * @param  int      $channel 4-bit unsigned integer
@@ -55,32 +58,23 @@
 		 */
 		public function getChannelEvent($type, $channel, $param1, $param2 = null) {
 			switch ($type) {
-				case Event\EventType::NOTE_OFF:
-					$class = '\Midi\Event\NoteOffEvent';
-					break;
-				case Event\EventType::NOTE_ON:
-					$class = '\Midi\Event\NoteOnEvent';
-					break;
-				case Event\EventType::NOTE_AFTERTOUCH:
-					$class = '\Midi\Event\NoteAftertouchEvent';
-					break;
-				case Event\EventType::CONTROLLER:
-					$class = '\Midi\Event\ControllerEvent';
-					break;
-				case Event\EventType::PROGRAM_CHANGE:
-					$class = '\Midi\Event\ProgramChangeEvent';
-					break;
-				case Event\EventType::CHANNEL_AFTERTOUCH:
-					$class = '\Midi\Event\ChannelAftertouchEvent';
-					break;
-				case Event\EventType::PITCH_BEND:
-					$class = '\Midi\Event\PitchBendEvent';
-					break;
+				case EventType::NOTE_OFF:
+					return new NoteOffEvent($channel, $param1, $param2);
+				case EventType::NOTE_ON:
+					return new NoteOnEvent($channel, $param1, $param2);
+				case EventType::NOTE_AFTERTOUCH:
+					return new NoteAftertouchEvent($channel, $param1, $param2);
+				case EventType::CONTROLLER:
+					return new ControllerEvent($channel, $param1, $param2);
+				case EventType::PROGRAM_CHANGE:
+					return new ProgramChangeEvent($channel, $param1, $param2);
+				case EventType::CHANNEL_AFTERTOUCH:
+					return new ChannelAftertouchEvent($channel, $param1, $param2);
+				case EventType::PITCH_BEND:
+					return new PitchBendEvent($channel, $param1, $param2);
 				default:
-					throw new \Midi\MidiException('Invalid channel event');
+					throw new MidiException('Invalid channel event');
 			}
-			
-			return new $class($channel, $param1, $param2);
 		}
 		
 		/**
@@ -91,6 +85,7 @@
 		 *
 		 * @since 1.0
 		 * @uses  Util::unpack()
+		 * @todo  Factor this out into its own class
 		 * 
 		 * @param  int           $type See {@link MetaEventType}
 		 * @param  string|binary $data

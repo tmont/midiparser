@@ -11,8 +11,8 @@
 
 	namespace Midi\Event;
 	
-	use \Midi\Event;
-	use \Midi\Util\Util;
+	use Midi\Event;
+	use Midi\Util\Util;
 
 	/**
 	 * Represents events that are associated with a channel

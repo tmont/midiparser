@@ -18,6 +18,7 @@
 	 * @package    Midi
 	 * @subpackage Event
 	 * @since      1.0
+	 * @todo       Finish documentation
 	 */
 	final class MetaEventType {
 		/**

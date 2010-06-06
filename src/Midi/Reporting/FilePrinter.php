@@ -11,9 +11,9 @@
 
 	namespace Midi\Reporting;
 	
-	use \Midi\Parsing\Parser;
-	use \Midi\MidiException;
-	use \SplFileObject;
+	use Midi\Parsing\Parser;
+	use Midi\MidiException;
+	use SplFileObject;
 	
 	/**
 	 * Printer that redirects its output to a file

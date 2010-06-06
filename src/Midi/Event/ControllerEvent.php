@@ -11,6 +11,8 @@
 
 	namespace Midi\Event;
 	
+	use Midi\Util\Controller;
+	
 	/**
 	 * Represents controller updates for a particular channel
 	 *
@@ -44,7 +46,7 @@
 		 * @return string
 		 */
 		public function getParamDescription() {
-			return \Midi\Util\Controller::getControllerName($this->param1) . ' ' . $this->getControllerDetail();
+			return Controller::getControllerName($this->param1) . ' ' . $this->getControllerDetail();
 		}
 		
 		/**

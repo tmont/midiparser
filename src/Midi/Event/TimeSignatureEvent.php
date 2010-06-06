@@ -57,7 +57,7 @@
 		 * 
 		 * @param  int $numerator
 		 * @param  int $logarithmicDenominator The base 2 logarithm of the actual denominator
-		 *                                    (e.g. 1 instead of 2, 2 instead of 4, 4 instead of 16, etc.)
+		 *                                     (e.g. 1 instead of 2, 2 instead of 4, 4 instead of 16, etc.)
 		 * @return string
 		 */
 		public static function getTimeSignature($numerator, $logarithmicDenominator) {

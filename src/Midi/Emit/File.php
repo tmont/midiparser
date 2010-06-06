@@ -11,10 +11,10 @@
 
 	namespace Midi\Emit;
 
-	use \Midi\Util\Timer;
-	use \Midi\FileHeader;
-	use \Midi\MidiException;
-	use \SplFileObject;
+	use Midi\Util\Timer;
+	use Midi\FileHeader;
+	use Midi\MidiException;
+	use SplFileObject;
 	
 	/**
 	 * Represents a MIDI file

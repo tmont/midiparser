@@ -11,10 +11,10 @@
 
 	namespace Midi\Emit;
 	
-	use \Midi\Util\Util;
-	use \Midi\Delta;
-	use \Midi\TrackHeader;
-	use \Midi\Event;
+	use Midi\Util\Util;
+	use Midi\Delta;
+	use Midi\TrackHeader;
+	use Midi\Event;
 	
 	/**
 	 * Represents a MIDI track

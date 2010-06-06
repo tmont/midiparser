@@ -14,6 +14,7 @@
 	use Midi\Event;
 	use Midi\TrackHeader;
 	use Midi\Util\Util;
+	use InvalidArgumentException;
 
 	/**
 	 * Class for parsing MIDI tracks
@@ -60,8 +61,8 @@
 		 * @param  DeltaParser $deltaParser
 		 */
 		public function __construct(EventParser $eventParser = null, DeltaParser $deltaParser = null) {
-			$this->eventParser         = ($eventParser === null) ? new EventParser() : $eventParser;
-			$this->deltaParser         = ($deltaParser === null) ? new DeltaParser() : $deltaParser;
+			$this->eventParser         = $eventParser ?: new EventParser();
+			$this->deltaParser         = $deltaParser ?: new DeltaParser();
 			$this->expectedTrackLength = 0;
 			$this->parsedTrackLength   = 0;
 			
@@ -118,7 +119,7 @@
 		 */
 		public function parseTrackHeader($header) {
 			if (strlen($header) !== TrackHeader::LENGTH) {
-				throw new \InvalidArgumentException('Track header must be ' . \Midi\TrackHeader::LENGTH . ' bytes');
+				throw new InvalidArgumentException('Track header must be ' . TrackHeader::LENGTH . ' bytes');
 			}
 			
 			$id   = Util::unpack(substr($header, 0, 4));

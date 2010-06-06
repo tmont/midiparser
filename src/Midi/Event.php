@@ -10,7 +10,7 @@
 
 	namespace Midi;
 	
-	use \Midi\Chunk;
+	use Midi\Chunk;
 
 	/**
 	 * Represents a MIDI event (meta, sysex or channel), but NOT 

@@ -11,6 +11,8 @@
 
 	namespace Midi\Event;
 	
+	use Midi\Util\Note;
+	
 	/**
 	 * Represents the note aftertouch channel event
 	 *
@@ -28,7 +30,7 @@
 		 * @return string
 		 */
 		public function getParamDescription() {
-			return \Midi\Util\Note::getNoteName($this->param1) . ' with amount ' . $this->param2;
+			return Note::getNoteName($this->param1) . ' with amount ' . $this->param2;
 		}
 		
 		/**

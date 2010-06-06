@@ -11,6 +11,8 @@
 
 	namespace Midi\Event;
 	
+	use Midi\Util\Note;
+	
 	/**
 	 * Represents a note off channel event
 	 *
@@ -30,7 +32,7 @@
 		 * @return string
 		 */
 		public function getParamDescription() {
-			return \Midi\Util\Note::getNoteName($this->param1) . ' with velocity ' . $this->param2;
+			return Note::getNoteName($this->param1) . ' with velocity ' . $this->param2;
 		}
 		
 		/**

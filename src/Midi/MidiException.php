@@ -10,7 +10,7 @@
 
 	namespace Midi;
 
-	use \Exception;
+	use Exception;
 	
 	/**
 	 * Base exception for the MIDI package

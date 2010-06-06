@@ -11,7 +11,7 @@
 
 	namespace Midi\Reporting;
 	
-	use \SplFileObject;
+	use SplFileObject;
 
 	/**
 	 * Handles post processing for HTML formatters

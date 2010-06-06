@@ -25,9 +25,7 @@
 		 *
 		 * @since 1.0
 		 */
-		public function __construct() {
-			
-		}
+		public function __construct() {}
 		
 		/**
 		 * @since 1.0
@@ -35,16 +33,12 @@
 		 * @param  string $key
 		 * @param  string $value
 		 */
-		public function setParameter($key, $value) {
-			
-		}
+		public function setParameter($key, $value) {}
 		
 		/**
 		 * @since 1.0
 		 */
-		public function execute() {
-			
-		}
+		public function execute() {}
 		
 	}
 

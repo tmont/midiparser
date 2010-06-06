@@ -11,11 +11,11 @@
 
 	namespace Midi\Reporting;
 	
-	use \Midi\Delta;
-	use \Midi\TrackHeader;
-	use \Midi\FileHeader;
-	use \Midi\Event;
-	use \Midi\Parsing\Parser;
+	use Midi\Delta;
+	use Midi\TrackHeader;
+	use Midi\FileHeader;
+	use Midi\Event;
+	use Midi\Parsing\Parser;
 	
 	/**
 	 * Printer that outputs to multiple files

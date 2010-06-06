@@ -11,6 +11,8 @@
 
 	namespace Midi\Event;
 	
+	use Midi\Util\Key;
+	
 	/**
 	 * Represents a set key signature event
 	 *
@@ -41,7 +43,7 @@
 		 * @return string
 		 */
 		public function getParamDescription() {
-			$key = \Midi\Util\Key::getKeySignature($this->data[0], $this->data[1]);
+			$key = Key::getKeySignature($this->data[0], $this->data[1]);
 			return $key;
 		}
 		

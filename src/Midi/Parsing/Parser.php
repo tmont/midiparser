@@ -11,8 +11,8 @@
 
 	namespace Midi\Parsing;
 	
-	use \Midi\Util\Util;
-	use \SplFileObject;
+	use Midi\Util\Util;
+	use SplFileObject;
 
 	/**
 	 * Base parsing class
@@ -170,18 +170,14 @@
 		 *
 		 * @since 1.0
 		 */
-		protected function afterLoad() {
-		
-		}
+		protected function afterLoad() {}
 		
 		/**
 		 * Called after {@link setFile()}
 		 *
 		 * @since 1.0
 		 */
-		protected function afterSetFile() {
-		
-		}
+		protected function afterSetFile() {}
 		
 		/**
 		 * Parses the buffer stream and returns the next chunk

@@ -11,8 +11,8 @@
 
 	namespace Midi\Parsing;
 	
-	use \Midi\FileHeader;
-	use \Midi\Util\Util;
+	use Midi\FileHeader;
+	use Midi\Util\Util;
 	
 	/**
 	 * Class for parsing MIDI files
@@ -134,9 +134,9 @@
 				throw new ParseException('File header chunk size must be [00 00 00 06]');
 			}
 			
-			$format       = ($format[0] << 8) | $format[1];
+			$format       = ($format[0]       << 8) | $format[1];
 			$timeDivision = ($timeDivision[0] << 8) | $timeDivision[1];
-			$tracks       = ($tracks[0] << 8) | $tracks[1];
+			$tracks       = ($tracks[0]       << 8) | $tracks[1];
 			
 			if ($format !== 0 && $format !== 1 && $format !== 2) {
 				throw new ParseException('MIDI file format must be 0, 1 or 2 (got ' . $format . ')');

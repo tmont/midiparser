@@ -11,6 +11,8 @@
 
 	namespace Midi\Event;
 	
+	use InvalidArgumentException;
+	
 	/**
 	 * Represents the different MIDI events that can be fired in a track
 	 *
@@ -18,6 +20,7 @@
 	 * @subpackage Event
 	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
+	 * @todo       Finish documentation
 	 */
 	final class EventType {
 		/**
@@ -196,7 +199,7 @@
 		 */
 		public static function getEventName($event) {
 			if (!isset(self::$eventNameMap[$event])) {
-				throw new \InvalidArgumentException('1st argument must be one of the EventType constants');
+				throw new InvalidArgumentException('1st argument must be one of the EventType constants');
 			}
 			
 			return self::$eventNameMap[$event];

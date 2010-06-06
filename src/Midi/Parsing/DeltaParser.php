@@ -10,7 +10,7 @@
 
 	namespace Midi\Parsing;
 	
-	use \Midi\Delta;
+	use Midi\Delta;
 
 	/**
 	 * Class for parsing delta times

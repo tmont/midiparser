@@ -11,7 +11,7 @@
 
 	namespace Midi\Parsing;
 
-	use \Midi\MidiException;
+	use Midi\MidiException;
 	
 	/**
 	 * Exception for when a parser encounters an error

@@ -11,10 +11,10 @@
 
 	namespace Midi\Reporting;
 	
-	use \Midi\Delta;
-	use \Midi\FileHeader;
-	use \Midi\TrackHeader;
-	use \Midi\Event;
+	use Midi\Delta;
+	use Midi\FileHeader;
+	use Midi\TrackHeader;
+	use Midi\Event;
 
 	/**
 	 * Formats parse results in plaintext

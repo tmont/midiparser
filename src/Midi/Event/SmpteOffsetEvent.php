@@ -11,6 +11,8 @@
 
 	namespace Midi\Event;
 	
+	use InvalidArgumentException;
+	
 	/**
 	 * Class SmpteOffsetEvent
 	 *
@@ -74,7 +76,7 @@
 				case 3:
 					return '30fps';
 				default:
-					throw new \InvalidArgumentException('Invalid frame rate');
+					throw new InvalidArgumentException('Invalid frame rate');
 			}
 		}
 		

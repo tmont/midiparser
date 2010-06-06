@@ -11,15 +11,15 @@
 
 	namespace Midi\Reporting;
 	
-	use \Midi\Chunk;
-	use \Midi\Delta;
-	use \Midi\FileHeader;
-	use \Midi\TrackHeader;
-	use \Midi\Version;
-	use \Midi\Event;
-	use \Midi\Event\ChannelEvent;
-	use \Midi\Event\MetaEvent;
-	use \Midi\Util\Util;
+	use Midi\Chunk;
+	use Midi\Delta;
+	use Midi\FileHeader;
+	use Midi\TrackHeader;
+	use Midi\Version;
+	use Midi\Event;
+	use Midi\Event\ChannelEvent;
+	use Midi\Event\MetaEvent;
+	use Midi\Util\Util;
 
 	/**
 	 * Formats parse results in HTML
