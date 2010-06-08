@@ -2,15 +2,15 @@
 	
 	namespace Midi\Tests\Parsing;
 	
-	use \Midi\Parsing;
 	use \Midi\Parsing\ParseState;
+	use \Midi\Parsing\EventParser;
 
 	class EventParserTest extends \PHPUnit_Framework_TestCase {
 		
 		private $obj;
 		
 		public function setUp() {
-			$this->obj = new Parsing\EventParser();
+			$this->obj = new EventParser();
 		}
 		
 		public function tearDown() {
@@ -19,16 +19,6 @@
 		
 		public function testDefaultState() {
 			$this->assertEquals(ParseState::EOF, $this->obj->getState());
-		}
-		
-		public function testGetChannelEvent() {
-			$this->assertType('\Midi\Event\NoteOffEvent', $this->obj->getChannelEvent(\Midi\Event\EventType::NOTE_OFF, 1, 1, 1));
-			$this->assertType('\Midi\Event\NoteOnEvent', $this->obj->getChannelEvent(\Midi\Event\EventType::NOTE_ON, 1, 1, 1));
-			$this->assertType('\Midi\Event\NoteAftertouchEvent', $this->obj->getChannelEvent(\Midi\Event\EventType::NOTE_AFTERTOUCH, 1, 1, 1));
-			$this->assertType('\Midi\Event\ControllerEvent', $this->obj->getChannelEvent(\Midi\Event\EventType::CONTROLLER, 1, 1, 1));
-			$this->assertType('\Midi\Event\ProgramChangeEvent', $this->obj->getChannelEvent(\Midi\Event\EventType::PROGRAM_CHANGE, 1, 1, 1));
-			$this->assertType('\Midi\Event\ChannelAftertouchEvent', $this->obj->getChannelEvent(\Midi\Event\EventType::CHANNEL_AFTERTOUCH, 1, 1, 1));
-			$this->assertType('\Midi\Event\PitchBendEvent', $this->obj->getChannelEvent(\Midi\Event\EventType::PITCH_BEND, 1, 1, 1));
 		}
 		
 		public function testGetMetaEvent() {
@@ -57,11 +47,6 @@
 			$this->assertType('\Midi\Event\UnknownMetaEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::DEVICE_NAME, 1));
 		}
 		
-		public function testGetChannelEventWithInvalidEventType() {
-			$this->setExpectedException('Midi\MidiException');
-			$this->obj->getChannelEvent(0xF0, 2, 1, 1);
-		}
-		
 		public function testParseNormalChannelEvent() {
 			$file = $this->getMock('SplFileObject', array('fseek'), array(), '', false);
 			
@@ -77,15 +62,17 @@
 			$event2->expects($this->once())
 			       ->method('setContinuation');
 			
+			$channelEventFactory = $this->getMock('Midi\Event\ChannelEventFactory', array('create'));
+			$channelEventFactory
+				->expects($this->exactly(2))
+				->method('create')
+				->will($this->onConsecutiveCalls($event1, $event2));
+				   
 			//normal channel event
-			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('getChannelEvent', 'read'));
+			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('read'), array($channelEventFactory));
 			$this->obj->expects($this->exactly(4))
 			          ->method('read')
 			          ->will($bytes);
-			
-			$this->obj->expects($this->exactly(2))
-			          ->method('getChannelEvent')
-			          ->will($this->onConsecutiveCalls($event1, $event2));
 			
 			//continuation event
 			$file->expects($this->once())
@@ -112,16 +99,19 @@
 			$event2->expects($this->once())
 			       ->method('setContinuation');
 			
+			
+			$channelEventFactory = $this->getMock('Midi\Event\ChannelEventFactory', array('create'));
+			$channelEventFactory
+				->expects($this->exactly(2))
+				->method('create')
+				->with(0xC0, 0x00, 0x64, null)
+				->will($this->onConsecutiveCalls($event1, $event2));
+			
 			//normal channel event
-			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('getChannelEvent', 'read'));
+			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('read'), array($channelEventFactory));
 			$this->obj->expects($this->exactly(4))
 			          ->method('read')
 			          ->will($bytes);
-			
-			$this->obj->expects($this->exactly(2))
-			          ->method('getChannelEvent')
-			          ->with(0xC0, 0x00, 0x64, null)
-			          ->will($this->onConsecutiveCalls($event1, $event2));
 			
 			//continuation event
 			$file->expects($this->once())

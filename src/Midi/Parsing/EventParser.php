@@ -13,10 +13,9 @@
 	
 	use Midi\Event;
 	use Midi\Event\EventType;
+	use Midi\Event\ChannelEventFactory;
 	use Midi\Util\Util;
 	use Midi\MidiException;
-	use Midi\Event\NoteOnEvent, Midi\Event\NoteOffEvent, Midi\Event\NoteAftertouchEvent, Midi\Event\ChannelAftertouchEvent;
-	use Midi\Event\ProgramChangeEvent, Midi\Event\ControllerEvent, Midi\Event\PitchBendEvent; 
 
 	/**
 	 * Class for parsing MIDI events
@@ -35,46 +34,20 @@
 		protected $continuationEvent;
 		
 		/**
-		 * @since 1.0
+		 * @var ChannelEventFactory
 		 */
-		public function __construct() {
+		private $channelEventFactory;
+		
+		/**
+		 * @since 1.0
+		 *
+		 * @param ChannelEventFactory $channelEventFactory
+		 */
+		public function __construct(ChannelEventFactory $channelEventFactory = null) {
 			parent::__construct();
 			
 			$this->continuationEvent = null;
-		}
-		
-		/**
-		 * Channel event factory
-		 *
-		 * @since 1.0
-		 * @todo  Factor this out into its own class
-		 * 
-		 * @param  int      $type    See {@link EventType}
-		 * @param  int      $channel 4-bit unsigned integer
-		 * @param  int      $param1
-		 * @param  int|null $param2
-		 * @throws {@link MidiException}
-		 * @return ChannelEvent
-		 */
-		public function getChannelEvent($type, $channel, $param1, $param2 = null) {
-			switch ($type) {
-				case EventType::NOTE_OFF:
-					return new NoteOffEvent($channel, $param1, $param2);
-				case EventType::NOTE_ON:
-					return new NoteOnEvent($channel, $param1, $param2);
-				case EventType::NOTE_AFTERTOUCH:
-					return new NoteAftertouchEvent($channel, $param1, $param2);
-				case EventType::CONTROLLER:
-					return new ControllerEvent($channel, $param1, $param2);
-				case EventType::PROGRAM_CHANGE:
-					return new ProgramChangeEvent($channel, $param1, $param2);
-				case EventType::CHANNEL_AFTERTOUCH:
-					return new ChannelAftertouchEvent($channel, $param1, $param2);
-				case EventType::PITCH_BEND:
-					return new PitchBendEvent($channel, $param1, $param2);
-				default:
-					throw new MidiException('Invalid channel event');
-			}
+			$this->channelEventFactory = $channelEventFactory ?: new ChannelEventFactory();
 		}
 		
 		/**
@@ -202,6 +175,8 @@
 		 * @since 1.0
 		 * @uses  Util::unpack()
 		 * @uses  getChannelEvent()
+		 * @uses  ChannelEvent::setContinuation()
+		 * @uses  ChannelEventFactory::create()
 		 * 
 		 * @param  int  $eventType      See {@link EventType}
 		 * @param  bool $isContinuation Whether the event is a continuation of a previous event
@@ -216,7 +191,7 @@
 				$data = Util::unpack($this->read(2, true));
 			}
 			
-			$event = $this->getChannelEvent($eventType & 0xF0, $eventType & 0x0F, $data[0], $data[1]);
+			$event = $this->channelEventFactory->create($eventType & 0xF0, $eventType & 0x0F, $data[0], $data[1]);
 			if ($isContinuation) {
 				$event->setContinuation(true);
 			}
