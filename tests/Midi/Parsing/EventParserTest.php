@@ -21,32 +21,6 @@
 			$this->assertEquals(ParseState::EOF, $this->obj->getState());
 		}
 		
-		public function testGetMetaEvent() {
-			$this->assertType('\Midi\Event\SequenceNumberEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::SEQUENCE_NUMBER, pack('C2', 0, 1)));
-			$this->assertType('\Midi\Event\TextEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::TEXT_EVENT, 'foo'));
-			$this->assertType('\Midi\Event\CopyrightNoticeEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::COPYRIGHT_NOTICE, 'foo'));
-			$this->assertType('\Midi\Event\TrackNameEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::TRACK_NAME, 'foo'));
-			$this->assertType('\Midi\Event\InstrumentNameEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::INSTRUMENT_NAME, 'foo'));
-			$this->assertType('\Midi\Event\LyricsEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::LYRICS, 'foo'));
-			$this->assertType('\Midi\Event\MarkerEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::MARKER, 'foo'));
-			$this->assertType('\Midi\Event\CuePointEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::CUE_POINT, 'foo'));
-			$this->assertType('\Midi\Event\EndOfTrackEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::END_OF_TRACK, null));
-			$this->assertType('\Midi\Event\ChannelPrefixEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::CHANNEL_PREFIX, pack('C', 0)));
-			$this->assertType('\Midi\Event\SetTempoEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::SET_TEMPO, pack('C3', 0, 0, 1)));
-			$this->assertType('\Midi\Event\SmpteOffsetEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::SMPTE_OFFSET, pack('C5', 1, 2, 3, 4, 5)));
-			$this->assertType('\Midi\Event\TimeSignatureEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::TIME_SIGNATURE, pack('C4', 1, 2, 3, 4)));
-			$this->assertType('\Midi\Event\KeySignatureEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::KEY_SIGNATURE, pack('C2', 1, 2)));
-			$this->assertType('\Midi\Event\SequencerSpecificEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::SEQUENCER_SPECIFIC, 'foo'));
-		}
-		
-		public function testGetSystemExclusiveEvent() {
-			$this->assertType('\Midi\Event\SystemExclusiveEvent', $this->obj->getSystemExclusiveEvent(array('f')));
-		}
-		
-		public function testGetMetaEventWithInvalidEventType() {
-			$this->assertType('\Midi\Event\UnknownMetaEvent', $this->obj->getMetaEvent(\Midi\Event\MetaEventType::DEVICE_NAME, 1));
-		}
-		
 		public function testParseNormalChannelEvent() {
 			$file = $this->getMock('SplFileObject', array('fseek'), array(), '', false);
 			
@@ -62,10 +36,10 @@
 			$event2->expects($this->once())
 			       ->method('setContinuation');
 			
-			$channelEventFactory = $this->getMock('Midi\Event\ChannelEventFactory', array('create'));
+			$channelEventFactory = $this->getMock('Midi\Event\EventFactory', array('createChannelEvent'));
 			$channelEventFactory
 				->expects($this->exactly(2))
-				->method('create')
+				->method('createChannelEvent')
 				->will($this->onConsecutiveCalls($event1, $event2));
 				   
 			//normal channel event
@@ -100,10 +74,10 @@
 			       ->method('setContinuation');
 			
 			
-			$channelEventFactory = $this->getMock('Midi\Event\ChannelEventFactory', array('create'));
+			$channelEventFactory = $this->getMock('Midi\Event\EventFactory', array('createChannelEvent'));
 			$channelEventFactory
 				->expects($this->exactly(2))
-				->method('create')
+				->method('createChannelEvent')
 				->with(0xC0, 0x00, 0x64, null)
 				->will($this->onConsecutiveCalls($event1, $event2));
 			
@@ -136,8 +110,15 @@
 		}
 		
 		public function testParseMetaEvent() {
-			//normal channel event
-			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('getMetaEvent', 'read', 'getDelta'));
+			$eventFactory = $this->getMock('Midi\Event\EventFactory', array('createMetaEvent'));
+			$eventFactory
+				->expects($this->once())
+				->method('createMetaEvent')
+				//->with(0x20, pack('C3', 0x21, 0x22, 0x23))
+				->will($this->returnValue('yay for meta!'));
+			
+			
+			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('read', 'getDelta'), array($eventFactory));
 			$this->obj->expects($this->at(0))
 			          ->method('read')
 			          ->with(1, true)
@@ -155,17 +136,18 @@
 			          ->method('getDelta')
 			          ->will($this->returnValue(3));
 			
-			$this->obj->expects($this->once())
-			          ->method('getMetaEvent')
-			          //->with(0x20, pack('C3', 0x21, 0x22, 0x23))
-			          ->will($this->returnValue('yay for meta!'));
-			
 			$this->assertEquals('yay for meta!', $this->obj->parse());
 		}
 		
 		public function testParseSystemExclusiveEvent() {
-			//normal channel event
-			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('getSystemExclusiveEvent', 'read', 'getDelta'));
+			$eventFactory = $this->getMock('Midi\Event\EventFactory', array('createSystemExclusiveEvent'));
+			$eventFactory
+				->expects($this->once())
+				->method('createSystemExclusiveEvent')
+				//->with(array('f', 'o', 'o')) //wtf? phpunit bug?
+				->will($this->returnValue('yay for sysex!'));
+			
+			$this->obj = $this->getMock('Midi\Parsing\EventParser', array('read', 'getDelta'), array($eventFactory));
 			$this->obj->expects($this->at(0))
 			          ->method('read')
 			          ->with(1, true)
@@ -178,11 +160,6 @@
 			$this->obj->expects($this->once())
 			          ->method('getDelta')
 			          ->will($this->returnValue(3));
-			
-			$this->obj->expects($this->once())
-			          ->method('getSystemExclusiveEvent')
-			          //->with(array('f', 'o', 'o')) //wtf? phpunit bug?
-			          ->will($this->returnValue('yay for sysex!'));
 			
 			$this->assertEquals('yay for sysex!', $this->obj->parse());
 		}

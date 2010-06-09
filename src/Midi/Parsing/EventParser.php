@@ -13,7 +13,7 @@
 	
 	use Midi\Event;
 	use Midi\Event\EventType;
-	use Midi\Event\ChannelEventFactory;
+	use Midi\Event\EventFactory;
 	use Midi\Util\Util;
 	use Midi\MidiException;
 
@@ -34,96 +34,20 @@
 		protected $continuationEvent;
 		
 		/**
-		 * @var ChannelEventFactory
+		 * @var EventFactory
 		 */
-		private $channelEventFactory;
+		private $eventFactory;
 		
 		/**
 		 * @since 1.0
 		 *
-		 * @param ChannelEventFactory $channelEventFactory
+		 * @param EventFactory $eventFactory
 		 */
-		public function __construct(ChannelEventFactory $channelEventFactory = null) {
+		public function __construct(EventFactory $eventFactory = null) {
 			parent::__construct();
 			
 			$this->continuationEvent = null;
-			$this->channelEventFactory = $channelEventFactory ?: new ChannelEventFactory();
-		}
-		
-		/**
-		 * Meta event factory
-		 *
-		 * If the event type does not exist, then an {@link UnknownMetaEvent}
-		 * object is returned.
-		 *
-		 * @since 1.0
-		 * @uses  Util::unpack()
-		 * @todo  Factor this out into its own class
-		 * 
-		 * @param  int           $type See {@link MetaEventType}
-		 * @param  string|binary $data
-		 * @return MetaEvent
-		 */
-		public function getMetaEvent($type, $data) {
-			switch ($type) {
-				case Event\MetaEventType::SEQUENCE_NUMBER:
-					$data = Util::unpack($data);
-					return new Event\SequenceNumberEvent($data[0], $data[1]);
-				case Event\MetaEventType::TEXT_EVENT:
-					return new Event\TextEvent($data);
-				case Event\MetaEventType::COPYRIGHT_NOTICE:
-					return new Event\CopyrightNoticeEvent($data);
-				case Event\MetaEventType::TRACK_NAME:
-					return new Event\TrackNameEvent($data);
-				case Event\MetaEventType::INSTRUMENT_NAME:
-					return new Event\InstrumentNameEvent($data);
-				case Event\MetaEventType::LYRICS:
-					return new Event\LyricsEvent($data);
-				case Event\MetaEventType::MARKER:
-					return new Event\MarkerEvent($data);
-				case Event\MetaEventType::CUE_POINT:
-					return new Event\CuePointEvent($data);
-				case Event\MetaEventType::END_OF_TRACK:
-					return new Event\EndOfTrackEvent();
-				case Event\MetaEventType::CHANNEL_PREFIX:
-					$data = Util::unpack($data);
-					return new Event\ChannelPrefixEvent($data[0]);
-				case Event\MetaEventType::SET_TEMPO:
-					$data = Util::unpack($data);
-					$mpqn = ($data[0] << 16) | ($data[1] << 8) | $data[2];
-					return new Event\SetTempoEvent($mpqn);
-				case Event\MetaEventType::SMPTE_OFFSET:
-					$data      = Util::unpack($data);
-					$frameRate = ($data[0] >> 5) & 0xFF;
-					$hour      = $data[0] & 0x1F;
-					$minute    = $data[1];
-					$second    = $data[2];
-					$frame     = $data[3];
-					$subFrame  = $data[4];
-					return new Event\SmpteOffsetEvent($frameRate, $hour, $minute, $second, $frame, $subFrame);
-				case Event\MetaEventType::TIME_SIGNATURE:
-					$data = Util::unpack($data);
-					return new Event\TimeSignatureEvent($data[0], pow(2, $data[1]), $data[2], $data[3]);
-				case Event\MetaEventType::KEY_SIGNATURE:
-					$data = Util::unpack($data);
-					return new Event\KeySignatureEvent($data[0], $data[1]);
-				case Event\MetaEventType::SEQUENCER_SPECIFIC:
-					return new Event\SequencerSpecificEvent($data);
-				default:
-					return new Event\UnknownMetaEvent($data);
-			}
-		}
-		
-		/**
-		 * System exclusive event factory
-		 *
-		 * @since 1.0
-		 * 
-		 * @param  string|binary $data
-		 * @return SystemExclusiveEvent
-		 */
-		public function getSystemExclusiveEvent($data) {
-			return new Event\SystemExclusiveEvent($data);
+			$this->eventFactory = $eventFactory ?: new EventFactory();
 		}
 		
 		/**
@@ -176,7 +100,7 @@
 		 * @uses  Util::unpack()
 		 * @uses  getChannelEvent()
 		 * @uses  ChannelEvent::setContinuation()
-		 * @uses  ChannelEventFactory::create()
+		 * @uses  EventFactory::createChannelEvent()
 		 * 
 		 * @param  int  $eventType      See {@link EventType}
 		 * @param  bool $isContinuation Whether the event is a continuation of a previous event
@@ -191,7 +115,7 @@
 				$data = Util::unpack($this->read(2, true));
 			}
 			
-			$event = $this->channelEventFactory->create($eventType & 0xF0, $eventType & 0x0F, $data[0], $data[1]);
+			$event = $this->eventFactory->createChannelEvent($eventType & 0xF0, $eventType & 0x0F, $data[0], $data[1]);
 			if ($isContinuation) {
 				$event->setContinuation(true);
 			}
@@ -206,17 +130,17 @@
 		 * @uses  read()
 		 * @uses  Util::unpack()
 		 * @uses  getDelta()
-		 * @uses  getMetaEvent()
+		 * @uses  EventFactory::createMetaEvent()
 		 * 
 		 * @return MetaEvent
 		 */
 		protected function parseMetaEvent() {
 			$metaEventType = Util::unpack($this->read(1, true));
 			$metaEventType = $metaEventType[0];
-			
 			$length        = $this->getDelta();
 			$data          = $this->read($length, true);
-			return $this->getMetaEvent($metaEventType, $data);
+			
+			return $this->eventFactory->createMetaEvent($metaEventType, $data);
 		}
 		
 		/**
@@ -225,14 +149,14 @@
 		 * @since 1.0
 		 * @uses  getDelta()
 		 * @uses  read()
-		 * @uses  getSystemExclusiveEvent()
+		 * @uses  EventFactory::createSystemExclusiveEvent()
 		 * 
 		 * @return SystemExclusiveEvent
 		 */
 		protected function parseSystemExclusiveEvent() {
 			$length = $this->getDelta();
 			$data   = $this->read($length, true);
-			return $this->getSystemExclusiveEvent(str_split($data));
+			return $this->eventFactory->createSystemExclusiveEvent(str_split($data));
 		}
 		
 	}
