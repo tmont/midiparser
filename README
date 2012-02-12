@@ -1,4 +1,0 @@
-To bootstrap the library, require_once Midi/bootstrap.php.
-
-See http://phpmidiparser.com/quickstart for examples.
-See http://phpmidiparser.com/demo for a demo.
