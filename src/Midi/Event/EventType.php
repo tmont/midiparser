@@ -5,7 +5,6 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
 	 */
 
@@ -18,7 +17,6 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Event
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
 	 * @todo       Finish documentation
 	 */

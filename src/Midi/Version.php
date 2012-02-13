@@ -5,7 +5,6 @@
 	 *
 	 * @package   Midi
 	 * @since     1.0
-	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 */
 	
 	namespace Midi;
