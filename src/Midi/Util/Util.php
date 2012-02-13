@@ -134,6 +134,20 @@
 		private static function binaryToHexCallback($value) {
 			return str_pad(strtoupper(dechex($value)), 2, '0', STR_PAD_LEFT);
 		}
+
+		/**
+		 * Gets a user-friendly time signature
+		 *
+		 * @since 1.0.1
+		 *
+		 * @param  int $numerator
+		 * @param  int $logarithmicDenominator The base 2 logarithm of the actual denominator
+		 *                                     (e.g. 1 instead of 2, 2 instead of 4, 4 instead of 16, etc.)
+		 * @return string
+		 */
+		public static function getTimeSignature($numerator, $logarithmicDenominator) {
+			return $numerator . '/' . pow(2, $logarithmicDenominator);
+		}
 		
 	}
 

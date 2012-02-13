@@ -24,6 +24,12 @@
 		public function testPackWithNullValues() {	
 			$this->assertSame(pack('C2', 0x30, 0x20),Util::pack(0x30, 0x20, null));
 		}
+
+		public function testGetTimeSignature() {
+			$this->assertEquals('2/4', Util::getTimeSignature(2, 2));
+			$this->assertEquals('6/8', Util::getTimeSignature(6, 3));
+			$this->assertEquals('13/16', Util::getTimeSignature(13, 4));
+		}
 		
 	}
 

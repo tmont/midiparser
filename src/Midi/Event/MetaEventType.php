@@ -138,15 +138,14 @@
 			0x59 => 'Key Signature',
 			0x7F => 'Sequencer Specific'
 		);
-		
+
 		/**
 		 * Gets the name of the event type
 		 *
 		 * @since 1.0
 		 * @todo  The name of this function is inconsistent with {@link EventType::getEventName()}
 		 *
-		 * @param  int $eventType
-		 * @throws InvalidArgumentException
+		 * @param int $eventType
 		 * @return string The friendly name of the event
 		 */
 		public static function getEventTypeName($eventType) {
