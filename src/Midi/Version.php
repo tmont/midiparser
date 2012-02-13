@@ -30,7 +30,7 @@
 		 *
 		 * @var string
 		 */
-		const VERSION    = '1.0';
+		const VERSION    = '1.0.1';
 		
 		/**
 		 * The PHP MIDI Parser library author
@@ -51,7 +51,7 @@
 		 *
 		 * @var string
 		 */
-		const BUILD_DATE = '2009-10-25 22:43:31 -07:00';
+		const BUILD_DATE = '2012-02-12 21:38:48 -08:00';
 		
 	}
 
