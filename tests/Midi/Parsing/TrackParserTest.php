@@ -45,7 +45,7 @@
 			
 			$chunk = $this->obj->parseTrackHeader($header);
 			
-			$this->assertType('Midi\TrackHeader', $chunk);
+			$this->assertInstanceOf('Midi\TrackHeader', $chunk);
 			$this->assertEquals(5, $chunk->getSize());
 		}
 		

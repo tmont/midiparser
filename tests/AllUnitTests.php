@@ -13,9 +13,6 @@
 	$testsDir = $baseDir . DIRECTORY_SEPARATOR . 'tests';
 	$srcDir   = $baseDir . DIRECTORY_SEPARATOR . 'src';
 	
-	\PHPUnit_Util_Filter::addDirectoryToWhiteList($srcDir);
-	\PHPUnit_Util_Filter::addFileToFilter(__FILE__, 'PHPUNIT');
-
 	//get all the test files
 	$GLOBALS['test_classes'] = array();
 	foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($testsDir)) as $file) {
@@ -26,6 +23,7 @@
 			preg_match('/Test\.php$/', $file->getFileName())
 		) {
 			$testClass = ltrim(str_replace($testsDir, '', $file->getPathName()), DIRECTORY_SEPARATOR . '/');
+			$testClass = str_replace('/', '\\', $testClass);
 			$testClass = str_replace('Midi\\', 'Midi\\Tests\\', $testClass);
 			$testClass = substr($testClass, 0, -4);
 			$GLOBALS['test_classes'][] = $testClass;

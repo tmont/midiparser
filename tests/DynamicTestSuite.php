@@ -36,8 +36,6 @@
 		}
 	}
 	
-	\PHPUnit_Util_Filter::addFileToFilter(__FILE__, 'PHPUNIT');
-
 	//iterates over all the files in the directory, and require_onces's them
 	//or, if it's just a single file, it require_once's that single file
 	$GLOBALS['test_classes'] = array();

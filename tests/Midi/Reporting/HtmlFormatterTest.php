@@ -319,7 +319,7 @@ HTML;
 		}
 		
 		public function testGetPostProcessor() {
-			$this->assertType('Midi\Reporting\HtmlPostProcessor', $this->obj->getPostProcessor());
+			$this->assertInstanceOf('Midi\Reporting\HtmlPostProcessor', $this->obj->getPostProcessor());
 		}
 		
 	}

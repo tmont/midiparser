@@ -52,12 +52,12 @@
 		
 		public function testAppendEventWithoutDelta() {
 			$event = $this->getMock('Midi\Event', array('getLength', 'toBinary', '__toString', 'getData', 'getType'), array(), '', false);
-			$this->assertType('Midi\Emit\Track', $this->obj->appendEvent($event));
+			$this->assertInstanceOf('Midi\Emit\Track', $this->obj->appendEvent($event));
 		}
 		
 		public function testCreateTrackHeader() {
 			$header = $this->obj->createTrackHeader(2);
-			$this->assertType('Midi\TrackHeader', $header);
+			$this->assertInstanceOf('Midi\TrackHeader', $header);
 			$this->assertEquals(2, $header->getSize());
 		}
 		

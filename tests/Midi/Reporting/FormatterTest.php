@@ -103,7 +103,7 @@
 		}
 		
 		public function testGetPostProcessor() {
-			$this->assertType('Midi\Reporting\DefaultPostProcessor', $this->obj->getPostProcessor());
+			$this->assertInstanceOf('Midi\Reporting\DefaultPostProcessor', $this->obj->getPostProcessor());
 		}
 		
 	}

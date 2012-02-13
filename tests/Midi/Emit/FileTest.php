@@ -84,11 +84,11 @@
 		
 		public function testCreateFileObject() {
 			$file = dirname(dirname(dirname(__FILE__))) . '/data/file.txt';
-			$this->assertType('SplFileObject', $this->obj->createFileObject($file));
+			$this->assertInstanceOf('SplFileObject', $this->obj->createFileObject($file));
 		}
 		
 		public function testCreateFileHeader() {
-			$this->assertType('Midi\FileHeader', $this->obj->createFileHeader(0, 1, 240));
+			$this->assertInstanceOf('Midi\FileHeader', $this->obj->createFileHeader(0, 1, 240));
 		}
 		
 		public function testSave() {
@@ -111,7 +111,7 @@
 		
 		public function testGetTimer() {
 			$timer = $this->obj->getTimer();
-			$this->assertType('Midi\Util\Timer', $timer);
+			$this->assertInstanceOf('Midi\Util\Timer', $timer);
 			$this->assertEquals(240, $timer->getTimeDivision());
 		}
 		

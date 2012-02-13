@@ -71,7 +71,7 @@
 			$header .= pack('C2', 0x00, 0xF0); //time division
 			
 			$chunk = $this->obj->parseFileHeader($header);
-			$this->assertType('Midi\FileHeader', $chunk);
+			$this->assertInstanceOf('Midi\FileHeader', $chunk);
 			
 			list($format, $tracks, $timeDivision) = $chunk->getData();
 			$this->assertEquals(1, $format);
@@ -138,7 +138,7 @@
 			
 			$chunk = $this->obj->parse();
 			
-			$this->assertType('Midi\FileHeader', $chunk);
+			$this->assertInstanceOf('Midi\FileHeader', $chunk);
 			$this->assertEquals(10, $chunk->getSize());
 		}
 		

@@ -34,7 +34,7 @@
 		public function testGetDeltaChunk() {
 			$this->obj = new DeltaParser();
 			$chunk = $this->obj->getDeltaChunk(10);
-			$this->assertType('Midi\Delta', $chunk);
+			$this->assertInstanceOf('Midi\Delta', $chunk);
 		}
 		
 	}

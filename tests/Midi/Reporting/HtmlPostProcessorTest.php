@@ -18,7 +18,7 @@
 		
 		public function testCreateFileObject() {
 			$file = dirname(dirname(dirname(__FILE__))) . '/data/file.txt';
-			$this->assertType('SplFileObject', $this->obj->createFileObject($file));
+			$this->assertInstanceOf('SplFileObject', $this->obj->createFileObject($file));
 		}
 		
 		public function testSetParameter() {

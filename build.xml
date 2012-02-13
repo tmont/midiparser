@@ -131,6 +131,7 @@
 			<env key="MIDI_LIBRARY_COMPONENT" value="${component}"/>
 			<arg line="--log-junit ${build.artifacts}/phpunit-log.xml"/>
 			<arg line="--bootstrap ${dir.tests}/bootstrap.php"/>
+			<arg line="--configuration ${dir.tests}/phpunit.xml"/>
 			<arg line="${test.suite}"/>
 		</exec>
 	</target>

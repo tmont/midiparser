@@ -17,7 +17,7 @@
 			$parser = $this->getMock('Midi\Parsing\Parser', array('parse'));
 			$this->obj = new FilePrinter(new Formatter(), $parser);
 			$file = dirname(dirname(dirname(__FILE__))) . '/data/file.txt';
-			$this->assertType('SplFileObject', $this->obj->createFileObject($file));
+			$this->assertInstanceOf('SplFileObject', $this->obj->createFileObject($file));
 		}
 		
 		public function testPrintDataThrowsMidiException() {

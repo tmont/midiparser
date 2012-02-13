@@ -18,7 +18,7 @@
 		}
 		
 		public function testCreateFileObject() {
-			$this->assertType('SplFileObject', $this->obj->createFileObject(__FILE__));
+			$this->assertInstanceOf('SplFileObject', $this->obj->createFileObject(__FILE__));
 		}
 		
 		public function testLoad() {
