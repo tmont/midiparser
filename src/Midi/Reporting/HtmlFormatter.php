@@ -268,12 +268,13 @@ HTML;
 			$delta = '<span class="delta">' . wordwrap(implode(' ', $deltaHex), 23, '<br />') . '</span>';
 			
 			$eventHex = Util::binaryToHex($event->toBinary());
-			
+
 			$lineLength = 23 - (strlen(implode(' ', $deltaHex)) % 23);
 			
 			$eventSegment = wordwrap(implode(' ', $eventHex), $lineLength, '|');
 			$bar = strpos($eventSegment, '|');
 			if ($bar !== false) {
+				$eventSegment = str_replace('|', ' ', $eventSegment);
 				$eventSegment = substr($eventSegment, 0, $bar) . '<br />' . wordwrap(substr($eventSegment, $bar + 1), 23, '<br />');
 			}
 			// -- end goofiness -- //
@@ -282,12 +283,12 @@ HTML;
 			$this->offset += $event->getLength() + $this->delta->getLength();
 			return $text;
 		}
-		
+
 		/**
 		 * @since 1.0
 		 * @uses  Event::__toString()
-		 * 
-		 * @param  Event $event
+		 *
+		 * @param Event $event
 		 * @return string
 		 */
 		public function formatEvent(Event $event) {
