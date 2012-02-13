@@ -46,11 +46,11 @@
 		const NAME       = 'PHP MIDI Library';
 		
 		/**
-		 * The build date (Y-m-d H:i:s P)
+		 * The build date in ISO 8601 format (date('c'))
 		 *
 		 * @var string
 		 */
-		const BUILD_DATE = '2012-02-12 21:38:48 -08:00';
+		const BUILD_DATE = '2012-02-12T22:05:38-08:00';
 		
 	}
 

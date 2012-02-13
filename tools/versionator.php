@@ -15,7 +15,7 @@
 	$args = Cli::parseArgs($argv, $switches);
 	
 	$options = array_map('addslashes', $args['switches']);
-	$date    = date('Y-m-d H:i:s P');
+	$date    = date('c');
 	
 	$code = <<<CODE
 <?php
@@ -25,7 +25,6 @@
 	 *
 	 * @package   Midi
 	 * @since     $options[since]
-	 * @copyright © 2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 */
 	
 	namespace Midi;
@@ -67,7 +66,7 @@
 		const NAME       = '$options[name]';
 		
 		/**
-		 * The build date (Y-m-d H:i:s P)
+		 * The build date in ISO 8601 format (date('c'))
 		 *
 		 * @var string
 		 */
