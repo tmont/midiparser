@@ -119,7 +119,7 @@
 
 HTML;
 		}
-		
+
 		/**
 		 * @since 1.0
 		 * @uses  getChunkClass()
