@@ -13,6 +13,7 @@
 	use Midi\Event;
 	use Midi\Event\EventType;
 	use Midi\Event\EventFactory;
+	use Midi\Event\ChannelEvent;
 	use Midi\Util\Util;
 	use Midi\MidiException;
 
@@ -107,7 +108,7 @@
 		 */
 		protected function parseChannelEvent($eventType, $isContinuation) {
 			$type = $eventType & 0xF0;
-			if ($type === 0xC0 || $type === 0xD0) {
+			if ($type === EventType::PROGRAM_CHANGE || $type === EventType::CHANNEL_AFTERTOUCH) {
 				$data = Util::unpack($this->read(1, true));
 				$data[1] = null;
 			} else {
