@@ -4,6 +4,8 @@
 	<property file="./properties/product.properties" prefix="product"/>
 	<property file="./properties/dir.properties" prefix="dir"/>
 	<property name="phpunit" value="${dir.vendor}/bin/phpunit"/>
+	<property name="phpdoc" value="${dir.vendor}/bin/phpdoc.php"/>
+	<property name="pdepend" value="${dir.vendor}/bin/pdepend"/>
 	<property environment="env"/>
 
 	<target name="all" depends="coverage, doc, archive" description="Runs lint, coverage, docs and archive"/>
@@ -54,10 +56,10 @@
 	
 	<target name="dependencies" depends="init" description="Generates dependency graphs and reports">
 		<mkdir dir="${build.artifacts}"/>
-		<exec executable="pdepend" failonerror="true">
+		<exec executable="${pdepend}" failonerror="true">
 			<arg line="--summary-xml=${build.artifacts}/pdepend.xml"/>
 			<arg line="--jdepend-chart=${build.artifacts}/pdepend.svg"/>
-			<arg line="--overview-pyramid=${build.artifacts}/pyramind.svg"/>
+			<arg line="--overview-pyramid=${build.artifacts}/pyramid.svg"/>
 			<arg line="${dir.src}"/>
 		</exec>
 	</target>
@@ -66,16 +68,16 @@
 		<delete dir="${build.doc}"/>
 		<mkdir dir="${build.doc}"/>
 		
-		<exec executable="phpdoc}" failonerror="true">
+		<exec executable="${phpdoc}" failonerror="true">
 			<arg line="--directory"/>
 			<arg value="${dir.src}"/>
 			<arg line="--target"/>
 			<arg value="${build.doc}"/>
-			<arg line="-ue on"/>
+			<arg line="--template"/>
+			<arg value="responsive-twig"/>
+			<arg line="--sourcecode"/>
 			<arg line="--title"/>
 			<arg value="${product.name}"/>
-			<arg line="-pp on"/>
-			<!--arg line="-s on"/-->
 		</exec>
 	</target>
 	
