@@ -5,8 +5,6 @@ Licensed under [WTFPL](https://github.com/tmont/midiparser/blob/master/LICENSE)
 ### Requirements
 * PHP >= 5.3.0
 
-### Steps to install
-
 ## Usage
 ```php
 //bootstrap the autoloader
@@ -28,8 +26,3 @@ $printer = new Printer(new TextFormatter(), $parser);
 //output the parse result
 $printer->printAll();
 ```
-
-## Authors
-* Tommy Montgomery
-
-## Contributors
