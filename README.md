@@ -1,4 +1,6 @@
 # PHP MIDI Parser
+[![Build Status](https://travis-ci.org/tmont/midiparser.png)](https://travis-ci.org/tmont/midiparser)
+
 Licensed under [WTFPL](https://github.com/tmont/midiparser/blob/master/LICENSE)
 
 ## Installation
