@@ -35,5 +35,6 @@ $printer->printAll();
 composer install
 
 # run tests
-phpunit
+vendor/bin/phpunit
  ```
+ 
