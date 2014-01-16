@@ -4,8 +4,7 @@
 	
 	use \Midi\Emit\File;
 	use \Midi\Emit\Track;
-	use \Midi\FileHeader;
-	
+
 	class FileTest extends \PHPUnit_Framework_TestCase {
 		
 		private $obj;

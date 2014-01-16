@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf8"?>
-<phpunit colors="true">
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
+	<testsuites>
+		<testsuite name="Midi">
+			<directory suffix=".php">./tests/</directory>
+		</testsuite>
+	</testsuites>
 	<filter>
 		<whitelist addUncoveredFilesFromWhitelist="true">
 			<directory suffix=".php">../src</directory>
