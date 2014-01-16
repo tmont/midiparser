@@ -5,17 +5,15 @@
 	 *
 	 * @package    Midi
 	 * @subpackage Parsing
-	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
+	 * @copyright  2009 Tommy Montgomery <http://phpmidiparser.com/>
 	 * @since      1.0
 	 */
 
 	namespace Midi\Parsing;
 	
 	use Midi\Event;
-	use Midi\Event\EventType;
 	use Midi\Event\EventFactory;
 	use Midi\Util\Util;
-	use Midi\MidiException;
 
 	/**
 	 * Class for parsing MIDI events
