@@ -38,11 +38,9 @@
 		<delete dir="${build.coverage}"/>
 		<mkdir dir="${build.coverage}"/>
 		
-		<exec executable="phpunit" failonerror="true">
-			<arg line="--log-junit ${build.artifacts}/phpunit-log.xml"/>
+		<exec executable="${phpunit}" failonerror="true">
 			<arg line="--coverage-clover ${build.artifacts}/phpunit-coverage.xml"/>
 			<arg line="--coverage-html ${build.coverage}"/>
-			<arg line="--bootstrap ${dir.tests}/bootstrap.php"/>
 			<arg line="${dir.tests}"/>
 		</exec>
 	</target>
@@ -107,9 +105,6 @@
 		<mkdir dir="${build.artifacts}"/>
 		
 		<exec executable="${basedir}/vendor/bin/phpunit" failonerror="true">
-			<arg line="--log-junit ${build.artifacts}/phpunit-log.xml"/>
-			<arg line="--bootstrap ${dir.tests}/bootstrap.php"/>
-			<arg line="--configuration ${dir.tests}/phpunit.xml"/>
 			<arg line="${dir.tests}"/>
 		</exec>
 	</target>
