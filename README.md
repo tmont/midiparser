@@ -26,3 +26,12 @@ $printer = new Printer(new TextFormatter(), $parser);
 //output the parse result
 $printer->printAll();
 ```
+
+## Development
+```bash
+# install dependencies
+composer install
+
+# run tests
+phpunit
+ ```
