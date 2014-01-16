@@ -113,7 +113,6 @@
 			$this->assertInstanceOf('Midi\Util\Timer', $timer);
 			$this->assertEquals(240, $timer->getTimeDivision());
 		}
-		
 	}
 
 ?>
