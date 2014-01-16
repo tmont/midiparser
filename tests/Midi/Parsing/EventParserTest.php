@@ -22,7 +22,7 @@
 		}
 		
 		public function testParseNormalChannelEvent() {
-			$file = $this->getMock('SplFileObject', array('fseek'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fseek'));
 			
 			$bytes = $this->onConsecutiveCalls(
 				pack('C', 0x80),
@@ -59,7 +59,7 @@
 		}
 		
 		public function testParseSpecialChannelEvent() {
-			$file = $this->getMock('SplFileObject', array('fseek'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fseek'));
 			
 			$bytes = $this->onConsecutiveCalls(
 				pack('C', 0xC0),

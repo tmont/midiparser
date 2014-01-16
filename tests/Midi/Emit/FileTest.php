@@ -91,7 +91,7 @@
 		}
 		
 		public function testSave() {
-			$file = $this->getMock('SplFileObject', array('fwrite'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fwrite'));
 			$file->expects($this->once())
 			     ->method('fwrite')
 			     ->with('foofy', 5);

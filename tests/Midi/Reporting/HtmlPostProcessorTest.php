@@ -35,7 +35,7 @@
 			$this->assertFileExists($dir . '/arrow_right.png');
 			$this->assertFileExists($dir . '/loading.gif');
 			
-			$file = $this->getMock('SplFileObject', array('fwrite'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fwrite'));
 			$file->expects($this->once())
 			     ->method('fwrite');
 			

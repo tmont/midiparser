@@ -51,7 +51,7 @@
 			//but PHP's reflection API returns $... for one of the parameter names of fscanf and it jacks
 			//up PHPUnit's mock object generator
 			//@see http://www.phpunit.de/ticket/1046
-			$file = $this->getMock('SplFileObject', array('fgets'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgets'));
 			$trackParser = $this->getMock('Midi\Parsing\TrackParser', array('setFile'), array(), '', false);
 			
 			//called by afterLoad()
@@ -183,7 +183,7 @@
 		}
 		
 		public function testParseWhileInEofState() {
-			$file = $this->getMock('SplFileObject', array('fgetc', 'eof'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgetc', 'eof'));
 			$file->expects($this->once())
 			     ->method('fgetc');
 			$file->expects($this->once())
@@ -200,7 +200,7 @@
 		}
 		
 		public function testParseWhileInEofStateWhenFileIsNotAtEof() {
-			$file = $this->getMock('SplFileObject', array('fgetc', 'eof'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgetc', 'eof'));
 			$file->expects($this->once())
 			     ->method('fgetc');
 			$file->expects($this->once())

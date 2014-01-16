@@ -58,7 +58,7 @@
 			          ->method('beforeChunk')
 			          ->with($fileHeader);
 			
-			$file = $this->getMock('SplFileObject', array('fwrite'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fwrite'));
 			$file->expects($this->atLeastOnce())
 			     ->method('fwrite');
 			

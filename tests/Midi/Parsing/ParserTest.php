@@ -23,7 +23,7 @@
 		
 		public function testLoad() {
 			//see http://www.phpunit.de/ticket/1046 for why we're mocking fgets() for no reason
-			$file = $this->getMock('SplFileObject', array('fgets'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgets'));
 			
 			$this->obj = $this->getMock('Midi\Parsing\Parser', array('parse', 'createFileObject'));
 			$this->obj->expects($this->once())
@@ -36,7 +36,7 @@
 		
 		public function testSetFile() {
 			//see http://www.phpunit.de/ticket/1046 for why we're mocking fgets() for no reason
-			$file = $this->getMock('SplFileObject', array('fgets'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgets'));
 			$this->obj->setFile($file);
 		}
 		
@@ -48,7 +48,7 @@
 		}
 		
 		public function testReadWithSuccess() {
-			$file = $this->getMock('SplFileObject', array('fgetc', 'valid'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgetc', 'valid'));
 			$file->expects($this->exactly(2))
 			     ->method('fgetc')
 			     ->will($this->onConsecutiveCalls('x', 'y'));
@@ -62,7 +62,7 @@
 		}
 		
 		public function testReadWithLessThanExpectedCount() {
-			$file = $this->getMock('SplFileObject', array('fgetc', 'valid'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgetc', 'valid'));
 			$file->expects($this->once())
 			     ->method('fgetc')
 			     ->will($this->returnValue('x'));
@@ -76,7 +76,7 @@
 		}
 		
 		public function testReadWithEpicFail() {
-			$file = $this->getMock('SplFileObject', array('fgetc', 'valid'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('fgetc', 'valid'));
 			$file->expects($this->once())
 			     ->method('fgetc')
 			     ->will($this->returnValue('x'));
@@ -92,7 +92,7 @@
 		}
 		
 		public function testGetDelta() {
-			$file = $this->getMock('SplFileObject', array('valid'), array(), '', false);
+			$file = $this->getMock('SplTempFileObject', array('valid'));
 			$file->expects($this->any())
 			     ->method('valid')
 			     ->will($this->returnValue(true));
