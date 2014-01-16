@@ -69,13 +69,13 @@
 			if ($eventType < 0x80) {
 				if ($this->continuationEvent === null) {
 					throw new ParseException('Invalid event: first byte must be greater than or equal to 0x80');
-				} else {
-					$eventType = $this->continuationEvent;
-					$isContinuation = true;
-					//rewind one byte so that parseChannelEvent() doesn't throw an exception
-					//when it can't find two more bytes
-					$this->file->fseek(-1, SEEK_CUR);
 				}
+
+				$eventType = $this->continuationEvent;
+				$isContinuation = true;
+				//rewind one byte so that parseChannelEvent() doesn't throw an exception
+				//when it can't find two more bytes
+				$this->file->fseek(-1, SEEK_CUR);
 			} else {
 				$this->continuationEvent = $eventType;
 			}
