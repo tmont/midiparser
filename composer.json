@@ -7,7 +7,7 @@
 
 	"autoload": {
 		"psr-4": {
-			"Midi\\": "src/"
+			"Tmont\\Midi\\": "src/"
 		}
 	}
 }

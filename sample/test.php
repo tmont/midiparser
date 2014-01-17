@@ -2,9 +2,9 @@
 	
 	require_once dirname(dirname(__FILE__)) . '/src/Midi/bootstrap.php';
 	
-	use \Midi\Parsing\FileParser;
-	use \Midi\Reporting\HtmlFormatter;
-	use \Midi\Reporting\MultiFilePrinter;
+	use \Tmont\Midi\Parsing\FileParser;
+	use \Tmont\Midi\Reporting\HtmlFormatter;
+	use \Tmont\Midi\Reporting\MultiFilePrinter;
 
 	$file = dirname(__FILE__) . '/And_We_Die_Young.mid';
 	

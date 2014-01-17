@@ -1,0 +1,43 @@
+<?php
+
+	/**
+	 * \Tmont\Midi\Reporting\PostProcessor
+	 *
+	 * @package    Midi
+	 * @subpackage Reporting
+	 * @copyright  © 2009 Tommy Montgomery <http://phpmidiparser.com/>
+	 * @since      1.0
+	 */
+	
+	namespace Tmont\Midi\Reporting;
+
+	/**
+	 * Handles post processing for printers after parsing, formatting
+	 * and printing is complete
+	 *
+	 * @package    Midi
+	 * @subpackage Reporting
+	 * @since      1.0
+	 */
+	interface PostProcessor {
+		
+		/**
+		 * Sets a custom parameter for the post processor
+		 *
+		 * @since 1.0
+		 *
+		 * @param  string $key
+		 * @param  string $value
+		 */
+		public function setParameter($key, $value);
+		
+		/**
+		 * Performs the post processing instructions
+		 *
+		 * @since 1.0
+		 */
+		public function execute();
+		
+	}
+
+?>

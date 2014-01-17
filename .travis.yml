@@ -1,5 +1,7 @@
 language: php
+before_install: composer selfupdate
 install: composer install
+script: vendor/bin/phpunit
 php:
   - 5.4
   - 5.5

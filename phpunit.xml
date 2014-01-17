@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf8"?>
-<phpunit bootstrap="tests/bootstrap.php" colors="true">
+<phpunit colors="true">
 	<testsuites>
 		<testsuite name="Midi">
 			<directory suffix=".php">./tests/</directory>

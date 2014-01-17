@@ -9,12 +9,9 @@ Licensed under [WTFPL](https://github.com/tmont/midiparser/blob/master/LICENSE)
 
 ## Usage
 ```php
-//bootstrap the autoloader
-require_once 'Midi/bootstrap.php';
-
-use Midi\Parsing\FileParser;
-use Midi\Reporting\TextFormatter;
-use Midi\Reporting\Printer;
+use Tmont\Midi\Parsing\FileParser;
+use Tmont\Midi\Reporting\TextFormatter;
+use Tmont\Midi\Reporting\Printer;
 
 //create a new file parser
 $parser = new FileParser();
