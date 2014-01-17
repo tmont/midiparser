@@ -62,7 +62,7 @@
 		 * @uses  Util::unpack()
 		 * 
 		 * @param  int    $eventType See {@link MetaEventType}
-		 * @param  binary $channel   Binary data associated with the event
+		 * @param  binary $data      Binary data associated with the event
 		 * @return MetaEvent
 		 */
 		public function createMetaEvent($eventType, $data) {
