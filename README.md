@@ -8,7 +8,16 @@ Licensed under [WTFPL](https://github.com/tmont/midiparser/blob/master/LICENSE)
 * PHP >= 5.3.0
 
 ## Usage
+If you clone the repository, you can run `ant sample` to run the sample
+script at [./sample/test.php](./sample/test.php), which will generate
+an HTML report.
+
+The following snippet is an example of how to generate a plaintext
+report.
+
 ```php
+require_once 'vendor/autoload.php';
+
 use Tmont\Midi\Parsing\FileParser;
 use Tmont\Midi\Reporting\TextFormatter;
 use Tmont\Midi\Reporting\Printer;
