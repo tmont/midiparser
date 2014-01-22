@@ -29,7 +29,9 @@
 	 * @since      1.0
 	 */
 	class HtmlFormatter extends Formatter {
-		
+
+		const VERSION = '1.1.0';
+
 		/**
 		 * The number of the current track
 		 *
@@ -325,7 +327,7 @@ HTML;
 			}
 			
 			$date   = date('M j, Y g:i:s A');
-			$name   = 'PHP MIDI Parser 1.0.0';
+			$name   = 'PHP MIDI Parser ' . self::VERSION;
 			$author = 'Tommy Montgomery';
 			
 			return <<<HTML
