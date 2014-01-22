@@ -1,6 +1,6 @@
 <?php
 	
-	require_once dirname(dirname(__FILE__)) . '/src/Midi/bootstrap.php';
+	require_once dirname(dirname(__FILE__)) . '/vendor/autoload.php';
 	
 	use \Tmont\Midi\Parsing\FileParser;
 	use \Tmont\Midi\Reporting\HtmlFormatter;
