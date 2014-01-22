@@ -1,7 +1,0 @@
-[database]
-host=localhost
-username=midiparser
-password=midiparser
-
-[report]
-dir=reports
