@@ -1,4 +1,21 @@
 {
+	"name": "tmont/midiparser",
+	"description": "MIDI parsing library",
+	"keywords": [ "midi", "parser", "music" ],
+	"license": "WTFPL",
+	"authors": [
+		{
+			"name": "Tommy Montgomery",
+			"email": "tmont@tmont.com",
+			"homepage": "http://tmont.com/",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/tmont/midiparser/issues",
+		"source": "https://github.com/tmont/midiparser"
+	},
+
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*",
 		"phpdocumentor/phpdocumentor": "2.*",
