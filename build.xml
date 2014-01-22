@@ -8,32 +8,10 @@
 	<property name="pdepend" value="${dir.vendor}/bin/pdepend"/>
 	<property environment="env"/>
 
-	<target name="all" depends="coverage, doc, archive" description="Runs lint, coverage, docs and archive"/>
-	
-	<target name="archive" depends="set-product-revision" description="Creates gzipped archives for deployment">
-		<delete dir="${build.dist}"/>
-		<mkdir dir="${build.dist}"/>
-		
-		<!-- just library -->
-		<tar destfile="${build.dist}/${product.shortname}-${product.version}.${product.revision}.tar.gz"  compression="gzip"> 
-			<tarfileset dir="${dir.src}" includes="Midi/**"/>
-			<tarfileset dir="${basedir}" includes="README,LICENSE"/>
-		</tar>
-		
-		<!-- source code -->
-		<tar destfile="${build.dist}/${product.shortname}-${product.version}.${product.revision}-src.tar.gz"  compression="gzip"> 
-			<tarfileset dir="${basedir}" excludes="build/**,dist/**,sample/test/**"/>
-		</tar>
-	</target>
-	
 	<target name="clean" depends="init" description="Deletes directories and files created by the build sequence">
 		<delete dir="${build.base}"/> 
 		<delete dir="${build.dist}"/>
 		<delete dir="${dir.www}/include/lib/Midi"/>
-	</target>
-	
-	<target name="config" depends="init" description="Creates the configuration file for the website">
-		<copy file="${dir.www}/include/meta/www.config.default" tofile="${dir.www}/include/meta/www.config"/>
 	</target>
 	
 	<target name="coverage" depends="init" description="Runs unit tests and calculates code coverage">
@@ -45,13 +23,6 @@
 			<arg line="--coverage-html ${build.coverage}"/>
 			<arg line="${dir.tests}"/>
 		</exec>
-	</target>
-	
-	<target name="deploy" depends="archive, vhost, config, libs" description="Prepares the website and tarballs for deployment">
-		<tar destfile="${build.dist}/${product.shortname}-www.tar.gz"  compression="gzip">
-			<tarfileset dir="${basedir}" includes="www/**" excludes="www/include/*.default"/>
-			<tarfileset dir="${build.base}" includes="phpmidiparser.com.conf"/>
-		</tar>
 	</target>
 	
 	<target name="dependencies" depends="init" description="Generates dependency graphs and reports">
@@ -81,13 +52,6 @@
 		</exec>
 	</target>
 	
-	<target name="libs" depends="init" description="Prepares the libs that the site depends on">
-		<delete dir="${dir.www}/include/lib/Midi"/>
-		<copy todir="${dir.www}/include/lib/Midi">
-			<fileset dir="${dir.src}/Midi"/>
-		</copy>
-	</target>
-	
 	<target name="sample" depends="init" description="Parses sample/test.mid and generates HTML parse results in sample/test">
 		<mkdir dir="${basedir}/sample/test"/>
 		<delete>
@@ -108,34 +72,7 @@
 		<exec executable="${basedir}/vendor/bin/phpunit" failonerror="true" />
 	</target>
 	
-	<target name="versionator" depends="init" description="Generates Version.php">
-		<exec executable="php" failonerror="true">
-			<arg line="${dir.tools}/versionator.php"/>
-			<arg line="--target"/>
-			<arg line="${dir.src}/Midi/Version.php"/>
-			<arg line="--author"/>
-			<arg value="${product.author}"/>
-			<arg line="--name"/>
-			<arg value="${product.name}"/>
-			<arg line="--version"/>
-			<arg value="${product.version}"/>
-			<arg line="--since"/>
-			<arg line="1.0"/>
-		</exec>
-		
-		<echo level="info">Wrote to ${dir.src}/Midi/Version.php</echo>
-	</target>
-	
-	<target name="vhost" depends="init" description="Generates the virtual host file">
-		<mkdir dir="${build.base}"/>
-		<copy file="${dir.www}/include/meta/vhost.conf.default" tofile="${build.base}/phpmidiparser.com.conf"/>
-		<replace file="${build.base}/phpmidiparser.com.conf" propertyFile="./properties/vhost.properties">
-			<replacefilter token="@IP@" property="ip"/>
-			<replacefilter token="@DOCUMENT_ROOT@" property="docroot"/>
-		</replace>
-	</target>
-	
-	<!-- 
+	<!--
 		######################################################
 		internal targets only below
 		######################################################
@@ -148,9 +85,5 @@
 		<echo level="info">Beginning build for ${product.name} ${product.version}</echo>
 		<echo level="info">  ${TIMESTAMP}</echo>
 		<echo level="info"/>
-	</target>
-
-	<target name="set-product-revision" depends="init">
-		<property name="product.revision" value="asdf"/>
 	</target>
 </project>
