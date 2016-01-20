@@ -35,6 +35,10 @@ $printer = new Printer(new TextFormatter(), $parser);
 $printer->printAll();
 ```
 
+### Parser Usage
+If you want more control over the data, you can use the parser directly. See the 
+[print notes](./sample/print-notes.php) sample script for an example of how to do this.
+
 ## Development
 ```bash
 # install dependencies
@@ -43,4 +47,3 @@ composer install
 # run tests
 vendor/bin/phpunit
  ```
- 
